@@ -1,5 +1,5 @@
 # **Pratyush Ranjan Jena**
-### **AI Security • Robotics • Cybersecurity • Intelligent Systems Engineering**
+### AI Security • Robotics • Cybersecurity • Intelligent Systems Engineering
 
 Miami, FL  
 **Email:** pjena001@fiu.edu  
@@ -9,182 +9,185 @@ Miami, FL
 ---
 
 ## **About Me**
-I don’t come from a straight line. Nothing in my journey has been pre-scripted, inherited, or handed down. I built my skillset the same way I build systems — from the ground up, under pressure, through necessity, curiosity, and an impatience to make things *work*.
+I did not follow a straight path. Nothing in my journey was pre-scripted or inherited. I built my skillset the same way I build systems: from the ground up, through pressure, curiosity, and the need to make things work.
 
-I operate where **AI security**, **robotics**, and **systems engineering** intersect.  
-I design machines that think, models that defend themselves, and systems that hold their shape when reality becomes adversarial.
+I operate at the intersection of AI security, robotics, and systems engineering.  
+I build machines that think, models that defend themselves, and systems that stay stable under real-world stress.
 
-I don’t chase complexity for aesthetics — I chase execution.  
 If a system exists, I map its risks.  
 If its risks can be mapped, I secure it.  
-If it can be secured, I scale it.
+If it can be secured, I scale it with confidence.
 
 Everything else is noise.
 
 ---
 
 ## **Core Competencies**
-### **AI Security & Adversarial ML**
-- Dialogue-level risk modeling for LLM systems  
-- Multi-layered safety pipelines (PISR, ILVI, DCR, UTCE)  
-- Jailbreak pattern analysis, misuse prediction, trust calibration  
-- Interaction-centric security frameworks for production LLMs  
+
+### **AI Security and Adversarial ML**
+- Dialogue-level threat modeling  
+- Safety pipelines built around PISR, ILVI, DCR, and UTCE  
+- Jailbreak pattern analysis and misuse prediction  
+- Trust calibration and behavior evaluation for LLMs  
 
 ### **Autonomous Robotics**
-- Hexacopter engineering (Navio2 + Raspberry Pi)  
-- Optical-flow micro-drone stability + multi-ranger avoidance  
-- UAV sensor fusion (Lidar-Lite v3, TF Mini, telemetry)  
-- Real-time perception → action loops  
+- Hexacopter architecture using Navio2 and Raspberry Pi  
+- Optical-flow micro-drone stability with multi-ranger avoidance  
+- Sensor fusion using Lidar-Lite v3, TF Mini, and RealSense  
+- Real-time perception to action loops  
 
-### **Cybersecurity & Systems Thinking**
-- Secure-by-design architecture  
-- Threat modeling for AI/robotic systems  
-- Structural risk analysis, adversarial incentive mapping  
-- Embedded system hardening & control-loop reliability  
+### **Cybersecurity and Systems Thinking**
+- Secure by design approaches for AI and IoT  
+- Structural risk analysis and adversarial incentive mapping  
+- Embedded system hardening  
+- Threat modeling across software, hardware, and interaction layers  
 
 ### **Applied Computing**
-- Computer Vision (Intel RealSense pipelines)  
-- ML for real-time perception and environment mapping  
+- Intel RealSense vision pipelines  
+- ML for perception and segmentation  
 - ROS-based robotic actuation  
-- BIM-linked sensor analytics for live environments  
+- BIM-integrated sensor analytics  
 
 ---
 
 ## **Selected Projects**
 
-### **🔹 Autonomous Hexacopter Platform (UAV Engineering)**
-Built an autonomous coaxial hexacopter using Navio2 + Raspberry Pi, integrating:
+### **Autonomous Hexacopter Platform**
+Engineered an autonomous coaxial hexacopter using Navio2 and Raspberry Pi.  
+Highlights:
 - Lidar-Lite v3 obstacle avoidance  
-- TF Mini altimetric stability  
+- TF Mini based stability control  
 - Real-time telemetry and mission execution  
-- Full sensor fusion for stable autonomous flight  
+- Complete sensor fusion for reliable autonomous flight  
 
-A system that doesn’t wobble, drift, or fail — built from frame to firmware.
+Designed to perform in real conditions, not just controlled test environments.
 
 ---
 
-### **🔹 Dialogue-Level Security for LLM Systems**
-Developed a taxonomy of *interaction-centric threats* in AI models focusing on:
+### **Dialogue-Level Security for LLM Systems**
+Created a comprehensive framework for interaction-centric LLM security.  
+Focus areas include:
 - Multi-turn adversarial prompting  
-- Dialogue-phase vulnerabilities  
-- Safety bypass patterns used by real attackers  
-- New metrics (PISR, ILVI, DCR, UTCE) for resilience evaluation  
+- Conversation-phase vulnerabilities  
+- Jailbreak and misuse pattern mapping  
+- Resilience metrics designed for next-generation safety research  
 
-Forms the backbone of a forthcoming IEEE conference submission.
-
----
-
-### **🔹 RealSense-Based Vial Classification & Robotic Sorting**
-Designed a real-time perception pipeline:
-- Intel RealSense RGB-D capture  
-- Cap-color segmentation (red, white, blue, black)  
-- Empty-slot detection, cap-missing identification  
-- Clean data→ROS-arm integration for precision sorting  
-
-Reliable, deterministic, and built to withstand lab noise.
+This work forms a core part of my upcoming IEEE submission.
 
 ---
 
-### **🔹 Optical-Flow & Multi-Ranger Micro-Drone Navigation**
-Built and tested micro-drone navigation logic using:
-- Flow Deck v2  
-- Multi-ranger avoidance  
+### **RealSense Vial Classification and Robotic Sorting**
+Built a vision pipeline using Intel RealSense for laboratory vial classification.  
+The system performs:
+- Cap color segmentation for red, white, blue, and black  
+- Empty-slot and missing-cap detection  
+- Clean perception output to ROS-based robotic actuation  
+
+Designed for reliability and deterministic performance in lab conditions.
+
+---
+
+### **Micro-Drone Optical-Flow and Multi-Ranger Navigation**
+Developed and tested micro-drone navigation logic using Flow Deck v2 and multi-ranger sensors.  
+Capabilities:
 - Spiral search patterns  
-- Line-following on blue-tape trajectories  
+- Line-following on blue tape  
+- Automatic stabilization in uneven environments  
 
-Pushed Crazyflie limits with unstable hardware and still extracted control.
+Extracted stable flight behavior from hardware with known instability.
 
 ---
 
-### **🔹 BIM-Linked Environmental Analytics (Real-Time Prediction)**
-Assisted in a research project integrating:
-- Temperature prediction ML  
-- Sensor-driven environment updates  
-- Autodesk Revit BIM overlays  
-- Real-time visualization of pipeline states  
+### **BIM-Linked Environmental Analytics**
+Integrated:
+- Real-time temperature prediction  
+- Live sensor updates  
+- Revit BIM overlays  
+- Data visualization for building state interpretation  
 
-Bridged raw sensor input → actionable building intelligence.
+Connected raw sensor data to high-value building intelligence.
 
 ---
 
 ## **Research Direction**
-I’m building a unified view of **AI safety**, **cybersecurity**, and **human-machine interaction**, with focus areas in:
-- Adversarial dialogue analysis  
-- Trust calibration under uncertainty  
-- Secure LLM interface design  
-- Robotic autonomy + safety alignment  
+My research sits at the intersection of AI safety, cybersecurity, and human-machine interaction.  
+I study how language models behave under adversarial influence and how trust, misuse, and over-reliance appear in conversation.
 
-2026 target: PhD in Computer Science (AI Security + Robotics).  
-Trajectory: building frameworks that can scale across industry, research, and defense ecosystems.
+I build frameworks that:
+- Predict failures  
+- Measure reliability  
+- Mitigate dialogue-level risks  
+- Align system safeguards with real human behavior  
+
+I am preparing for a PhD with a focus on AI security, robotics, and integrated system reliability.
 
 ---
 
 ## **Experience**
 
-### **Wolfe University Center (FIU) – Operations & Leadership**
-- Led a 7-member operations team  
-- Supported ~70+ events through logistics, problem-solving, and rapid execution  
-- Balanced technical roles with high-pressure real-world leadership  
-- Built a habit of stepping into the chaos and creating order  
+### **Wolfe University Center, FIU**
+Operations and leadership role involving:
+- Leading a 7 member team  
+- Supporting more than 70 events  
+- Rapid problem solving in high-pressure environments  
+- Hands-on logistics and multi-stakeholder coordination  
 
-This job sharpened my system-thinking on the human side.
+This role strengthened my ability to manage systems involving people, processes, and unpredictable conditions.
 
 ---
 
-### **ARC Robotics Projects (FIU) – Volunteer Contributor**
-*Not officially listed due to confidentiality constraints, but contributions included:*
+### **ARC Robotics Projects, FIU**
+Volunteer contributor with involvement in:
 - Drone hardware debugging  
-- Firmware flashing under tight failure loops  
-- Alternative deck configurations  
+- Firmware flashing and recovery  
+- Sensor integration and testing  
 - Mission Planner scripting  
-- GPS + telemetry troubleshooting  
-- Small-scale swarm logic experiments  
+- GPS and telemetry troubleshooting  
+- Experimental micro-drone behavior design  
 
-Hands-on, undocumented, high-risk, no-credit — exactly the kind of work that builds edge.
+This was high-risk, hands-on work with minimal documentation. It built my technical reflexes and sharpened my ability to learn under pressure.
 
 ---
 
 ## **Education**
-**Florida International University (FIU)**  
-*Master of Science in Computer Science*  
-Focus: AI security, robotics, cybersecurity, systems engineering  
+**Florida International University**  
+Master of Science in Computer Science  
+Focus on AI security, robotics, cybersecurity, and systems engineering
 
 **B.Tech (India)**  
-Computer Science & Engineering  
+Computer Science and Engineering
 
 ---
 
 ## **Technical Skills**
-**Languages:** Python, C/C++, JavaScript  
-**AI/ML:** PyTorch, Scikit, adversarial prompting pipelines  
-**Robotics:** ROS, Navio2, PX4, Intel RealSense, Crazyflie SDK  
-**Cloud & Systems:** Linux, Shell, Git, telemetry stacks  
-**Tools:** Mission Planner, Revit (BIM integration), Arduino/embedded systems  
-**Security:** Threat modeling, adversarial risk surfaces, LLM safety testing  
+
+**Languages:** Python, C, C++, JavaScript  
+**AI and ML:** Adversarial prompting, PyTorch, Scikit  
+**Robotics:** ROS, Navio2, PX4, Crazyflie, Intel RealSense  
+**Systems:** Linux, Git, telemetry stacks, embedded platforms  
+**Tools:** Mission Planner, Revit, Arduino  
+**Security:** Threat modeling, misuse analysis, LLM safety evaluation  
 
 ---
 
 ## **What I Optimize For**
-- **Clarity over noise**  
-- **Systems that don’t break under pressure**  
-- **Execution speed with precision**  
-- **Long-term compounding (skills, impact, relationships)**  
-- **High-leverage work across AI + robotics + security**  
+- Clarity and precision  
+- Systems that stay reliable under stress  
+- Rapid learning with deep execution  
+- Long-term compounding in skill and impact  
+- High-leverage work across AI, robotics, and security  
 
 ---
 
 ## **Personal Interests**
-- Aquascaping & nature design  
-- Experimental robotics logic  
-- High-stakes problem-solving  
-- Travel & architectural exploration  
-- Designing systems — technical or life-based — that scale  
+- Aquascaping  
+- Robotics experiments  
+- Travel and city exploration  
+- Long-term strategic design in work and life  
+- Building systems that scale in stability and usefulness  
 
 ---
 
 ## **Closing Line**
-I’m not here to do routine work.  
-I’m here to build **secure intelligence**, **reliable autonomy**, and **systems that matter**.  
-
-If that aligns with what you’re building, we should talk.
-
+I build secure intelligence, autonomous systems, and practical high-stakes solutions.  
+If you are working on something that demands reliability, precision, and real execution, I am the person you want in the loop.
