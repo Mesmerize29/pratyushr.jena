@@ -2,476 +2,383 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pratyush Jena | AI Security, Robotics, Intelligent Systems Portfolio</title>
+  <title>Pratyush Ranjan Jena | AI Security, Robotics, Intelligent Systems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Official portfolio of Pratyush Ranjan Jena. AI Security, Robotics, and Intelligent Systems researcher building autonomous platforms, LLM safety pipelines, and high reliability systems. Collecting stars for my constellation."
-  />
-  <meta
-    name="keywords"
-    content="Pratyush, Pratyush Jena, AI Security, Robotics, Intelligent Systems, AI Security Robotics Portfolio, LLM Safety, Hexacopter, Crazyflie, Cybersecurity"
-  />
-  <meta property="og:title" content="Pratyush Jena | AI Security, Robotics, Intelligent Systems" />
-  <meta
-    property="og:description"
-    content="AI Security and Robotics portfolio of Pratyush Ranjan Jena. Autonomous systems, dialogue level safety, and intelligent systems engineering."
-  />
+  <meta name="description" content="Portfolio of Pratyush Ranjan Jena - AI security, robotics, intelligent systems and autonomous safety pipelines. I build systems that think, adapt and protect." />
+  <meta name="keywords" content="Pratyush, Pratyush Jena, Pratyush Ranjan Jena, AI security, robotics, intelligent systems, cybersecurity, drones, hexacopter, Crazyflie, LiDAR, optical flow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pratyush Ranjan Jena | AI Security, Robotics, Intelligent Systems" />
+  <meta property="og:description" content="I build intelligent systems that stay stable when everything else breaks." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain-here.com" />
-  <meta property="og:image" content="https://your-domain-here.com/preview-image.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
+
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Pratyush Ranjan Jena",
-    "alternateName": "Pratyush",
+    "url": "https://example.com",
     "jobTitle": "AI Security and Robotics Researcher",
-    "description": "AI Security, Robotics, and Intelligent Systems researcher focused on autonomous platforms and dialogue level safety.",
-    "url": "https://your-domain-here.com",
+    "description": "I build intelligent systems that think, adapt and protect.",
     "sameAs": [
-      "https://github.com/your-github-handle",
-      "https://www.linkedin.com/in/your-linkedin-handle"
-    ],
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Florida International University"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Miami",
-      "addressRegion": "FL",
-      "addressCountry": "US"
-    }
+      "https://www.linkedin.com/in/pratyush-ranjan-jena",
+      "https://github.com/pratyush"
+    ]
   }
   </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Floating AI presence orb -->
+  <div id="ai-orb">
+    <div class="orb-core"></div>
+    <div class="orb-glow"></div>
+  </div>
+
+  <!-- AI status HUD -->
+  <div id="ai-hud">
+    <span class="hud-label">System Insight:</span>
+    <span class="hud-text" id="ai-hud-text">Calibrating to your curiosity...</span>
+  </div>
+
+  <!-- Background parallax layers -->
+  <div class="parallax-layer layer-back"></div>
+  <div class="parallax-layer layer-mid"></div>
+  <div class="parallax-layer layer-front"></div>
+
   <header class="site-header">
     <div class="logo">PRJ</div>
     <nav class="nav">
       <a href="#hero">Home</a>
-      <a href="#identity">Identity</a>
+      <a href="#identity">Profile</a>
       <a href="#systems">Systems</a>
       <a href="#research">Research</a>
       <a href="#timeline">Timeline</a>
-      <a href="#contact" class="nav-cta">Work with me</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span><span></span>
-    </button>
   </header>
 
-  <!-- SECTION 1: VISUAL AUTHORITY HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-bg-layer" data-parallax-speed="0.2"></div>
-    <div class="hero-particles">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <div class="hero-inner fade-in">
-      <p class="hero-kicker">AI Security • Robotics • Intelligent Systems</p>
-      <h1 class="hero-title">
-        Pratyush<br />
-        Ranjan<br />
-        Jena
-      </h1>
-      <p class="hero-subtitle">
-        I build intelligent systems that think, adapt, and protect.
-      </p>
-      <p class="hero-tagline">
-        Collecting stars for my constellation.
-      </p>
-      <div class="hero-identity-row">
-        <div class="hero-tag hero-tag-primary">AI Security</div>
-        <div class="hero-tag">Autonomous Robotics</div>
-        <div class="hero-tag">Dialogue Level Safety</div>
+  <main>
+    <!-- HERO / LANDING -->
+    <section id="hero" class="hero section">
+      <div class="hero-inner">
+        <div class="hero-content glass-panel">
+          <p class="hero-eyebrow">AI Security • Robotics • Intelligent Systems</p>
+          <h1 class="hero-title">Pratyush<br />Ranjan Jena</h1>
+          <p class="hero-hook">
+            I build intelligent systems that think, adapt and protect.
+          </p>
+          <div class="hero-cta">
+            <a href="#systems" class="btn primary">Explore the Lab</a>
+            <a href="#identity" class="btn ghost">Meet the person</a>
+          </div>
+        </div>
+        <div class="hero-side-panel glass-panel">
+          <h3>Live system snapshot</h3>
+          <div class="metrics-grid" id="live-metrics">
+            <div class="metric">
+              <span class="metric-label">Frames analysed</span>
+              <span class="metric-value" data-metric="frames">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Risks modelled</span>
+              <span class="metric-value" data-metric="risks">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Nodes in play</span>
+              <span class="metric-value" data-metric="nodes">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Uptime</span>
+              <span class="metric-value" data-metric="uptime">0s</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="hero-actions">
-        <a href="#systems" class="btn primary">See the systems I build</a>
-        <a href="#identity" class="btn ghost">Understand how I think</a>
+      <div class="scroll-indicator">
+        <span>Scroll to enter the system</span>
+        <div class="scroll-dot"></div>
       </div>
-    </div>
-  </section>
+      <!-- Peek of next section -->
+      <div class="peek-strip">
+        <span>Next: Who I am and where I am headed</span>
+      </div>
+    </section>
 
-  <!-- SECTION 2: THREE BOX IDENTITY SUMMARY -->
-  <section class="section section-dark" id="identity">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">How I operate</h2>
-      <p class="section-lead">
-        Three coordinates define where I am, what I have done, and where I am heading.
-      </p>
+    <!-- IDENTITY SECTION -->
+    <section id="identity" class="section identity-section">
+      <div class="section-header">
+        <h2>Signal in the noise</h2>
+        <p>What I do, what I have built, where I am taking it.</p>
+      </div>
       <div class="identity-grid">
-        <article class="identity-card" data-tilt>
+        <article class="identity-card glass-panel">
           <h3>What I do now</h3>
           <p>
-            AI security researcher, robotics engineer, and systems builder based in Miami, working across autonomous platforms and dialogue level safety.
+            I work at the intersection of AI security, robotics and intelligent systems.  
+            I design safety aware pipelines and autonomous behaviors that stay stable in messy environments.
           </p>
-          <ul>
-            <li>LLM attack and defense research</li>
-            <li>Autonomous UAV and UGV workflows</li>
-            <li>Security focused system design</li>
-          </ul>
         </article>
-        <article class="identity-card" data-tilt>
+        <article class="identity-card glass-panel">
           <h3>What I have done before</h3>
           <p>
-            Built and tuned drones, optical flow pipelines, lidar guided systems, cyber risk models, and dialogue safety taxonomies for LLM powered systems.
+            Drones, hexacopters, optical flow, LiDAR navigation, vial classification, dialogue risk models, 
+            university grade research projects and hands on systems debugging from the lab bench up.
           </p>
-          <ul>
-            <li>Hexacopter with Navio2 and lidar</li>
-            <li>Crazyflie flow and multiranger logic</li>
-            <li>Vial sorting with Intel RealSense</li>
-          </ul>
         </article>
-        <article class="identity-card" data-tilt>
+        <article class="identity-card glass-panel">
           <h3>What I want next</h3>
           <p>
-            Scalable autonomous systems and secure AI pipelines that move beyond prototypes into reliable field deployment.
+            I want to scale secure AI and autonomy into products, labs and research groups that care about reliability.
+            My work aims at systems that learn fast, defend themselves and support human decision making.
           </p>
-          <ul>
-            <li>Real world AI security and robotics roles</li>
-            <li>PhD track in AI security and systems</li>
-            <li>Industry and research collaborations</li>
-          </ul>
         </article>
       </div>
-    </div>
-  </section>
 
-  <!-- SECTION 3: CORE SHOWCASE - SYSTEMS I BUILD -->
-  <section class="section section-light" id="systems">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">The systems I build</h2>
-      <p class="section-lead">
-        Each system is a deliberate blend of autonomy, security, and reasoning.
-      </p>
-      <div class="parallax-shell">
-        <div class="parallax-layer" data-parallax-speed="0.08"></div>
-        <div class="parallax-layer parallax-highlight" data-parallax-speed="0.14"></div>
+      <!-- Choose your path -->
+      <div class="path-selector glass-panel">
+        <h3>Choose your path</h3>
+        <p>Select how you want to explore my work.</p>
+        <div class="path-buttons">
+          <button class="btn path-btn" data-path="tech">For technologists</button>
+          <button class="btn path-btn" data-path="recruiter">For recruiters</button>
+          <button class="btn path-btn" data-path="collab">For collaborators</button>
+        </div>
+        <div class="path-output" id="path-output">
+          <p>Pick a path to get a tailored view of my work and impact.</p>
+        </div>
       </div>
+
+      <!-- Peek of next section -->
+      <div class="peek-strip">
+        <span>Next: Systems I build</span>
+      </div>
+    </section>
+
+    <!-- SYSTEMS SHOWCASE -->
+    <section id="systems" class="section systems-section">
+      <div class="section-header">
+        <h2>The systems I build</h2>
+        <p>
+          Each system is designed to sense, decide and act under pressure.  
+          Scroll through, open details and follow the thinking behind the work.
+        </p>
+      </div>
+
       <div class="systems-grid">
-        <article class="system-card" data-modal-target="#modal-crazyflie">
-          <h3>Crazyflie flow and multiranger</h3>
-          <p class="system-tagline">Micro drone exploration and obstacle aware search patterns</p>
-          <p>
-            Optical flow and multiranger pipelines that let a tiny drone reason about space without GPS.
-          </p>
+        <!-- Card 1 -->
+        <article class="system-card glass-panel" data-modal-target="#modal-crazyflie">
+          <h3>Crazyflie search and avoid</h3>
+          <p>Spiral search, optical flow, multiranger based collision avoidance and tape following.</p>
+          <span class="card-link">Open pipeline view</span>
         </article>
 
-        <article class="system-card" data-modal-target="#modal-hexacopter">
-          <h3>Hexacopter architecture</h3>
-          <p class="system-tagline">Navio2, lidar, and mission grade stability</p>
-          <p>
-            A coaxial hexacopter built from scratch with sensor fusion and mission planner integration.
-          </p>
+        <!-- Card 2 -->
+        <article class="system-card glass-panel" data-modal-target="#modal-hexacopter">
+          <h3>Hexacopter with LiDAR aware UGV mode</h3>
+          <p>Custom autonomy logic with Garmin and TF Mini LiDAR, Navio2 stack and mission planner flow.</p>
+          <span class="card-link">Open architecture</span>
         </article>
 
-        <article class="system-card" data-modal-target="#modal-ugv">
-          <h3>LiDAR based UGV mode</h3>
-          <p class="system-tagline">Ground navigation with shared aerial logic</p>
-          <p>
-            Unified thinking for air and ground paths driven by the same planning instincts.
-          </p>
+        <!-- Card 3 -->
+        <article class="system-card glass-panel" data-modal-target="#modal-security">
+          <h3>Interaction centric AI security</h3>
+          <p>Dialogue level risk modelling, defense stages and safety metrics for LLM powered systems.</p>
+          <span class="card-link">Open defense map</span>
         </article>
 
-        <article class="system-card" data-modal-target="#modal-opticalflow">
-          <h3>Optical flow reasoning</h3>
-          <p class="system-tagline">Pixel motion to actionable decisions</p>
-          <p>
-            Turning noisy motion fields into reliable cues for navigation and stability.
-          </p>
-        </article>
-
-        <article class="system-card" data-modal-target="#modal-dialogue">
-          <h3>Dialogue level AI safety pipeline</h3>
-          <p class="system-tagline">Interaction aware AI security for LLMs</p>
-          <p>
-            Multi step pipeline that watches conversations, not just single prompts.
-          </p>
-        </article>
-
-        <article class="system-card" data-modal-target="#modal-cyber">
-          <h3>Layered cyber defense models</h3>
-          <p class="system-tagline">PISR, ILVI, DCR, UTCE in one coherent view</p>
-          <p>
-            Metrics that let teams reason about safety and risk instead of guessing.
-          </p>
+        <!-- Card 4 -->
+        <article class="system-card glass-panel" data-modal-target="#modal-vial">
+          <h3>Vision guided vial sorting</h3>
+          <p>Intel RealSense input, cap color detection and location mapping for robotic arms.</p>
+          <span class="card-link">Open perception view</span>
         </article>
       </div>
-    </div>
-  </section>
 
-  <!-- MODALS FOR SYSTEMS -->
-  <div class="modal-backdrop" data-modal-backdrop>
-    <!-- Crazyflie -->
-    <div class="modal" id="modal-crazyflie">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3>Crazyflie flow and multiranger pipelines</h3>
-      <p class="modal-subtitle">What the system does</p>
-      <p>
-        A micro drone that uses optical flow and multiranger inputs to explore an area, avoid obstacles, and execute spiral search and line following behavior without GPS.
-      </p>
-      <p class="modal-subtitle">Why it matters</p>
-      <p>
-        Edge constrained environments, indoor labs, and tight spaces still need reliable autonomy. This system proves that small hardware can still reason about space and movement.
-      </p>
-      <p class="modal-subtitle">What I contributed</p>
-      <p>
-        Integrated flow and distance sensors, experimented with spiral search logic, tuned thresholds for stable behavior, and debugged unstable hardware into predictable flight.
-      </p>
-    </div>
+      <!-- Live data surface -->
+      <div class="live-surface glass-panel">
+        <h3>Live data surface</h3>
+        <p>This panel simulates how my systems monitor themselves in real time.</p>
+        <div class="live-surface-grid">
+          <div class="live-log">
+            <h4>System log</h4>
+            <div id="log-stream"></div>
+          </div>
+          <div class="live-vis">
+            <h4>Signal field</h4>
+            <div class="signal-grid" id="signal-grid">
+              <!-- JS will populate cells -->
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Hexacopter -->
-    <div class="modal" id="modal-hexacopter">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3>Autonomous hexacopter architecture</h3>
-      <p class="modal-subtitle">What the system does</p>
-      <p>
-        A coaxial hexacopter with Navio2 and Raspberry Pi at its core, lidar guided navigation, and mission planner controlled flights for semi autonomous operations.
-      </p>
-      <p class="modal-subtitle">Why it matters</p>
-      <p>
-        Reliable aerial platforms open doors for inspection, mapping, and research missions that cannot rely on manual piloting.
-      </p>
-      <p class="modal-subtitle">What I contributed</p>
-      <p>
-        Helped design and integrate the stack from frame to software, wired and configured lidar, tuned control loops, and worked through telemetry and GPS issues until missions were repeatable.
-      </p>
-    </div>
+      <!-- Peek -->
+      <div class="peek-strip">
+        <span>Next: Research, writing and the thinking behind the builds</span>
+      </div>
+    </section>
 
-    <!-- UGV -->
-    <div class="modal" id="modal-ugv">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3>LiDAR based UGV mode</h3>
-      <p class="modal-subtitle">What the system does</p>
-      <p>
-        Reuses aerial thinking for ground movement, running lidar powered obstacle awareness on a UGV configuration that shares logic with the hexacopter stack.
-      </p>
-      <p class="modal-subtitle">Why it matters</p>
-      <p>
-        A shared planning mindset across air and ground reduces complexity and increases reuse for real deployments.
-      </p>
-      <p class="modal-subtitle">What I contributed</p>
-      <p>
-        Extended the lidar and mission logic from flight to ground, reasoned about safe distances, and aligned control behavior with the constraints of the ground platform.
-      </p>
-    </div>
-
-    <!-- Optical flow -->
-    <div class="modal" id="modal-opticalflow">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3>Optical flow reasoning</h3>
-      <p class="modal-subtitle">What the system does</p>
-      <p>
-        Uses pixel motion fields to estimate direction and relative movement for drones and robotic systems that cannot rely only on GPS or external tracking.
-      </p>
-      <p class="modal-subtitle">Why it matters</p>
-      <p>
-        Optical flow provides an independent signal for stability and navigation. It is crucial when sensors are limited and environments are unpredictable.
-      </p>
-      <p class="modal-subtitle">What I contributed</p>
-      <p>
-        Experimented with flow based logic on micro drones, built intuition for how noise, texture, and speed affect readings, and linked that understanding back into control routines.
-      </p>
-    </div>
-
-    <!-- Dialogue safety -->
-    <div class="modal" id="modal-dialogue">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3>Dialogue level AI safety pipeline</h3>
-      <p class="modal-subtitle">What the system does</p>
-      <p>
-        Watches entire conversations instead of isolated prompts, models attack patterns across turns, and routes interactions through layered checks that understand context.
-      </p>
-      <p class="modal-subtitle">Why it matters</p>
-      <p>
-        Real misuse and jailbreak attempts evolve over multiple messages. A system that treats prompts in isolation will always be behind.
-      </p>
-      <p class="modal-subtitle">What I contributed</p>
-      <p>
-        Defined an interaction centric risk view, drafted a pipeline where input, processing, and output layers are all guarded, and proposed metrics that show how effective each layer is.
-      </p>
-    </div>
-
-    <!-- Cyber layered defense -->
-    <div class="modal" id="modal-cyber">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3>Layered cyber defense models</h3>
-      <p class="modal-subtitle">What the system does</p>
-      <p>
-        Uses metrics like PISR, ILVI, DCR, and UTCE to quantify how vulnerable or resilient an AI system is under adversarial pressure and user over reliance.
-      </p>
-      <p class="modal-subtitle">Why it matters</p>
-      <p>
-        Teams need more than gut feeling about safety. Metrics create a shared language for engineers, researchers, and decision makers.
-      </p>
-      <p class="modal-subtitle">What I contributed</p>
-      <p>
-        Co designed the metric set, aligned it with real attack families, and mapped it into a layered defense pipeline that can be implemented and measured in practice.
-      </p>
-    </div>
-  </div>
-
-  <!-- SECTION 4: RESEARCH AND WRITING -->
-  <section class="section section-dark" id="research">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">Research and writing</h2>
-      <p class="section-lead">
-        I treat writing as an extension of system design. The goal is clarity, not volume.
-      </p>
+    <!-- RESEARCH SECTION -->
+    <section id="research" class="section research-section">
+      <div class="section-header">
+        <h2>Research and writing</h2>
+        <p>
+          I turn hands on experiments into structure, taxonomies and clear narratives.
+        </p>
+      </div>
       <div class="research-grid">
-        <article class="research-card">
-          <h3>Interaction centric risks in LLM dialogue systems</h3>
-          <p class="research-meta">Conference style manuscript • AI security • Dialogue safety</p>
-          <div class="research-hover">
-            <p class="research-label">Abstract preview</p>
-            <p>
-              Examines how adversarial patterns emerge across conversations, organizes attack classes, and proposes layered defense strategies that map to real system behavior.
-            </p>
-            <p class="research-keywords">
-              Keywords: AI security, jailbreaks, LLM safety, dialogue risk, layered defense.
-            </p>
+        <article class="research-card glass-panel">
+          <h3>Interaction centric cybersecurity risks in LLM dialogue</h3>
+          <p class="research-tag">Paper draft • Safety • Taxonomy • Metrics</p>
+          <p class="research-preview">
+            Focus on conversation driven threat surfaces, layered defense blocks and measurable safety signals.
+          </p>
+          <div class="research-more">
+            <span>View abstract</span>
           </div>
         </article>
-        <article class="research-card">
-          <h3>Metric driven safety evaluation</h3>
-          <p class="research-meta">PISR, ILVI, DCR, UTCE • Evaluation framework</p>
-          <div class="research-hover">
-            <p class="research-label">Abstract preview</p>
-            <p>
-              Introduces a set of practical metrics that capture bypass rates, layer coverage, defense breadth, and trust versus correctness gaps under adversarial pressure.
-            </p>
-            <p class="research-keywords">
-              Keywords: AI evaluation, security metrics, resilience, red teaming.
-            </p>
+
+        <article class="research-card glass-panel">
+          <h3>LiDAR guided autonomy for constrained flight</h3>
+          <p class="research-tag">Experiment notes • Robotics • Navigation</p>
+          <p class="research-preview">
+            Using Garmin and TF Mini LiDAR on resource constrained platforms for stable indoor navigation.
+          </p>
+          <div class="research-more">
+            <span>View abstract</span>
           </div>
         </article>
-        <article class="research-card">
-          <h3>Robotic platforms as testbeds for safety</h3>
-          <p class="research-meta">Hexacopters • Micro drones • Ground platforms</p>
-          <div class="research-hover">
-            <p class="research-label">Abstract preview</p>
-            <p>
-              Uses UAVs and UGVs as physical environments to study failure modes, partial observability, and safety aligned control in real time.
-            </p>
-            <p class="research-keywords">
-              Keywords: robotics, real world safety, perception, control.
-            </p>
+
+        <article class="research-card glass-panel">
+          <h3>The cage is mental</h3>
+          <p class="research-tag">Personal essay • Mindset • Growth</p>
+          <p class="research-preview">
+            A narrative about building from zero, staying restless and treating hard problems as training.
+          </p>
+          <div class="research-more">
+            <span>View excerpt</span>
           </div>
         </article>
       </div>
-    </div>
-  </section>
 
-  <!-- SECTION 5: TIMELINE OF GROWTH -->
-  <section class="section section-light" id="timeline">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">Trajectory of growth</h2>
-      <p class="section-lead">
-        Collecting stars for my constellation, one system and one milestone at a time.
-      </p>
-      <div class="timeline-scroll">
-        <div class="timeline-line"></div>
-        <div class="timeline-items">
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <p class="timeline-year">Early</p>
-            <p class="timeline-title">Taking things apart</p>
-            <p class="timeline-text">
-              Reverse engineered hardware, gadgets, and basic circuits to understand how systems behave.
+      <!-- Slow burn quote reveal -->
+      <div class="quote-section">
+        <p class="quote-line">Most people wait for instructions.</p>
+        <p class="quote-line">I build the system that writes them.</p>
+        <p class="quote-line">That is the gap I operate in.</p>
+      </div>
+
+      <div class="peek-strip">
+        <span>Next: Timeline of growth</span>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section id="timeline" class="section timeline-section">
+      <div class="section-header">
+        <h2>Timeline of growth</h2>
+        <p>From zero knowledge to real systems in the field.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <h3>Early phase</h3>
+            <p>
+              Started with curiosity driven tinkering. No fixed plan, just the habit of saying yes to hard problems and learning whatever the task required.
             </p>
           </div>
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <p class="timeline-year">Undergrad</p>
-            <p class="timeline-title">Computer science foundation</p>
-            <p class="timeline-text">
-              Built core intuition for algorithms, systems, and practical software engineering.
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <h3>Drones and autonomy</h3>
+            <p>
+              Built quadcopters and a compact hexacopter from scratch. Worked on ESC calibration, flight stability, LiDAR integration and mission planner flow.
             </p>
           </div>
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <p class="timeline-year">Robotics</p>
-            <p class="timeline-title">Hexacopters and micro drones</p>
-            <p class="timeline-text">
-              Worked on autonomous hexacopter, Crazyflie logic, and perception driven navigation.
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <h3>AI security and dialogue risks</h3>
+            <p>
+              Moved into interaction level risk modelling for LLMs, focusing on how prompts, personas and context shift system behavior.
             </p>
           </div>
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <p class="timeline-year">Research</p>
-            <p class="timeline-title">AI security and dialogue safety</p>
-            <p class="timeline-text">
-              Designed interaction centric taxonomies and metric driven safety views for LLMs.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <p class="timeline-year">Now</p>
-            <p class="timeline-title">MSCS at FIU in Miami</p>
-            <p class="timeline-text">
-              Operating at the intersection of AI security, robotics, and intelligent systems.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <p class="timeline-year">Next</p>
-            <p class="timeline-title">PhD and real world deployments</p>
-            <p class="timeline-text">
-              Aiming for research and engineering roles where safety, autonomy, and scale converge.
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <h3>Next chapter</h3>
+            <p>
+              Scaling this work into research labs, funded projects and products that treat reliability as a feature, not an afterthought.
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SECTION 6: IMPACT STATEMENT -->
-  <section class="section section-dark impact-section" id="impact">
-    <div class="section-inner narrow fade-in">
-      <p class="impact-text">
-        I build systems that stay stable when everything else breaks.<br />
-        I solve problems that do not have instructions.
-      </p>
-    </div>
-  </section>
-
-  <!-- SECTION 7: CALL TO ACTION -->
-  <section class="section section-dark" id="contact">
-    <div class="section-inner narrow fade-in cta-section">
-      <h2 class="section-title">Work with me</h2>
-      <p class="section-lead">
-        If your work sits where AI, security, and autonomy meet, I want to be in the loop.
-      </p>
-      <div class="cta-buttons">
-        <a href="Pratyush-Jena-Resume.pdf" class="btn primary cta-btn" target="_blank" rel="noopener">
-          Resume
-        </a>
-        <a href="https://www.linkedin.com/in/your-linkedin-handle" class="btn ghost cta-btn" target="_blank" rel="noopener">
-          LinkedIn
-        </a>
-        <a href="mailto:pjena001@fiu.edu" class="btn outline cta-btn">
-          Contact
-        </a>
+      <!-- Progress meter -->
+      <div class="progress-card glass-panel">
+        <h3>Understanding level</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" id="understanding-bar"></div>
+        </div>
+        <p id="understanding-text">You are at 0 percent. Keep scrolling.</p>
       </div>
-    </div>
-  </section>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© <span id="year"></span> Pratyush Ranjan Jena</span>
-      <span>Built with focus. Operates with intent.</span>
-    </div>
-  </footer>
+      <div class="peek-strip">
+        <span>Next: Impact and ways to work together</span>
+      </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- IMPACT SECTION -->
+    <section id="impact" class="section impact-section">
+      <div class="impact-block glass-panel">
+        <p class="impact-text">
+          I build systems that stay stable when everything else breaks.<br />
+          I solve problems that do not come with instructions.
+        </p>
+      </div>
+    </section>
+
+    <!-- END HOOK / CTA -->
+    <section id="contact" class="section contact-section">
+      <div class="section-header">
+        <h2>Choose your ending</h2>
+        <p>Three ways to keep this conversation going.</p>
+      </div>
+      <div class="end-grid">
+        <article class="end-card glass-panel">
+          <h3>Explore the lab</h3>
+          <p>Dive deeper into project diagrams, notes and the reasoning behind each build.</p>
+          <a href="#systems" class="card-link">Back to systems</a>
+        </article>
+        <article class="end-card glass-panel">
+          <h3>Read the mind</h3>
+          <p>Get into essays, writing and the mental models that shape how I work.</p>
+          <a href="#research" class="card-link">Go to research</a>
+        </article>
+        <article class="end-card glass-panel">
+          <h3>Build together</h3>
+          <p>Have a project, lab or role where this mindset fits.</p>
+          <div class="cta-buttons">
+            <a href="Pratyush_Ranjan_Jena_Resume.pdf" class="btn primary" target="_blank">View resume</a>
+            <a href="mailto:pjena001@fiu.edu" class="btn ghost">Contact me</a>
+          </div>
+        </article>
+      </div>
+      <div class="contact-meta">
+        <p>Also on LinkedIn and GitHub. Search for <strong>Pratyush Ranjan Jena</strong> and you will find me.</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
