@@ -1,4 +1,4 @@
-// Smooth parallax and scroll based effects
+// ========== SCROLL EFFECTS: PROGRESS, PARALLAX, UNDERSTANDING BAR, AI HUD ==========
 (function () {
   const layers = document.querySelectorAll(".parallax-layer");
   const scrollProgressBar = document.getElementById("scroll-progress");
@@ -11,18 +11,20 @@
     const docHeight = document.body.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? scrollY / docHeight : 0;
 
-    // Progress bar
+    // Scroll progress bar
     if (scrollProgressBar) {
       scrollProgressBar.style.width = `${progress * 100}%`;
     }
 
-    // Parallax
-    layers.forEach((layer, index) => {
-      const depth = (index + 1) * 12;
-      layer.style.transform = `translate3d(0, ${-scrollY / depth}px, 0)`;
-    });
+    // Parallax layers
+    if (layers && layers.length) {
+      layers.forEach((layer, index) => {
+        const depth = (index + 1) * 12;
+        layer.style.transform = `translate3d(0, ${-scrollY / depth}px, 0)`;
+      });
+    }
 
-    // Understanding level (simple mapping)
+    // Understanding bar
     const percent = Math.round(progress * 100);
     if (understandingBar) {
       understandingBar.style.width = `${percent}%`;
@@ -41,7 +43,7 @@
       }
     }
 
-    // AI HUD mood based on scroll depth
+    // AI HUD text
     if (aiHudText) {
       if (progress < 0.2) {
         aiHudText.textContent = "Calibrating to your curiosity...";
@@ -61,7 +63,7 @@
   handleScroll();
 })();
 
-// AI orb following cursor (soft lag for time dilation feel)
+// ========== AI ORB FOLLOWING CURSOR (SOFT LAG) ==========
 (function () {
   const orb = document.getElementById("ai-orb");
   if (!orb) return;
@@ -86,7 +88,7 @@
   animate();
 })();
 
-// Path selector logic
+// ========== PATH SELECTOR (TECH / RECRUITER / COLLAB) ==========
 (function () {
   const pathButtons = document.querySelectorAll(".path-btn");
   const output = document.getElementById("path-output");
@@ -112,19 +114,19 @@
   });
 })();
 
-// Live metrics simulation
+// ========== LIVE METRICS (FRAMES, RISKS, NODES, UPTIME) ==========
 (function () {
   const framesEl = document.querySelector('[data-metric="frames"]');
   const risksEl = document.querySelector('[data-metric="risks"]');
   const nodesEl = document.querySelector('[data-metric="nodes"]');
   const uptimeEl = document.querySelector('[data-metric="uptime"]');
 
+  if (!framesEl || !risksEl || !nodesEl || !uptimeEl) return;
+
   let frames = 1200;
   let risks = 3;
   let nodes = 42;
   let uptimeSeconds = 0;
-
-  if (!framesEl || !risksEl || !nodesEl || !uptimeEl) return;
 
   function updateMetrics() {
     frames += Math.floor(Math.random() * 40) + 20;
@@ -144,14 +146,14 @@
   setInterval(updateMetrics, 900);
 })();
 
-// Live data surface logs and signal field
+// ========== LIVE DATA SURFACE (LOG + SIGNAL GRID) ==========
 (function () {
   const logStream = document.getElementById("log-stream");
   const signalGrid = document.getElementById("signal-grid");
 
   if (!logStream || !signalGrid) return;
 
-  // Create cells
+  // create cells
   const cellCount = 8 * 8;
   const cells = [];
   for (let i = 0; i < cellCount; i++) {
@@ -180,7 +182,7 @@
     const msg = logMessages[Math.floor(Math.random() * logMessages.length)];
     p.textContent = `[${ts}] ${msg}`;
     logStream.appendChild(p);
-    // Keep last 40 entries
+
     while (logStream.children.length > 40) {
       logStream.removeChild(logStream.firstChild);
     }
@@ -200,39 +202,43 @@
   setInterval(pulseSignals, 550);
 })();
 
-// Slow burn quote reveal with intersection observer
+// ========== QUOTE REVEAL (SLOW-BURN TEXT) ==========
 (function () {
   const lines = document.querySelectorAll(".quote-line");
   if (!lines.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
-  lines.forEach((line, index) => {
-    line.style.transitionDelay = `${index * 0.25}s`;
-    observer.observe(line);
-  });
+    lines.forEach((line, index) => {
+      line.style.transitionDelay = `${index * 0.25}s`;
+      observer.observe(line);
+    });
+  } else {
+    // Fallback: just show them
+    lines.forEach((line) => line.classList.add("revealed"));
+  }
 })();
 
-// System card modals placeholder logic
+// ========== SYSTEM CARD CLICK PLACEHOLDER ==========
 (function () {
   const cards = document.querySelectorAll(".system-card");
   if (!cards.length) return;
 
-  // Optional: if you later add proper modal markup, wire it here.
   cards.forEach((card) => {
     card.addEventListener("click", () => {
       const title = card.querySelector("h3")?.textContent || "System view";
       alert(
-        `${title}\n\nThis is a placeholder. Replace this alert with a modal that shows diagrams, architecture steps and your contribution breakdown.`
+        `${title}\n\nThis is a placeholder. Later you can replace this with a modal containing diagrams, architecture and your contribution breakdown.`
       );
     });
   });
