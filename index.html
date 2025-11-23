@@ -2,22 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pratyush Ranjan Jena | AI & Cybersecurity</title>
+  <title>Pratyush Ranjan Jena | AI Security • Robotics • Intelligent Systems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Pratyush Ranjan Jena – AI & Cybersecurity researcher building intelligent, resilient systems in robotics and dialogue security." />
+  <meta name="description" content="Pratyush Ranjan Jena – AI Security, Robotics, and Intelligent Systems. I build secure autonomous platforms, dialogue-level safety frameworks, and resilient AI systems." />
+  <meta name="keywords" content="Pratyush, Pratyush Jena, AI Security Robotics Portfolio, AI Security, Robotics, Intelligent Systems, Cybersecurity, LLM Safety" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Basic Person Schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pratyush Ranjan Jena",
+    "alternateName": "Pratyush",
+    "jobTitle": "AI Security Researcher",
+    "url": "https://your-domain-or-github-pages-url",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Florida International University"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="logo">PRJ</div>
     <nav class="nav">
       <a href="#story">Story</a>
-      <a href="#work">Work</a>
+      <a href="#systems">Systems</a>
       <a href="#research">Research</a>
-      <a href="#about">About</a>
+      <a href="#timeline">Timeline</a>
       <a href="#contact" class="nav-cta">Contact</a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle navigation">
@@ -25,219 +42,247 @@
     </button>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO WITH INTERACTIVE GAME -->
   <section class="hero" id="top">
     <div class="hero-inner fade-in">
-      <p class="hero-kicker">AI • Cybersecurity • Robotics</p>
-      <h1 class="hero-title">
-        PRATYUSH<br />
-        RANJAN<br />
-        JENA
-      </h1>
-      <p class="hero-subtitle">
-        I build intelligent systems that think under pressure and stay trustworthy when it matters.
-      </p>
-      <div class="hero-actions">
-        <a href="#work" class="btn primary">View my work</a>
-        <a href="#story" class="btn ghost">Read my story</a>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="hero-kicker">AI Security • Robotics • Intelligent Systems</p>
+          <h1 class="hero-title">
+            Pratyush<br />
+            Ranjan<br />
+            Jena
+          </h1>
+          <p class="hero-subtitle">
+            I build intelligent systems that think, adapt, and protect.  
+            Secure autonomy, stable robotics, and dialogue-level AI safety are the spaces I operate in.
+          </p>
+          <div class="hero-actions">
+            <a href="#systems" class="btn primary">See the systems I build</a>
+            <a href="#story" class="btn ghost">Read my story</a>
+          </div>
+          <div class="hero-scroll">
+            <span>Stabilize the system to begin</span>
+            <div class="hero-scroll-indicator"></div>
+          </div>
+        </div>
+
+        <div class="hero-game-panel">
+          <div class="hero-game-shell">
+            <div class="hero-game-header">
+              <span class="hero-game-label">System Stability Simulation</span>
+              <span class="hero-game-status" id="hero-game-status">Calibrating</span>
+            </div>
+            <div class="hero-game-frame">
+              <canvas id="hero-game" aria-label="Interactive systems stability simulation"></canvas>
+            </div>
+            <div class="hero-game-footer">
+              <span class="hero-game-hint">Move your cursor or tap over unstable nodes to stabilize the network.</span>
+              <span class="hero-game-score" id="hero-game-score">Stabilized nodes: 0</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="hero-scroll">
-        <span>Scroll to enter</span>
-        <div class="hero-scroll-indicator"></div>
+
+      <!-- THREE-BOX IDENTITY SUMMARY -->
+      <div class="identity-strip fade-in">
+        <article class="identity-card">
+          <h2>What I do now</h2>
+          <p>AI security researcher, robotics engineer, and systems builder focused on resilient autonomy and dialogue safety.</p>
+        </article>
+        <article class="identity-card">
+          <h2>What I have done before</h2>
+          <p>Drones, optical flow micro-systems, lidar-guided hexacopters, UGV logic, cyber risk models, and LLM safety taxonomies.</p>
+        </article>
+        <article class="identity-card">
+          <h2>What I want next</h2>
+          <p>Building scalable autonomous systems and secure AI pipelines that reach real-world deployment at scale.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- STORY / ORIGIN -->
+  <!-- STORY -->
   <section class="section section-dark" id="story">
     <div class="section-inner narrow fade-in">
-      <h2>From zero to systems that think</h2>
+      <h2>From raw curiosity to engineered intelligence</h2>
       <p>
-        I didn’t enter computer science with a fixed roadmap. Most of what I know started from
-        exactly zero: no plan, no playbook, just problems that refused to wait.
+        I did not wait for perfect timing or perfect resources. I built my lane by taking on systems that looked complex from the outside and making them predictable from the inside. Every constraint became fuel. Every failure became data. Every challenge turned into a sharper execution loop.
       </p>
       <p>
-        Drones that needed to fly, sensors that wouldn’t talk, models that broke the moment you
-        trusted them. Someone had to figure it out. So I did. Over time, that became the pattern:
-        I learn fast, adapt faster, and build systems that don’t fall apart when reality hits.
+        My path across autonomous robotics, AI security, adversarial machine learning, and systems engineering is driven by a simple rule. If a system exists, its risks can be mapped. If its risks can be mapped, it can be secured. Once it is secured, it can scale with confidence.
       </p>
       <p>
-        Now my focus is simple: <strong>AI, cybersecurity, and robotics</strong>—making intelligent
-        systems that are not just powerful, but <em>trustworthy</em>.
+        Today I focus on engineering trustworthy AI, strengthening dialogue-level defenses for LLMs, and designing semi-autonomous robotic platforms that stay stable and useful in the real world, not only in controlled environments.
       </p>
     </div>
   </section>
 
-  <!-- HIGHLIGHT PILLARS -->
-  <section class="section section-light">
+  <!-- CORE SHOWCASE: SYSTEMS I BUILD -->
+  <section class="section section-light" id="systems">
     <div class="section-inner fade-in">
-      <h2>What I build</h2>
-      <div class="pillars">
-        <article class="pillar-card">
-          <h3>Drones & Robotics</h3>
-          <p>
-            Hexacopters, micro-drones, lidar-guided navigation. From assembling frames to tuning
-            flight logic, I’ve helped build autonomous systems that survive messy, real-world conditions.
-          </p>
-          <ul>
-            <li>Autonomous hexacopter with lidar</li>
-            <li>Optical-flow micro-drones</li>
-            <li>Real-time robotic vial sorting</li>
-          </ul>
+      <h2>The systems I build</h2>
+      <p>Scroll through the systems that combine autonomy, perception, and security. Each one is designed to stay stable when the environment pushes back.</p>
+
+      <div class="systems-grid">
+        <!-- Each card opens a modal -->
+        <article class="system-card" data-system="crazyflie">
+          <h3>Crazyflie Flow and Multi-Ranger Pipelines</h3>
+          <p>Micro-drone navigation using optical flow and multi-ranger sensors for search, avoidance, and line-following.</p>
+          <button class="system-btn" type="button">View details</button>
         </article>
-        <article class="pillar-card">
-          <h3>AI & Dialogue Security</h3>
-          <p>
-            I study how large language models behave under adversarial pressure and how conversation
-            itself becomes an attack surface.
-          </p>
-          <ul>
-            <li>Attack taxonomies for LLM dialogue</li>
-            <li>Layered defense pipelines</li>
-            <li>Metrics like PISR, DCR, UTCE</li>
-          </ul>
+
+        <article class="system-card" data-system="hexacopter">
+          <h3>Hexacopter Architecture</h3>
+          <p>Navio2 and Raspberry Pi based UAV platform with lidar-guided stability and mission planning.</p>
+          <button class="system-btn" type="button">View details</button>
         </article>
-        <article class="pillar-card">
-          <h3>Cybersecurity & Systems Thinking</h3>
-          <p>
-            I care less about isolated features and more about the system: threats, incentives,
-            human behavior, and how everything breaks together.
-          </p>
-          <ul>
-            <li>Risk and threat modeling</li>
-            <li>Secure-by-design thinking</li>
-            <li>Bridging research to practice</li>
-          </ul>
+
+        <article class="system-card" data-system="ugv">
+          <h3>LiDAR-based UGV Mode</h3>
+          <p>Ground mode logic using lidar data and control routines to keep the platform aware and adaptable.</p>
+          <button class="system-btn" type="button">View details</button>
+        </article>
+
+        <article class="system-card" data-system="optical-flow">
+          <h3>Optical Flow Reasoning</h3>
+          <p>Perception logic that turns raw flow data into usable motion cues for autonomous decisions.</p>
+          <button class="system-btn" type="button">View details</button>
+        </article>
+
+        <article class="system-card" data-system="dialogue-safety">
+          <h3>Dialogue-level AI Safety Pipeline</h3>
+          <p>Layered safeguards that watch how conversations evolve and detect adversarial intent.</p>
+          <button class="system-btn" type="button">View details</button>
+        </article>
+
+        <article class="system-card" data-system="defense-metrics">
+          <h3>Cybersecurity Defense Models</h3>
+          <p>PISR, ILVI, DCR, and UTCE metrics for measuring resilience in AI-driven systems.</p>
+          <button class="system-btn" type="button">View details</button>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- WORK / PROJECTS -->
-  <section class="section section-dark" id="work">
+  <!-- MODAL FOR SYSTEM DETAILS -->
+  <div class="modal-backdrop" id="system-modal-backdrop" aria-hidden="true">
+    <div class="modal-shell" role="dialog" aria-modal="true" aria-labelledby="system-modal-title">
+      <button class="modal-close" type="button" id="system-modal-close" aria-label="Close details">✕</button>
+      <h2 id="system-modal-title">System title</h2>
+      <p class="modal-section-title">What the system does</p>
+      <p id="system-modal-what"></p>
+      <p class="modal-section-title">Why it matters</p>
+      <p id="system-modal-why"></p>
+      <p class="modal-section-title">What I contributed</p>
+      <p id="system-modal-how"></p>
+    </div>
+  </div>
+
+  <!-- RESEARCH AND WRITING -->
+  <section class="section section-dark" id="research">
     <div class="section-inner fade-in">
-      <div class="section-header">
-        <h2>Selected work</h2>
-        <p>Systems I’ve helped design, debug, and push to the edge.</p>
-      </div>
-      <div class="cards-grid">
-        <article class="project-card">
-          <h3>Autonomous Hexacopter Platform</h3>
-          <p class="tagline">Lidar-guided flight • Mission Planner • Navio2</p>
-          <p>
-            Built and tuned a semi-autonomous hexacopter from frame to flight controller integration,
-            using Garmin lidar and telemetry for obstacle-aware missions.
-          </p>
-          <p class="meta">Robotics • Embedded • Control</p>
+      <h2>Research and writing</h2>
+      <p>Clean research, clear framing, and models that help others reason about risk and safety.</p>
+
+      <div class="research-grid">
+        <article class="research-card">
+          <div class="research-main">
+            <h3>Interaction-centric risks in LLM dialogue systems</h3>
+            <p>Taxonomy and defense strategies for conversation level attacks on AI systems.</p>
+          </div>
+          <div class="research-hover">
+            <p><strong>Keywords:</strong> AI safety, adversarial prompting, risk modeling, layered defenses</p>
+            <p><strong>Target venue:</strong> IEEE conference track on communications and computing</p>
+          </div>
         </article>
-        <article class="project-card">
-          <h3>Vial Sorting with RealSense & ML</h3>
-          <p class="tagline">Computer vision • Robotics • Real-time</p>
-          <p>
-            Designed a perception pipeline to detect vial cap colors and positions using Intel
-            RealSense, preparing robust inputs for a ROS-driven robotic arm.
-          </p>
-          <p class="meta">AI • Vision • Pipelines</p>
+
+        <article class="research-card">
+          <div class="research-main">
+            <h3>Metrics for AI defense performance</h3>
+            <p>PISR, ILVI, DCR, and UTCE as a framework for resilience evaluation.</p>
+          </div>
+          <div class="research-hover">
+            <p><strong>Keywords:</strong> resilience, safety metrics, dialog-level evaluation</p>
+            <p><strong>Context:</strong> Supporting red teaming, safety reviews, and robust deployment decisions</p>
+          </div>
         </article>
-        <article class="project-card">
-          <h3>LLM Dialogue Security Taxonomy</h3>
-          <p class="tagline">Adversarial prompts • Safety metrics • Layered defenses</p>
-          <p>
-            Ongoing research on interaction-centric security risks in LLM-powered dialogue systems,
-            proposing metrics like PISR, ILVI, DCR, and UTCE and a multi-layer defense pipeline.
-          </p>
-          <p class="meta">AI Safety • Security • Research</p>
+
+        <article class="research-card">
+          <div class="research-main">
+            <h3>Bridging robotics and AI security</h3>
+            <p>Integrating perception, control, and security logic into a single consistent view.</p>
+          </div>
+          <div class="research-hover">
+            <p><strong>Keywords:</strong> robotics, autonomy, security, system design</p>
+            <p><strong>Direction:</strong> Long term research focus for PhD level work</p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- RESEARCH -->
-  <section class="section section-light" id="research">
-    <div class="section-inner narrow fade-in">
-      <h2>Research direction</h2>
-      <p>
-        My core research interest sits at the intersection of
-        <strong>AI safety, cybersecurity, and human–machine interaction</strong>.
-        I care about what happens when real users, real incentives, and real attackers collide with
-        large language models and autonomous systems.
+  <!-- TIMELINE OF GROWTH -->
+  <section class="section section-light" id="timeline">
+    <div class="section-inner fade-in">
+      <h2>Growth timeline</h2>
+      <p>A quick view of how the work evolved and where it is heading.</p>
+
+      <div class="timeline">
+        <div class="timeline-track">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-items">
+          <article class="timeline-item">
+            <h3>Robotics foundation</h3>
+            <p>Started from first principles, assembling and stabilizing drones from scratch.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>Autonomous platforms</h3>
+            <p>Hexacopter, micro-drones, lidar, and mission logic for stable autonomy.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>AI perception and lab systems</h3>
+            <p>RealSense-based vial sorting and BIM linked environmental prediction.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>AI security and dialogue safety</h3>
+            <p>Interaction-centric threat models, layered defenses, and safety metrics.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>Future research and deployment</h3>
+            <p>Scaling secure AI and autonomous systems into production grade environments.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT STATEMENT -->
+  <section class="section section-dark">
+    <div class="section-inner narrow fade-in impact-section">
+      <p class="impact-text">
+        I build systems that stay stable when everything else breaks.  
+        I solve problems that do not come with instructions.
       </p>
-      <p>
-        I’m currently developing a systematic view of <em>interaction-centric risks</em> in LLM-powered
-        dialogue systems and exploring layered defense strategies that align technical safeguards
-        with human behavior.
-      </p>
-      <div class="research-meta">
-        <div>
-          <h3>Areas I’m exploring</h3>
-          <ul>
-            <li>Adversarial dialogue and jailbreaks</li>
-            <li>Trust, misuse, and over-reliance</li>
-            <li>Metrics for defense effectiveness</li>
-            <li>Secure-by-design LLM interfaces</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Next steps</h3>
-          <p>
-            I’m preparing for a PhD in Computer Science focused on AI safety and security, and I’m
-            actively looking for collaborators, mentors, and research groups working on these problems.
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section section-dark" id="about">
-    <div class="section-inner fade-in about-layout">
-      <div class="about-text">
-        <h2>The person behind the systems</h2>
-        <p>
-          I grew up pulling things apart to see how they worked—then forcing myself to put them back
-          together better than before. That turned into drones, robots, AI systems and eventually,
-          a mindset:
-        </p>
-        <p class="quote">
-          “The cage is mental. The limit is how fast you’re willing to learn under pressure.”
-        </p>
-        <p>
-          Outside work and research, I’m obsessed with aquascaping, long-form conversations, and
-          designing systems—technical, financial, or personal—that compound over time.
-        </p>
-      </div>
-      <div class="about-side">
-        <div class="about-card">
-          <h3>Now</h3>
-          <ul>
-            <li>MS in Computer Science at FIU (Miami)</li>
-            <li>Deepening work in AI security & robotics</li>
-            <li>Planning PhD path and long-term research agenda</li>
-          </ul>
-        </div>
-        <div class="about-card">
-          <h3>Values</h3>
-          <ul>
-            <li>Start from zero, learn fast</li>
-            <li>Own your systems, not just your tasks</li>
-            <li>Build things that outlive the semester</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION / NEXT MOVE -->
+  <!-- CALL TO ACTION -->
   <section class="section section-highlight">
-    <div class="section-inner narrow fade-in">
-      <h2>Let’s build something that thinks</h2>
+    <div class="section-inner narrow fade-in cta-section">
+      <h2>Work with me</h2>
       <p>
-        I’m open to research collaborations, internships, and roles where I can bridge
-        <strong>AI, security, and robotics</strong> into systems that matter in the real world.
+        If you are building AI, robotics, or security systems that need to hold up in the real world, I can help you design and stabilize them.
       </p>
       <div class="cta-actions">
-        <a href="#contact" class="btn primary large">Contact me</a>
-        <a href="#" class="btn ghost large">Download CV</a>
+        <a href="#" class="btn primary large">Download resume</a>
+        <a href="#" class="btn ghost large">LinkedIn</a>
+        <a href="#contact" class="btn ghost large">Contact</a>
       </div>
     </div>
   </section>
@@ -247,9 +292,7 @@
     <div class="section-inner fade-in contact-layout">
       <div>
         <h2>Contact</h2>
-        <p>
-          Reach out if you want to talk research, systems, or ideas that don’t fit in a job description.
-        </p>
+        <p>Reach out if you want to talk AI security, autonomous systems, or research that connects theory and execution.</p>
         <ul class="contact-list">
           <li><strong>Email:</strong> <a href="mailto:pjena001@fiu.edu">pjena001@fiu.edu</a></li>
           <li><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/your-handle</a></li>
@@ -277,7 +320,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <span>© <span id="year"></span> Pratyush Ranjan Jena</span>
-      <span>Built with intent. Powered by curiosity.</span>
+      <span>Built with intent. Designed for stability.</span>
     </div>
   </footer>
 
