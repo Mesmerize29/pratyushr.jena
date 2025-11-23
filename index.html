@@ -2,409 +2,285 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pratyush Ranjan Jena | AI Security • Robotics • Intelligent Systems</title>
+  <title>Pratyush Ranjan Jena | AI & Cybersecurity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="description" content="Portfolio of Pratyush Ranjan Jena – AI security, robotics, intelligent systems and autonomous safety pipelines. I build systems that think, adapt and protect."/>
-  <meta name="keywords" content="Pratyush Ranjan Jena, Pratyush Jena, AI security, robotics, intelligent systems, drones, LIDAR, optical flow, autonomous systems, cybersecurity, LLM safety">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Pratyush Ranjan Jena | AI Security, Robotics, Intelligent Systems"/>
-  <meta property="og:description" content="I build intelligent systems that stay stable when everything else breaks."/>
-  <meta property="og:type" content="website"/>
-
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Pratyush Ranjan Jena",
-    "url": "",
-    "jobTitle": "AI Security and Robotics Researcher",
-    "description": "I build intelligent systems that think, adapt and protect."
-  }
-  </script>
-
+  <meta name="description" content="Pratyush Ranjan Jena – AI & Cybersecurity researcher building intelligent, resilient systems in robotics and dialogue security." />
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-  <!-- Scroll progress bar -->
-  <div id="scroll-progress"></div>
-
-  <!-- AI orb -->
-  <div id="ai-orb">
-    <div class="orb-core"></div>
-    <div class="orb-glow"></div>
-  </div>
-
-  <!-- AI HUD -->
-  <div id="ai-hud">
-    <span class="hud-label">System Insight:</span>
-    <span class="hud-text" id="ai-hud-text">Calibrating to your curiosity...</span>
-  </div>
-
-  <!-- Parallax layers -->
-  <div class="parallax-layer layer-back"></div>
-  <div class="parallax-layer layer-mid"></div>
-  <div class="parallax-layer layer-front"></div>
-
-  <!-- Header -->
   <header class="site-header">
     <div class="logo">PRJ</div>
     <nav class="nav">
-      <a href="#hero">Home</a>
-      <a href="#identity">Profile</a>
-      <a href="#systems">Systems</a>
+      <a href="#story">Story</a>
+      <a href="#work">Work</a>
       <a href="#research">Research</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span>
+    </button>
   </header>
 
-  <main>
-
-    <!-- HERO SECTION -->
-    <section id="hero" class="section hero">
-      <div class="hero-inner">
-
-        <div class="hero-content glass-panel">
-          <p class="hero-eyebrow">AI Security • Robotics • Intelligent Systems</p>
-
-          <h1 class="hero-title">
-            Pratyush<br>Ranjan Jena
-          </h1>
-
-          <p class="hero-hook">
-            I build intelligent systems that think, adapt and protect.
-          </p>
-
-          <div class="hero-cta">
-            <a href="#systems" class="btn primary">Explore the Lab</a>
-            <a href="#identity" class="btn ghost">Meet the person</a>
-          </div>
-        </div>
-
-        <div class="hero-side-panel glass-panel">
-          <h3>Live System Snapshot</h3>
-          <div class="metrics-grid" id="live-metrics">
-
-            <div class="metric">
-              <span class="metric-label">Frames analysed</span>
-              <span class="metric-value" data-metric="frames">0</span>
-            </div>
-
-            <div class="metric">
-              <span class="metric-label">Risks modelled</span>
-              <span class="metric-value" data-metric="risks">0</span>
-            </div>
-
-            <div class="metric">
-              <span class="metric-label">Nodes in play</span>
-              <span class="metric-value" data-metric="nodes">0</span>
-            </div>
-
-            <div class="metric">
-              <span class="metric-label">Uptime</span>
-              <span class="metric-value" data-metric="uptime">0s</span>
-            </div>
-
-          </div>
-        </div>
-
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-inner fade-in">
+      <p class="hero-kicker">AI • Cybersecurity • Robotics</p>
+      <h1 class="hero-title">
+        PRATYUSH<br />
+        RANJAN<br />
+        JENA
+      </h1>
+      <p class="hero-subtitle">
+        I build intelligent systems that think under pressure and stay trustworthy when it matters.
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn primary">View my work</a>
+        <a href="#story" class="btn ghost">Read my story</a>
       </div>
-
-      <div class="scroll-indicator">
-        <span>Scroll to enter the system</span>
-        <div class="scroll-dot"></div>
+      <div class="hero-scroll">
+        <span>Scroll to enter</span>
+        <div class="hero-scroll-indicator"></div>
       </div>
+    </div>
+  </section>
 
-      <div class="peek-strip">
-        <span>Next: Who I am and where I am headed</span>
-      </div>
-    </section>
+  <!-- STORY / ORIGIN -->
+  <section class="section section-dark" id="story">
+    <div class="section-inner narrow fade-in">
+      <h2>From zero to systems that think</h2>
+      <p>
+        I didn’t enter computer science with a fixed roadmap. Most of what I know started from
+        exactly zero: no plan, no playbook, just problems that refused to wait.
+      </p>
+      <p>
+        Drones that needed to fly, sensors that wouldn’t talk, models that broke the moment you
+        trusted them. Someone had to figure it out. So I did. Over time, that became the pattern:
+        I learn fast, adapt faster, and build systems that don’t fall apart when reality hits.
+      </p>
+      <p>
+        Now my focus is simple: <strong>AI, cybersecurity, and robotics</strong>—making intelligent
+        systems that are not just powerful, but <em>trustworthy</em>.
+      </p>
+    </div>
+  </section>
 
-
-    <!-- IDENTITY -->
-    <section id="identity" class="section identity-section">
-
-      <div class="section-header">
-        <h2>Signal in the noise</h2>
-        <p>What I do, what I have built and where I am taking it.</p>
-      </div>
-
-      <div class="identity-grid">
-
-        <article class="identity-card glass-panel">
-          <h3>What I do now</h3>
+  <!-- HIGHLIGHT PILLARS -->
+  <section class="section section-light">
+    <div class="section-inner fade-in">
+      <h2>What I build</h2>
+      <div class="pillars">
+        <article class="pillar-card">
+          <h3>Drones & Robotics</h3>
           <p>
-            I work at the intersection of AI security, robotics and intelligent systems.  
-            I design safety aware pipelines and autonomous behaviors that stay stable in messy environments.
+            Hexacopters, micro-drones, lidar-guided navigation. From assembling frames to tuning
+            flight logic, I’ve helped build autonomous systems that survive messy, real-world conditions.
           </p>
+          <ul>
+            <li>Autonomous hexacopter with lidar</li>
+            <li>Optical-flow micro-drones</li>
+            <li>Real-time robotic vial sorting</li>
+          </ul>
         </article>
-
-        <article class="identity-card glass-panel">
-          <h3>What I have done before</h3>
+        <article class="pillar-card">
+          <h3>AI & Dialogue Security</h3>
           <p>
-            Drones, hexacopters, optical flow, LiDAR navigation, vial classification, dialogue safety models, 
-            system debugging from the bench up.
+            I study how large language models behave under adversarial pressure and how conversation
+            itself becomes an attack surface.
           </p>
+          <ul>
+            <li>Attack taxonomies for LLM dialogue</li>
+            <li>Layered defense pipelines</li>
+            <li>Metrics like PISR, DCR, UTCE</li>
+          </ul>
         </article>
-
-        <article class="identity-card glass-panel">
-          <h3>What I want next</h3>
+        <article class="pillar-card">
+          <h3>Cybersecurity & Systems Thinking</h3>
           <p>
-            Scaling secure AI & autonomy into labs, research groups and products that care about reliability.
+            I care less about isolated features and more about the system: threats, incentives,
+            human behavior, and how everything breaks together.
           </p>
+          <ul>
+            <li>Risk and threat modeling</li>
+            <li>Secure-by-design thinking</li>
+            <li>Bridging research to practice</li>
+          </ul>
         </article>
-
       </div>
+    </div>
+  </section>
 
-      <!-- Path selector -->
-      <div class="path-selector glass-panel">
-        <h3>Choose your path</h3>
-        <p>Select how you want to explore my work.</p>
-
-        <div class="path-buttons">
-          <button class="btn path-btn" data-path="tech">For technologists</button>
-          <button class="btn path-btn" data-path="recruiter">For recruiters</button>
-          <button class="btn path-btn" data-path="collab">For collaborators</button>
-        </div>
-
-        <div class="path-output" id="path-output">
-          Pick a path to get a tailored view of my work.
-        </div>
-      </div>
-
-      <div class="peek-strip">
-        <span>Next: Systems I build</span>
-      </div>
-
-    </section>
-
-
-    <!-- SYSTEMS -->
-    <section id="systems" class="section systems-section">
+  <!-- WORK / PROJECTS -->
+  <section class="section section-dark" id="work">
+    <div class="section-inner fade-in">
       <div class="section-header">
-        <h2>The systems I build</h2>
-        <p>Systems designed to sense, decide and act under pressure.</p>
+        <h2>Selected work</h2>
+        <p>Systems I’ve helped design, debug, and push to the edge.</p>
       </div>
-
-      <div class="systems-grid">
-
-        <article class="system-card glass-panel" data-modal="crazyflie">
-          <h3>Crazyflie search & avoid</h3>
-          <p>Spiral search, optical flow, multiranger avoidance and tape following.</p>
-          <span class="card-link">Open pipeline view</span>
-        </article>
-
-        <article class="system-card glass-panel" data-modal="hexacopter">
-          <h3>Hexacopter with LiDAR UGV mode</h3>
-          <p>Garmin+TF Mini LiDAR autonomy with Navio2 + Mission Planner flow.</p>
-          <span class="card-link">Open architecture</span>
-        </article>
-
-        <article class="system-card glass-panel" data-modal="security">
-          <h3>Interaction-centric AI Security</h3>
-          <p>Dialogue risk models, layered defense and safety metrics.</p>
-          <span class="card-link">Open defense map</span>
-        </article>
-
-        <article class="system-card glass-panel" data-modal="vial">
-          <h3>Vision-guided vial sorting</h3>
-          <p>RealSense input, cap color detection and spatial mapping.</p>
-          <span class="card-link">Open perception view</span>
-        </article>
-
-      </div>
-
-      <!-- Live Data Surface -->
-      <div class="live-surface glass-panel">
-        <h3>Live data surface</h3>
-        <p>Simulation of how my systems monitor themselves in real time.</p>
-
-        <div class="live-surface-grid">
-
-          <div class="live-log">
-            <h4>System log</h4>
-            <div id="log-stream"></div>
-          </div>
-
-          <div class="live-vis">
-            <h4>Signal field</h4>
-            <div id="signal-grid" class="signal-grid"></div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="peek-strip">
-        <span>Next: Research, writing and model thinking</span>
-      </div>
-
-    </section>
-
-
-    <!-- RESEARCH -->
-    <section id="research" class="section research-section">
-
-      <div class="section-header">
-        <h2>Research & Writing</h2>
-        <p>Turning experiments into structure and narrative.</p>
-      </div>
-
-      <div class="research-grid">
-
-        <article class="research-card glass-panel">
-          <h3>Interaction-centric cybersecurity risks in LLMs</h3>
-          <p class="research-tag">Safety • Taxonomy • Metrics</p>
-          <p class="research-preview">
-            Conversation-driven threat surfaces with layered defense and measurable safety signals.
+      <div class="cards-grid">
+        <article class="project-card">
+          <h3>Autonomous Hexacopter Platform</h3>
+          <p class="tagline">Lidar-guided flight • Mission Planner • Navio2</p>
+          <p>
+            Built and tuned a semi-autonomous hexacopter from frame to flight controller integration,
+            using Garmin lidar and telemetry for obstacle-aware missions.
           </p>
+          <p class="meta">Robotics • Embedded • Control</p>
         </article>
-
-        <article class="research-card glass-panel">
-          <h3>LiDAR-guided autonomy in constrained flight</h3>
-          <p class="research-tag">Robotics • Navigation</p>
-          <p class="research-preview">
-            Stability experiments with Garmin & TF Mini sensors on small platforms.
+        <article class="project-card">
+          <h3>Vial Sorting with RealSense & ML</h3>
+          <p class="tagline">Computer vision • Robotics • Real-time</p>
+          <p>
+            Designed a perception pipeline to detect vial cap colors and positions using Intel
+            RealSense, preparing robust inputs for a ROS-driven robotic arm.
           </p>
+          <p class="meta">AI • Vision • Pipelines</p>
         </article>
-
-        <article class="research-card glass-panel">
-          <h3>The cage is mental</h3>
-          <p class="research-tag">Mindset • Narrative</p>
-          <p class="research-preview">
-            Building from zero, staying restless and treating difficulty as training.
+        <article class="project-card">
+          <h3>LLM Dialogue Security Taxonomy</h3>
+          <p class="tagline">Adversarial prompts • Safety metrics • Layered defenses</p>
+          <p>
+            Ongoing research on interaction-centric security risks in LLM-powered dialogue systems,
+            proposing metrics like PISR, ILVI, DCR, and UTCE and a multi-layer defense pipeline.
           </p>
+          <p class="meta">AI Safety • Security • Research</p>
         </article>
-
       </div>
+    </div>
+  </section>
 
-      <div class="quote-section">
-        <p class="quote-line">Most people wait for instructions.</p>
-        <p class="quote-line">I build the system that writes them.</p>
-        <p class="quote-line">That is the gap I operate in.</p>
-      </div>
-
-      <div class="peek-strip">
-        <span>Next: Timeline of growth</span>
-      </div>
-
-    </section>
-
-
-    <!-- TIMELINE -->
-    <section id="timeline" class="section timeline-section">
-
-      <div class="section-header">
-        <h2>Timeline of Growth</h2>
-        <p>From zero knowledge to real systems.</p>
-      </div>
-
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-panel">
-            <h3>Early phase</h3>
-            <p>Curiosity-driven learning. No fixed plan. Just solving harder problems over time.</p>
-          </div>
+  <!-- RESEARCH -->
+  <section class="section section-light" id="research">
+    <div class="section-inner narrow fade-in">
+      <h2>Research direction</h2>
+      <p>
+        My core research interest sits at the intersection of
+        <strong>AI safety, cybersecurity, and human–machine interaction</strong>.
+        I care about what happens when real users, real incentives, and real attackers collide with
+        large language models and autonomous systems.
+      </p>
+      <p>
+        I’m currently developing a systematic view of <em>interaction-centric risks</em> in LLM-powered
+        dialogue systems and exploring layered defense strategies that align technical safeguards
+        with human behavior.
+      </p>
+      <div class="research-meta">
+        <div>
+          <h3>Areas I’m exploring</h3>
+          <ul>
+            <li>Adversarial dialogue and jailbreaks</li>
+            <li>Trust, misuse, and over-reliance</li>
+            <li>Metrics for defense effectiveness</li>
+            <li>Secure-by-design LLM interfaces</li>
+          </ul>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-panel">
-            <h3>Drones & autonomy</h3>
-            <p>Quadcopters, hexacopter, LiDAR integration, ESC sync, mission planner flows.</p>
-          </div>
+        <div>
+          <h3>Next steps</h3>
+          <p>
+            I’m preparing for a PhD in Computer Science focused on AI safety and security, and I’m
+            actively looking for collaborators, mentors, and research groups working on these problems.
+          </p>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-panel">
-            <h3>AI Security</h3>
-            <p>Dialogue-level risk modelling, guardrails, safety metrics.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-panel">
-            <h3>Next chapter</h3>
-            <p>Scaling research into labs, funded roles and real-world intelligent systems.</p>
-          </div>
-        </div>
-
       </div>
+    </div>
+  </section>
 
-      <div class="progress-card glass-panel">
-        <h3>Understanding level</h3>
-        <div class="progress-bar">
-          <div id="understanding-bar" class="progress-fill"></div>
-        </div>
-        <p id="understanding-text">You are at 0 percent. Keep scrolling.</p>
-      </div>
-
-    </section>
-
-
-    <!-- IMPACT -->
-    <section id="impact" class="section impact-section">
-      <div class="impact-block glass-panel">
-        <p class="impact-text">
-          I build systems that stay stable when everything else breaks.<br>
-          I solve problems that do not come with instructions.
-        </p>
-      </div>
-    </section>
-
-
-    <!-- CONTACT / ENDING -->
-    <section id="contact" class="section contact-section">
-      <div class="section-header">
-        <h2>Choose your ending</h2>
-        <p>Three ways to continue the conversation.</p>
-      </div>
-
-      <div class="end-grid">
-
-        <article class="end-card glass-panel">
-          <h3>Explore the lab</h3>
-          <p>More architectures, notes and technical reasoning.</p>
-          <a href="#systems" class="card-link">Back to systems</a>
-        </article>
-
-        <article class="end-card glass-panel">
-          <h3>Read the mind</h3>
-          <p>Essays, reflections and mental models.</p>
-          <a href="#research" class="card-link">Go to research</a>
-        </article>
-
-        <article class="end-card glass-panel">
-          <h3>Build together</h3>
-          <p>If my momentum fits your goals, reach out.</p>
-
-          <div class="cta-buttons">
-            <a href="Pratyush_Ranjan_Jena_Resume.pdf" class="btn primary" target="_blank">View resume</a>
-            <a href="mailto:pjena001@fiu.edu" class="btn ghost">Contact me</a>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="contact-meta">
+  <!-- ABOUT -->
+  <section class="section section-dark" id="about">
+    <div class="section-inner fade-in about-layout">
+      <div class="about-text">
+        <h2>The person behind the systems</h2>
         <p>
-          Also on LinkedIn and GitHub.  
-          Search: <strong>Pratyush Ranjan Jena</strong>
+          I grew up pulling things apart to see how they worked—then forcing myself to put them back
+          together better than before. That turned into drones, robots, AI systems and eventually,
+          a mindset:
+        </p>
+        <p class="quote">
+          “The cage is mental. The limit is how fast you’re willing to learn under pressure.”
+        </p>
+        <p>
+          Outside work and research, I’m obsessed with aquascaping, long-form conversations, and
+          designing systems—technical, financial, or personal—that compound over time.
         </p>
       </div>
+      <div class="about-side">
+        <div class="about-card">
+          <h3>Now</h3>
+          <ul>
+            <li>MS in Computer Science at FIU (Miami)</li>
+            <li>Deepening work in AI security & robotics</li>
+            <li>Planning PhD path and long-term research agenda</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>Values</h3>
+          <ul>
+            <li>Start from zero, learn fast</li>
+            <li>Own your systems, not just your tasks</li>
+            <li>Build things that outlive the semester</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <!-- CALL TO ACTION / NEXT MOVE -->
+  <section class="section section-highlight">
+    <div class="section-inner narrow fade-in">
+      <h2>Let’s build something that thinks</h2>
+      <p>
+        I’m open to research collaborations, internships, and roles where I can bridge
+        <strong>AI, security, and robotics</strong> into systems that matter in the real world.
+      </p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn primary large">Contact me</a>
+        <a href="#" class="btn ghost large">Download CV</a>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- CONTACT -->
+  <section class="section section-light" id="contact">
+    <div class="section-inner fade-in contact-layout">
+      <div>
+        <h2>Contact</h2>
+        <p>
+          Reach out if you want to talk research, systems, or ideas that don’t fit in a job description.
+        </p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:pjena001@fiu.edu">pjena001@fiu.edu</a></li>
+          <li><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/your-handle</a></li>
+          <li><strong>GitHub:</strong> <a href="#" target="_blank">github.com/your-handle</a></li>
+        </ul>
+      </div>
+      <form class="contact-form" action="#" method="post">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn primary full">Send message</button>
+      </form>
+    </div>
+  </section>
 
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Pratyush Ranjan Jena</span>
+      <span>Built with intent. Powered by curiosity.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
