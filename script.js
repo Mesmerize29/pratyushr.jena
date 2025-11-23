@@ -1,249 +1,239 @@
-// === Hero star magnet field ===
+// Smooth parallax and scroll based effects
 (function () {
-  const hero = document.querySelector(".hero");
-  const container = document.querySelector(".hero-particles");
-  if (!hero || !container) return;
+  const layers = document.querySelectorAll(".parallax-layer");
+  const scrollProgressBar = document.getElementById("scroll-progress");
+  const aiHudText = document.getElementById("ai-hud-text");
+  const understandingBar = document.getElementById("understanding-bar");
+  const understandingText = document.getElementById("understanding-text");
 
-  const NUM_PARTICLES = 80;       // how many stars
-  const particles = [];
-  const mouse = { x: 0, y: 0, inside: false };
+  function handleScroll() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollY / docHeight : 0;
 
-  function resetParticles() {
-    const rect = hero.getBoundingClientRect();
-
-    // make sure we have enough <span> elements
-    while (container.children.length < NUM_PARTICLES) {
-      container.appendChild(document.createElement("span"));
+    // Progress bar
+    if (scrollProgressBar) {
+      scrollProgressBar.style.width = `${progress * 100}%`;
     }
 
-    const spans = Array.from(container.querySelectorAll("span")).slice(
-      0,
-      NUM_PARTICLES
-    );
-
-    spans.forEach((el, index) => {
-      const baseX = Math.random() * rect.width;
-      const baseY = Math.random() * rect.height;
-
-      const size = 2 + Math.random() * 3;
-      el.style.width = size + "px";
-      el.style.height = size + "px";
-
-      particles[index] = {
-        el,
-        baseX,
-        baseY,
-        floatAmp: 15 + Math.random() * 20,      // how far it bobs up and down
-        floatSpeed: 0.4 + Math.random() * 0.8,  // how fast it bobs
-        floatPhase: Math.random() * Math.PI * 2,
-        sizeBase: size
-      };
+    // Parallax
+    layers.forEach((layer, index) => {
+      const depth = (index + 1) * 12;
+      layer.style.transform = `translate3d(0, ${-scrollY / depth}px, 0)`;
     });
+
+    // Understanding level (simple mapping)
+    const percent = Math.round(progress * 100);
+    if (understandingBar) {
+      understandingBar.style.width = `${percent}%`;
+    }
+    if (understandingText) {
+      if (percent < 10) {
+        understandingText.textContent = "You are at 0 percent. Keep scrolling.";
+      } else if (percent < 40) {
+        understandingText.textContent = "You see the surface. Systems are loading in.";
+      } else if (percent < 70) {
+        understandingText.textContent = "You have seen how I build and how I think.";
+      } else if (percent < 95) {
+        understandingText.textContent = "You now understand my direction and momentum.";
+      } else {
+        understandingText.textContent = "You have the full picture. If something clicked, reach out.";
+      }
+    }
+
+    // AI HUD mood based on scroll depth
+    if (aiHudText) {
+      if (progress < 0.2) {
+        aiHudText.textContent = "Calibrating to your curiosity...";
+      } else if (progress < 0.4) {
+        aiHudText.textContent = "Tracking how you move through the system.";
+      } else if (progress < 0.6) {
+        aiHudText.textContent = "Noting what you focus on and where you pause.";
+      } else if (progress < 0.8) {
+        aiHudText.textContent = "You are mapping my thinking in real time.";
+      } else {
+        aiHudText.textContent = "You have enough signal to decide. Build with me if it fits.";
+      }
+    }
   }
 
-  // track mouse position inside hero
-  hero.addEventListener("mousemove", (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-    mouse.inside = true;
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
+})();
+
+// AI orb following cursor (soft lag for time dilation feel)
+(function () {
+  const orb = document.getElementById("ai-orb");
+  if (!orb) return;
+
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+
+  window.addEventListener("mousemove", (e) => {
+    targetX = e.clientX + 40;
+    targetY = e.clientY - 40;
   });
 
-  hero.addEventListener("mouseenter", (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-    mouse.inside = true;
-  });
-
-  hero.addEventListener("mouseleave", () => {
-    mouse.inside = false;
-  });
-
-  window.addEventListener("resize", resetParticles);
-
-  function animate(time) {
-    const t = time / 1000;
-    const rect = hero.getBoundingClientRect();
-    const attractRadius = 260; // how far the cursor pulls stars
-    const minRadius = 60;      // hollow bubble around the cursor
-
-    particles.forEach((p) => {
-      // base floating motion
-      const floatY =
-        p.floatAmp * Math.sin(t * p.floatSpeed + p.floatPhase);
-
-      let finalX = p.baseX;
-      let finalY = p.baseY + floatY;
-
-      if (mouse.inside) {
-        // vector from star's base position to mouse
-        const dx0 = mouse.x - p.baseX;
-        const dy0 = mouse.y - (p.baseY + floatY);
-        const dist0 = Math.sqrt(dx0 * dx0 + dy0 * dy0) || 0.001;
-
-        // 0 near mouse, 1 far
-        const tNorm = Math.min(dist0 / attractRadius, 1);
-
-        // stronger pull when close, almost none far away
-        const strength = 0.25 * (1 - tNorm);
-
-        let offsetX = dx0 * strength;
-        let offsetY = dy0 * strength;
-
-        finalX = p.baseX + offsetX;
-        finalY = p.baseY + floatY + offsetY;
-
-        // keep a hollow zone around the cursor so stars never sit on it
-        const dx2 = mouse.x - finalX;
-        const dy2 = mouse.y - finalY;
-        const d2 = Math.sqrt(dx2 * dx2 + dy2 * dy2) || 0.001;
-
-        if (d2 < minRadius) {
-          const ratio = minRadius / d2;
-          finalX = mouse.x - dx2 * ratio;
-          finalY = mouse.y - dy2 * ratio;
-        }
-      }
-
-      // clamp to hero bounds
-      if (finalX < 0) finalX = 0;
-      if (finalX > rect.width) finalX = rect.width;
-      if (finalY < 0) finalY = 0;
-      if (finalY > rect.height) finalY = rect.height;
-
-      // size: closer to mouse = smaller, farther = slightly bigger
-      const distToMouse = Math.sqrt(
-        (mouse.x - finalX) * (mouse.x - finalX) +
-        (mouse.y - finalY) * (mouse.y - finalY)
-      ) || attractRadius;
-
-      const dNorm2 = Math.min(distToMouse / attractRadius, 1);
-      const scale = 0.4 + 0.9 * dNorm2;
-
-      p.el.style.left = finalX + "px";
-      p.el.style.top = finalY + "px";
-      p.el.style.transform = `scale(${scale})`;
-    });
-
+  function animate() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+    orb.style.transform = `translate(${currentX}px, ${currentY}px)`;
     requestAnimationFrame(animate);
   }
 
-  resetParticles();
-  requestAnimationFrame(animate);
+  animate();
 })();
 
-// Year in footer
-const yearSpan = document.getElementById("year");
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
+// Path selector logic
+(function () {
+  const pathButtons = document.querySelectorAll(".path-btn");
+  const output = document.getElementById("path-output");
 
-// Scroll reveal
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.18 }
-);
+  if (!pathButtons.length || !output) return;
 
-document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  const messages = {
+    tech:
+      "You care about architectures and tradeoffs. Scroll into the systems and research sections. Focus on how I design pipelines, handle constraints and make things robust under failure.",
+    recruiter:
+      "You want signal, not slogans. My work combines hands on builds, research mindset and the ability to communicate clearly. The systems, research and timeline sections will show you pattern, not noise.",
+    collab:
+      "You are hunting for a builder who can pick up ambiguity, design a plan and execute. Look at the systems, live data surface and impact sections. If you see alignment, reach out and we can scope something real."
+  };
 
-// Mobile nav toggle
-const nav = document.querySelector(".nav");
-const navToggle = document.querySelector(".nav-toggle");
-
-if (nav && navToggle) {
-  navToggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
-
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
+  pathButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      pathButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const path = btn.getAttribute("data-path");
+      output.textContent = messages[path] || "Path not found.";
     });
   });
-}
+})();
 
-// Simple parallax for layers and hero background
-const parallaxElements = document.querySelectorAll("[data-parallax-speed]");
+// Live metrics simulation
+(function () {
+  const framesEl = document.querySelector('[data-metric="frames"]');
+  const risksEl = document.querySelector('[data-metric="risks"]');
+  const nodesEl = document.querySelector('[data-metric="nodes"]');
+  const uptimeEl = document.querySelector('[data-metric="uptime"]');
 
-function handleParallax() {
-  const scrollY = window.scrollY || window.pageYOffset;
-  parallaxElements.forEach((el) => {
-    const speed = parseFloat(el.getAttribute("data-parallax-speed")) || 0;
-    const translateY = scrollY * speed;
-    el.style.transform = `translate3d(0, ${translateY}px, 0)`;
-  });
-}
+  let frames = 1200;
+  let risks = 3;
+  let nodes = 42;
+  let uptimeSeconds = 0;
 
-window.addEventListener("scroll", handleParallax);
-handleParallax();
+  if (!framesEl || !risksEl || !nodesEl || !uptimeEl) return;
 
-// Modal logic
-const modalBackdrop = document.querySelector("[data-modal-backdrop]");
-const systemCards = document.querySelectorAll(".system-card");
-let activeModal = null;
+  function updateMetrics() {
+    frames += Math.floor(Math.random() * 40) + 20;
+    if (Math.random() < 0.3) risks += 1;
+    if (Math.random() < 0.2) nodes += 1;
+    uptimeSeconds += 1;
 
-function openModal(selector) {
-  const modal = document.querySelector(selector);
-  if (!modal || !modalBackdrop) return;
-  activeModal = modal;
-  modalBackdrop.classList.add("active");
-  modal.style.display = "block";
-}
+    framesEl.textContent = frames.toLocaleString();
+    risksEl.textContent = risks;
+    nodesEl.textContent = nodes;
 
-function closeModal() {
-  if (!modalBackdrop) return;
-  modalBackdrop.classList.remove("active");
-  if (activeModal) {
-    activeModal.style.display = "none";
-    activeModal = null;
+    const minutes = Math.floor(uptimeSeconds / 60);
+    const seconds = uptimeSeconds % 60;
+    uptimeEl.textContent = `${minutes}m ${seconds}s`;
   }
-}
 
-systemCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const target = card.getAttribute("data-modal-target");
-    if (target) {
-      openModal(target);
+  setInterval(updateMetrics, 900);
+})();
+
+// Live data surface logs and signal field
+(function () {
+  const logStream = document.getElementById("log-stream");
+  const signalGrid = document.getElementById("signal-grid");
+
+  if (!logStream || !signalGrid) return;
+
+  // Create cells
+  const cellCount = 8 * 8;
+  const cells = [];
+  for (let i = 0; i < cellCount; i++) {
+    const div = document.createElement("div");
+    div.className = "signal-cell";
+    signalGrid.appendChild(div);
+    cells.push(div);
+  }
+
+  const logMessages = [
+    "Optical flow pattern stable. Delta within threshold.",
+    "LiDAR sweep complete. Obstacle field updated.",
+    "Dialogue risk score computed. No escalation triggered.",
+    "ESC sync confirmed. Motor outputs aligned.",
+    "Telemetry heartbeat received. Link stable.",
+    "Safety layer engaged. Monitoring anomalous prompts.",
+    "Sensor fusion pass: no conflicting state detected.",
+    "Search spiral mode active. Perimeter expanding.",
+    "PID adjustment applied. Vibration reduced.",
+    "Context window refreshed. Guardrails in place."
+  ];
+
+  function pushLog() {
+    const p = document.createElement("p");
+    const ts = new Date().toLocaleTimeString();
+    const msg = logMessages[Math.floor(Math.random() * logMessages.length)];
+    p.textContent = `[${ts}] ${msg}`;
+    logStream.appendChild(p);
+    // Keep last 40 entries
+    while (logStream.children.length > 40) {
+      logStream.removeChild(logStream.firstChild);
     }
+    logStream.scrollTop = logStream.scrollHeight;
+  }
+
+  function pulseSignals() {
+    cells.forEach((cell) => {
+      const intensity = Math.random();
+      const base = 0.08;
+      const alpha = base + intensity * 0.5;
+      cell.style.background = `rgba(65, 224, 255, ${alpha})`;
+    });
+  }
+
+  setInterval(pushLog, 1600);
+  setInterval(pulseSignals, 550);
+})();
+
+// Slow burn quote reveal with intersection observer
+(function () {
+  const lines = document.querySelectorAll(".quote-line");
+  if (!lines.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  lines.forEach((line, index) => {
+    line.style.transitionDelay = `${index * 0.25}s`;
+    observer.observe(line);
   });
-});
+})();
 
-if (modalBackdrop) {
-  modalBackdrop.addEventListener("click", (event) => {
-    if (event.target === modalBackdrop) {
-      closeModal();
-    }
+// System card modals placeholder logic
+(function () {
+  const cards = document.querySelectorAll(".system-card");
+  if (!cards.length) return;
+
+  // Optional: if you later add proper modal markup, wire it here.
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const title = card.querySelector("h3")?.textContent || "System view";
+      alert(
+        `${title}\n\nThis is a placeholder. Replace this alert with a modal that shows diagrams, architecture steps and your contribution breakdown.`
+      );
+    });
   });
-}
-
-document.querySelectorAll(".modal-close").forEach((btn) => {
-  btn.addEventListener("click", closeModal);
-});
-
-// Lite tilt effect for identity cards
-const tiltCards = document.querySelectorAll("[data-tilt]");
-
-tiltCards.forEach((card) => {
-  card.addEventListener("mousemove", (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -4;
-    const rotateY = ((x - centerX) / centerX) * 4;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "rotateX(0deg) rotateY(0deg)";
-  });
-});
+})();
