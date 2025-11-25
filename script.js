@@ -56,7 +56,7 @@
   items.forEach((el) => observer.observe(el));
 })();
 
-// Stats counter
+// Stats counters
 (function () {
   const stats = document.querySelectorAll(".stat-number");
   if (!stats.length) return;
@@ -81,7 +81,6 @@
     requestAnimationFrame(step);
   };
 
-  // Trigger when hero is visible
   const hero = document.getElementById("hero");
   if (!hero) return;
 
@@ -99,98 +98,129 @@
   io.observe(hero);
 })();
 
-// Lens toggle
+// Hero particle sim
 (function () {
-  const buttons = document.querySelectorAll(".lens-btn");
-  const textEl = document.getElementById("lens-text");
-  if (!buttons.length || !textEl) return;
+  const canvas = document.getElementById("hero-sim");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
 
-  const texts = {
-    nature:
-      "Under the nature lens, a drone is just another animal learning how to survive in a noisy world.",
-    systems:
-      "Under the computer lens, a drone is a control loop wrapped around sensors, failure modes, and constraints."
+  let width = 0;
+  let height = 0;
+  let particles = [];
+  const count = 45;
+  const mouse = { x: null, y: null, active: false };
+
+  const resize = () => {
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width;
+    canvas.height = height;
   };
 
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+  window.addEventListener("resize", resize);
+  resize();
 
-      const lens = btn.dataset.lens || "nature";
-      textEl.textContent = texts[lens] || texts.nature;
+  const createParticles = () => {
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: 2 + Math.random() * 2
+      });
+    }
+  };
+  createParticles();
+
+  const draw = () => {
+    ctx.clearRect(0, 0, width, height);
+    // subtle background haze
+    const grad = ctx.createLinearGradient(0, 0, width, height);
+    grad.addColorStop(0, "rgba(15,23,42,0.95)");
+    grad.addColorStop(1, "rgba(4,7,23,0.9)");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, width, height);
+
+    // links
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i];
+        const b = particles[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist2 = dx * dx + dy * dy;
+        if (dist2 < 80 * 80) {
+          const alpha = 1 - dist2 / (80 * 80);
+          ctx.strokeStyle = `rgba(74, 222, 128, ${alpha * 0.5})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // particles
+    particles.forEach((p) => {
+      // mouse influence
+      if (mouse.active && mouse.x != null) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist2 = dx * dx + dy * dy;
+        if (dist2 < 120 * 120) {
+          const dist = Math.sqrt(dist2) || 1;
+          const force = (120 - dist) / 120;
+          p.vx += (dx / dist) * force * 0.04;
+          p.vy += (dy / dist) * force * 0.04;
+        }
+      }
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // gentle bounds
+      if (p.x < 0) p.x = width;
+      if (p.x > width) p.x = 0;
+      if (p.y < 0) p.y = height;
+      if (p.y > height) p.y = 0;
+
+      // friction
+      p.vx *= 0.995;
+      p.vy *= 0.995;
+
+      const radialGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+      radialGrad.addColorStop(0, "rgba(74, 222, 128, 0.9)");
+      radialGrad.addColorStop(1, "rgba(34, 197, 94, 0)");
+      ctx.fillStyle = radialGrad;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 2.1, 0, Math.PI * 2);
+      ctx.fill();
     });
+
+    requestAnimationFrame(draw);
+  };
+  draw();
+
+  const updateMouse = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  };
+
+  canvas.addEventListener("pointermove", updateMouse);
+  canvas.addEventListener("pointerleave", () => {
+    mouse.active = false;
+    mouse.x = null;
+    mouse.y = null;
   });
 })();
 
-// Systems grid + log simulation
-(function () {
-  const grid = document.getElementById("signal-grid");
-  const log = document.getElementById("log-stream");
-  if (!grid || !log) return;
-
-  const ROWS = 6;
-  const COLS = 8;
-  const cells = [];
-
-  // Build grid
-  for (let i = 0; i < ROWS * COLS; i++) {
-    const cell = document.createElement("div");
-    cell.className = "signal-cell";
-    grid.appendChild(cell);
-    cells.push(cell);
-  }
-
-  const logLines = [
-    "Crazyflie::optical_flow spike, adjusting hover.",
-    "Hexacopter::LiDAR range drop, switching posture.",
-    "LLM::unsafe pattern detected, sanitizing prompt.",
-    "Vision::cap color mismatch, re-evaluating frame.",
-    "Telemetry::packet delay, widening tolerance window.",
-    "Planner::search radius expanded, spiral step +1.",
-    "Safety::fallback engaged, holding position.",
-    "Sensor::baseline recalibration in progress."
-  ];
-
-  const appendLog = () => {
-    const line = document.createElement("div");
-    line.className = "log-line";
-    const now = new Date();
-    const t =
-      String(now.getHours()).padStart(2, "0") +
-      ":" +
-      String(now.getMinutes()).padStart(2, "0") +
-      ":" +
-      String(now.getSeconds()).padStart(2, "0");
-    const msg = logLines[Math.floor(Math.random() * logLines.length)];
-    line.innerHTML = `<span>[${t}]</span> ${msg}`;
-    log.appendChild(line);
-    log.scrollTop = log.scrollHeight;
-    // Limit log length
-    if (log.children.length > 40) {
-      log.removeChild(log.firstChild);
-    }
-  };
-
-  const tick = () => {
-    // Reset some cells
-    cells.forEach((c) => {
-      if (Math.random() < 0.25) c.classList.remove("active");
-    });
-    // Activate a few random cells
-    for (let i = 0; i < 6; i++) {
-      const idx = Math.floor(Math.random() * cells.length);
-      cells[idx].classList.add("active");
-    }
-
-    if (Math.random() < 0.7) appendLog();
-  };
-
-  const start = () => setInterval(tick, 900);
-  start();
-})();
-
-// Parallax dots follow mouse slightly
+// Parallax orbs
 (function () {
   const dots = document.querySelectorAll(".parallax-dot");
   if (!dots.length) return;
