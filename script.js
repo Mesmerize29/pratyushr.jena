@@ -137,7 +137,6 @@
 
   const draw = () => {
     ctx.clearRect(0, 0, width, height);
-    // subtle background haze
     const grad = ctx.createLinearGradient(0, 0, width, height);
     grad.addColorStop(0, "rgba(15,23,42,0.95)");
     grad.addColorStop(1, "rgba(4,7,23,0.9)");
@@ -164,9 +163,7 @@
       }
     }
 
-    // particles
     particles.forEach((p) => {
-      // mouse influence
       if (mouse.active && mouse.x != null) {
         const dx = p.x - mouse.x;
         const dy = p.y - mouse.y;
@@ -182,13 +179,11 @@
       p.x += p.vx;
       p.y += p.vy;
 
-      // gentle bounds
       if (p.x < 0) p.x = width;
       if (p.x > width) p.x = 0;
       if (p.y < 0) p.y = height;
       if (p.y > height) p.y = 0;
 
-      // friction
       p.vx *= 0.995;
       p.vy *= 0.995;
 
@@ -237,6 +232,52 @@
       }px, 0)`;
     });
   });
+})();
+
+// Collaboration CTA forms
+(function () {
+  function setupCollabForm(formId, statusId) {
+    const form = document.getElementById(formId);
+    const status = document.getElementById(statusId);
+    if (!form || !status) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.textContent = "Sending...";
+      status.classList.remove("cta-status--ok", "cta-status--err");
+
+      const formData = new FormData(form);
+      const payload = {
+        email: formData.get("email"),
+        idea: formData.get("idea"),
+        source: formId
+      };
+
+      try {
+        // Replace "/api/collab" with your backend endpoint
+        const res = await fetch("/api/collab", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          throw new Error("Request failed");
+        }
+
+        status.textContent = "Got it. I will read this.";
+        status.classList.add("cta-status--ok");
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        status.textContent = "Something went wrong. Try again in a bit.";
+        status.classList.add("cta-status--err");
+      }
+    });
+  }
+
+  setupCollabForm("collab-form-top", "cta-status-top");
+  setupCollabForm("collab-form-bottom", "cta-status-bottom");
 })();
 
 // Footer year
