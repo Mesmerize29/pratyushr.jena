@@ -900,6 +900,85 @@ button:focus-visible,
   font-size: 0.88rem;
 }
 
+/* Collab CTA bars */
+
+.cta-bar {
+  padding: 22px 0;
+  background: rgba(2, 8, 23, 0.96);
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.cta-bar--top {
+  border-top: none;
+}
+
+.cta-bar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.cta-bar-text h2 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.cta-bar-text p {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.cta-bar-form {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.cta-input {
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.96);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  padding: 0 14px;
+}
+
+.cta-input::placeholder {
+  color: var(--text-soft);
+}
+
+.cta-input:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+.cta-btn {
+  padding-inline: 16px;
+  white-space: nowrap;
+}
+
+.cta-status {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  min-height: 16px;
+}
+
+.cta-status--ok {
+  color: var(--accent-bright);
+}
+
+.cta-status--err {
+  color: #f97373;
+}
+
 /* Scroll reveal */
 
 .reveal {
@@ -938,6 +1017,19 @@ button:focus-visible,
 
   .contact-inner {
     grid-template-columns: 1fr;
+  }
+
+  .cta-bar-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-bar-form {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
