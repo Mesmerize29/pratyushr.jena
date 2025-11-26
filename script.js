@@ -34,11 +34,13 @@
 
 // Scroll reveal
 (function () {
-  const items = document.querySelectorAll(".section, .cta-bar");
-  if (!items.length) return;
+  const sections = document.querySelectorAll(".section, .cta-bar");
+  if (!sections.length) return;
+
+  sections.forEach((el) => el.classList.add("reveal"));
 
   if (!("IntersectionObserver" in window)) {
-    items.forEach((el) => el.classList.add("visible"));
+    sections.forEach((el) => el.classList.add("visible"));
     return;
   }
 
@@ -54,8 +56,7 @@
     { threshold: 0.18 }
   );
 
-  items.forEach((el) => el.classList.add("reveal"));
-  items.forEach((el) => observer.observe(el));
+  sections.forEach((el) => observer.observe(el));
 })();
 
 // Stats counters
@@ -221,6 +222,25 @@
     mouse.active = false;
     mouse.x = null;
     mouse.y = null;
+  });
+})();
+
+// Parallax orbs
+(function () {
+  const dots = document.querySelectorAll(".parallax-dot");
+  if (!dots.length) return;
+
+  document.addEventListener("pointermove", (e) => {
+    const { innerWidth: w, innerHeight: h } = window;
+    const xNorm = (e.clientX / w - 0.5) * 2;
+    const yNorm = (e.clientY / h - 0.5) * 2;
+
+    dots.forEach((dot, idx) => {
+      const intensity = (idx + 1) * 4;
+      dot.style.transform = `translate3d(${xNorm * intensity}px, ${
+        yNorm * intensity
+      }px, 0)`;
+    });
   });
 })();
 
