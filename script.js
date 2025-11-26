@@ -22,7 +22,8 @@
 
   const update = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const height =
+      document.documentElement.scrollHeight - window.innerHeight;
     const ratio = height > 0 ? scrollTop / height : 0;
     bar.style.width = `${ratio * 100}%`;
   };
@@ -33,7 +34,7 @@
 
 // Scroll reveal
 (function () {
-  const items = document.querySelectorAll(".reveal");
+  const items = document.querySelectorAll(".section, .cta-bar");
   if (!items.length) return;
 
   if (!("IntersectionObserver" in window)) {
@@ -53,6 +54,7 @@
     { threshold: 0.18 }
   );
 
+  items.forEach((el) => el.classList.add("reveal"));
   items.forEach((el) => observer.observe(el));
 })();
 
@@ -187,7 +189,14 @@
       p.vx *= 0.995;
       p.vy *= 0.995;
 
-      const radialGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+      const radialGrad = ctx.createRadialGradient(
+        p.x,
+        p.y,
+        0,
+        p.x,
+        p.y,
+        p.r * 3
+      );
       radialGrad.addColorStop(0, "rgba(74, 222, 128, 0.9)");
       radialGrad.addColorStop(1, "rgba(34, 197, 94, 0)");
       ctx.fillStyle = radialGrad;
@@ -215,25 +224,6 @@
   });
 })();
 
-// Parallax orbs
-(function () {
-  const dots = document.querySelectorAll(".parallax-dot");
-  if (!dots.length) return;
-
-  document.addEventListener("pointermove", (e) => {
-    const { innerWidth: w, innerHeight: h } = window;
-    const xNorm = (e.clientX / w - 0.5) * 2;
-    const yNorm = (e.clientY / h - 0.5) * 2;
-
-    dots.forEach((dot, idx) => {
-      const intensity = (idx + 1) * 4;
-      dot.style.transform = `translate3d(${xNorm * intensity}px, ${
-        yNorm * intensity
-      }px, 0)`;
-    });
-  });
-})();
-
 // Collaboration CTA forms
 (function () {
   function setupCollabForm(formId, statusId) {
@@ -254,7 +244,7 @@
       };
 
       try {
-        // Replace "/api/collab" with your backend endpoint
+        // Replace with your backend endpoint
         const res = await fetch("/api/collab", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
