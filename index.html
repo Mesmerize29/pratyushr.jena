@@ -2,545 +2,396 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>
-    Pratyush Ranjan Jena | AI Security • Robotics • Intelligent Systems
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Pratyush Ranjan Jena is a computer science researcher working on AI security, robotics, and nature inspired intelligent systems."
-  />
+  <title>Pratyush Ranjan Jena — AI Security • Robotics • Intelligent Systems</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
 </head>
-
 <body>
-  <!-- Scroll progress -->
-  <div id="scroll-progress"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-  <!-- Background layers -->
-  <div class="bg-layer bg-gradient"></div>
-  <div class="bg-layer bg-grid"></div>
-  <div class="bg-layer bg-orbs">
-    <div class="orb orb-1 parallax-dot"></div>
-    <div class="orb orb-2 parallax-dot"></div>
-    <div class="orb orb-3 parallax-dot"></div>
-  </div>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#hero" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">Pratyush Jena</span>
-      </a>
-      <nav class="nav">
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#usp">About</a></li>
-          <li><a href="#projects">Work</a></li>
-          <li><a href="#thinking">Systems</a></li>
-          <li><a href="#vision">Vision</a></li>
-          <li><a href="#timeline">Timeline</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+  <!-- Top nav (Samsung / portfolio style) -->
+  <header class="nav-shell">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="nav-logo">
+          <!-- replace with your final logo -->
+          <img src="logo.png" alt="Pratyush logo" />
+          <span>Pratyush Ranjan Jena</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#usp">Focus</a>
+        <a href="#projects">Work</a>
+        <a href="#thinking">Thinking</a>
+        <a href="#timeline">Trajectory</a>
+        <a href="#collab" class="nav-highlight">Collaborate</a>
       </nav>
+    </div>
+
+    <!-- top message bar -->
+    <div class="top-cta">
+      <div class="top-cta-inner">
+        <div class="top-cta-text">
+          <span class="pill">Open to collaboration</span>
+          <span>Pitch your idea for AI security, robotics, or nature-aligned systems.</span>
+        </div>
+        <button id="topPitchBtn" class="btn-ghost">Pitch an idea</button>
+      </div>
     </div>
   </header>
 
   <main>
-
-    <!-- HERO -->
-    <section id="hero" class="section hero paper-section">
-      <!-- paper cut layers -->
-      <div class="paper-layer paper-layer-hero-1"></div>
-      <div class="paper-layer paper-layer-hero-2"></div>
-
-      <div class="container hero-inner">
-        <div class="hero-content">
-          <p class="hero-kicker">
-            AI Security • Robotics • Intelligent Systems
-          </p>
-
+    <!-- HERO (Samsung + EarthSpecies feel) -->
+    <section class="hero" id="hero">
+      <div class="hero-layout">
+        <div class="hero-left">
+          <div class="hero-eyebrow">AI Security • Robotics • Nature-Inspired Systems</div>
           <h1>
-            Computer science for<br />
-            a living, changing world.
+            I build and study<br />
+            <span class="accent">intelligent systems</span><br />
+            that respect the real world.
           </h1>
 
-          <p class="hero-subtitle">
-            I build intelligent systems at the intersection of AI safety, robotics,
-            and nature inspired computation.
+          <p class="hero-tagline">
+            From micro-drones and cyber-physical control to interaction-centric LLM security,
+            I work on systems that can perceive, adapt, and stay trustworthy in messy environments.
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn primary">See signature projects</a>
-            <a href="#usp" class="btn ghost">Who I am</a>
+            <button id="scrollProjects" class="btn-primary">Explore my work</button>
+            <button id="openPitchModal" class="btn-secondary">Pitch a collaboration</button>
           </div>
 
-          <div class="hero-meta">
-            <div class="meta-item">
-              <span class="meta-label">Focus</span>
-              <span class="meta-value">LLM security, autonomy, systems</span>
+          <div class="hero-chips">
+            <div class="chip">
+              <span class="chip-label">Current focus</span>
+              <span class="chip-text">LLM security, autonomous drones, and cyber-physical safety.</span>
             </div>
-            <div class="meta-item">
-              <span class="meta-label">Long game</span>
-              <span class="meta-value">AI x biodiversity conservatory</span>
+            <div class="chip">
+              <span class="chip-label">Direction</span>
+              <span class="chip-text">Towards a nature-aligned intelligent conservatory.</span>
             </div>
           </div>
         </div>
 
-        <!-- Interactive experiment -->
-        <aside class="hero-panel">
-          <div class="panel-header">
-            <span class="chip chip-nature">Nature</span>
-            <span class="chip chip-systems">Computation</span>
-          </div>
-
-          <p class="lens-text">
-            A small field of agents reacting to you like signals in a network
-            or organisms in an ecosystem.
-          </p>
-
-          <div class="hero-sim-wrapper">
-            <canvas id="hero-sim" aria-label="Interactive particle field"></canvas>
-          </div>
-
-          <div class="panel-monitor">
-            <div class="monitor-label">What you are seeing</div>
-            <div class="monitor-stats">
-              <div class="stat">
-                <span class="stat-number" data-target="3">0</span>
-                <span class="stat-label">domains fused</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number" data-target="1">0</span>
-                <span class="stat-label">way of thinking</span>
+        <div class="hero-right">
+          <div class="hero-orbit-card">
+            <!-- Owl-earth logo in a “device / card” style -->
+            <div class="orbit-logo-shell">
+              <img src="logo.png" alt="Pratyush mark" class="orbit-logo" />
+            </div>
+            <div class="orbit-text">
+              <h2>Systems that notice, adapt, and protect.</h2>
+              <p>
+                LLMs that understand interaction risk, drones that search and navigate,
+                and vision systems that can recalibrate when the world shifts by a few millimeters.
+              </p>
+              <div class="orbit-tags">
+                <span>LLM security</span>
+                <span>Autonomous robotics</span>
+                <span>Cyber-physical systems</span>
               </div>
             </div>
-            <div class="monitor-bars">
-              <div class="bar-row">
-                <span>Systems</span>
-                <div class="bar"><span class="bar-fill bar-fill-1"></span></div>
-              </div>
-              <div class="bar-row">
-                <span>Nature</span>
-                <div class="bar"><span class="bar-fill bar-fill-2"></span></div>
-              </div>
+
+            <!-- interactive halo (EarthSpecies / zgraphics flavour) -->
+            <div class="hero-orbit">
+              <div class="orbit-ring orbit-ring-1"></div>
+              <div class="orbit-ring orbit-ring-2"></div>
+              <div class="orbit-ring orbit-ring-3"></div>
+              <div class="orbit-node orbit-node-1"></div>
+              <div class="orbit-node orbit-node-2"></div>
+              <div class="orbit-node orbit-node-3"></div>
             </div>
           </div>
-        </aside>
+        </div>
+      </div>
+
+      <!-- quick stats band (Mayur / Harsh style) -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-label">Domains</span>
+          <span class="hero-stat-value">AI Security, Robotics, Cyber-Physical Systems</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-label">Work style</span>
+          <span class="hero-stat-value">Research-driven, systems-first, nature-aware</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-label">Seeking</span>
+          <span class="hero-stat-value">Research collaborations & PhD-aligned projects</span>
+        </div>
       </div>
     </section>
 
-    <!-- TOP COLLAB CTA BAR -->
-    <section class="cta-bar cta-bar--top">
-      <div class="container cta-bar-inner">
-        <div class="cta-bar-text">
-          <h2>Pitch your idea for collaboration</h2>
+    <!-- FOCUS / USP -->
+    <section class="section" id="usp">
+      <div class="section-heading">
+        <div class="section-label">Focus</div>
+        <h2>What I actually work on.</h2>
+        <p>
+          Not buzzwords — concrete areas where I’ve spent time writing, debugging, and thinking:
+          interaction-centric LLM security, autonomous robotics, and nature-inspired system design.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Interaction-centric LLM security</h3>
           <p>
-            One clear message. Tell me what you are building and why you think we should work on it together.
+            I analyse how prompts, tools, policies, and people interact with LLMs and design
+            layered defenses across input, processing, and output instead of relying on a single filter.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Robotics & cyber-physical control</h3>
+          <p>
+            High-level logic for drones and micro-robots that can search, avoid, and realign using
+            optical flow, range sensing, GPS, and mission-planner workflows.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Nature-inspired architecture</h3>
+          <p>
+            Thinking in terms of ecosystems: feedback loops, resilience, and redundancy, and
+            using those to guide how I architect AI and conservation-aligned systems.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FEATURED WORK (Samsung product cards style) -->
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <div class="section-label">Selected work</div>
+        <h2>Projects that reflect how I think.</h2>
+        <p>
+          Each project is a small slice of the same question:
+          “How do we make intelligent systems reliable in the real world?”
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="card project-card">
+          <div class="pill-pill">LLM Security • Research</div>
+          <h3>Interaction-Centric Cybersecurity for LLM Dialogue Systems</h3>
+          <p>
+            A taxonomy and defense pipeline that looks at risks across input, processing,
+            and output stages of LLM-powered conversations, with custom metrics for
+            prompt safety and response integrity.
+          </p>
+          <ul class="project-list">
+            <li>Interaction-chain taxonomy for LLM threats</li>
+            <li>Layered pipeline: sanitization, provenance, backdoor checks, output auditing</li>
+            <li>Structured like an IEEE-style research paper</li>
+          </ul>
+        </article>
+
+        <article class="card project-card">
+          <div class="pill-pill">Autonomous Robotics</div>
+          <h3>Spiral-Search Hexacopter & Micro-Drone Behaviors</h3>
+          <p>
+            High-level behaviors for drones that can perform spiral search, obstacle avoidance,
+            and line following using optical flow, LiDAR, GPS, and mission-planner primitives.
+          </p>
+          <ul class="project-list">
+            <li>Spiral search and line-tracking patterns</li>
+            <li>Obstacle-aware navigation from sensor fusion</li>
+            <li>Configurable via mission-planning workflows</li>
+          </ul>
+        </article>
+
+        <article class="card project-card">
+          <div class="pill-pill">Perception & Control</div>
+          <h3>RealSense-based Vial Classification & Re-Alignment</h3>
+          <p>
+            A vision pipeline that classifies vial caps by color and lets a robot re-align
+            after each pick, compensating for slight shifts in the vial holders.
+          </p>
+          <ul class="project-list">
+            <li>Color segmentation & cap-state mapping</li>
+            <li>Handling capless / black-cap equivalence rules</li>
+            <li>Designed to plug into ROS-based arms</li>
+          </ul>
+        </article>
+
+        <article class="card project-card">
+          <div class="pill-pill">Long-horizon vision</div>
+          <h3>Nature-Aligned Intelligent Conservatory</h3>
+          <p>
+            A concept for a conservatory where AI, sensing, and robotics support biodiversity:
+            monitoring habitats, aiding caretakers, and structuring incentives so nature benefits first.
+          </p>
+          <ul class="project-list">
+            <li>Framing AI as infrastructure for ecosystems</li>
+            <li>Combining robotics, sensing, and governance</li>
+            <li>Intended as a long-term research direction</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- THINKING (EarthSpecies section style: text blocks, calm) -->
+    <section class="section section-soft" id="thinking">
+      <div class="section-heading">
+        <div class="section-label">Mental models</div>
+        <h2>How I think about systems.</h2>
+        <p>
+          These aren’t slogans. They’re the filters I use when deciding what to build,
+          what to say no to, and how to judge whether something is actually safe.
+        </p>
+      </div>
+
+      <div class="thinking-grid">
+        <article class="thinking-block">
+          <h3>Interaction chains over components</h3>
+          <p>
+            Systems don’t fail in a vacuum. They fail at the joints where humans, agents,
+            tools, and policies interact. I design around those joints.
+          </p>
+        </article>
+        <article class="thinking-block">
+          <h3>Safety before scale</h3>
+          <p>
+            Scaling a fragile system just multiplies risk. I care more about whether a
+            small loop is robust than whether a big system looks impressive.
+          </p>
+        </article>
+        <article class="thinking-block">
+          <h3>Nature as a design review</h3>
+          <p>
+            Ecosystems have already solved stability, redundancy, and adaptation at scale.
+            If an architecture contradicts those principles, I assume it will break.
+          </p>
+        </article>
+        <article class="thinking-block">
+          <h3>Architecture is a promise</h3>
+          <p>
+            The structure of a system is a long-term promise about how it will behave.
+            I treat architecture as seriously as the current performance numbers.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TIMELINE (zgraphics / portfolio-style) -->
+    <section class="section" id="timeline">
+      <div class="section-heading">
+        <div class="section-label">Trajectory</div>
+        <h2>Where this is heading.</h2>
+        <p>
+          A rough map of how my work has evolved — and where I intend to push it next.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-body">
+            <h3>Drones & micro-robots</h3>
+            <p>
+              Hands-on build and control work with multi-rotors and micro-drones,
+              optical-flow based stabilization, and early autonomous behaviors.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-body">
+            <h3>Interaction-centric LLM security</h3>
+            <p>
+              Shifted focus to how LLM systems break under real usage, designing a
+              taxonomy and layered defense pipeline across interaction stages.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2026 →</div>
+          <div class="timeline-body">
+            <h3>PhD-level research direction</h3>
+            <p>
+              Deepening work at the intersection of AI security, robotics, and
+              cyber-physical systems, with an eye towards long-term, funded research.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2030 →</div>
+          <div class="timeline-body">
+            <h3>AI x biodiversity conservatory</h3>
+            <p>
+              A living lab where intelligent systems actively help preserve and
+              regenerate ecosystems — not as a side project, but as core infrastructure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLAB CTA (Samsung / hero-bar style) -->
+    <section class="bottom-cta" id="collab">
+      <div class="bottom-cta-inner">
+        <div class="bottom-cta-text">
+          <h2>Pitch your idea for collaboration.</h2>
+          <p>
+            Research collab, security evaluation, robotics prototype, or something unnamed yet —
+            if it sits inside AI, robotics, or nature-aligned systems, I want to hear it.
           </p>
         </div>
-        <form class="cta-bar-form" id="collab-form-top">
-          <input
-            type="email"
-            name="email"
-            class="cta-input"
-            placeholder="Your email"
-            required
-          />
-          <input
-            type="text"
+        <form id="collabForm" class="collab-form">
+          <div class="form-row">
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+            <input type="email" id="email" name="email" placeholder="Email" required />
+          </div>
+          <textarea
+            id="idea"
             name="idea"
-            class="cta-input"
-            placeholder="In one line, what do you want to build?"
+            rows="3"
+            placeholder="Tell me what you’re thinking. Be specific, be honest."
             required
-          />
-          <button type="submit" class="btn primary cta-btn">Send</button>
-          <p class="cta-status" id="cta-status-top"></p>
+          ></textarea>
+          <button type="submit" class="btn-primary">Send pitch</button>
+          <p class="form-note">
+            This opens your email client with a pre-filled message. You stay fully in control.
+          </p>
         </form>
       </div>
     </section>
-
-    <!-- ABOUT / USP -->
-    <section id="usp" class="section section-alt paper-section">
-      <div class="paper-layer paper-layer-soft-1"></div>
-      <div class="paper-layer paper-layer-soft-2"></div>
-
-      <div class="container section-inner">
-        <div class="section-header">
-          <h2>What I actually do</h2>
-          <p class="power-intro">
-            I design systems that think, act, and adapt whether it is LLM security,
-            autonomous robots, or long horizon models inspired by ecosystems.
-          </p>
-        </div>
-
-        <div class="usp-grid">
-          <div class="usp-card">
-            <h3>Why I am different</h3>
-            <p>
-              I do not treat computer science as features or tools. I treat it as an ecosystem.
-              Every choice is about how it behaves when things go off script.
-            </p>
-          </div>
-          <div class="usp-card">
-            <h3>My research angle</h3>
-            <p>
-              AI security and intelligent systems, grounded in interaction chains, not isolated tricks.
-              I care about how failures emerge over time, not in a single step.
-            </p>
-          </div>
-          <div class="usp-card">
-            <h3>Long term direction</h3>
-            <p>
-              Nature, AI, and robotics converging into systems that can preserve, understand,
-              and regenerate ecosystems while staying safe and accountable.
-            </p>
-          </div>
-          <div class="usp-card">
-            <h3>Why people remember me</h3>
-            <p>
-              I combine researcher depth with builder instincts and a long horizon vision.
-              I do not stop at getting something to work. I keep asking what it becomes over time.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SIGNATURE PROJECTS -->
-    <section id="projects" class="section paper-section">
-      <div class="paper-layer paper-layer-cut-left"></div>
-      <div class="paper-layer paper-layer-cut-right"></div>
-
-      <div class="container section-inner">
-        <div class="section-header">
-          <h2>Signature projects</h2>
-          <p>
-            Not a list of tasks. These are arcs that changed how I think about AI,
-            systems, and the world they live in.
-          </p>
-        </div>
-
-        <div class="project-grid">
-
-          <!-- LLM Security -->
-          <article class="project-story">
-            <div class="project-story-visual project-visual--llm">
-              <div class="project-tag">LLM security framework</div>
-              <div class="project-wave"></div>
-            </div>
-            <div class="project-story-body">
-              <h3>Interaction centric LLM security framework</h3>
-              <p>
-                Most LLM security talk felt like a list of tricks. Prompt this, block that.
-                Nothing about how the whole system behaves over time.
-              </p>
-              <p>
-                I reframed it as an interaction chain. Inputs, internal processing, outputs.
-                At each stage I mapped failure patterns, attacks, and what a realistic defense
-                would look like if it had to live inside a product.
-              </p>
-              <p>
-                The result is an interaction centric taxonomy and a layered defense pipeline,
-                structured as an IEEE style review and a blueprint for future tools.
-              </p>
-            </div>
-          </article>
-
-          <!-- Hexacopter / autonomy -->
-          <article class="project-story">
-            <div class="project-story-visual project-visual--systems">
-              <div class="project-tag">Autonomous platform</div>
-              <div class="project-wave"></div>
-            </div>
-            <div class="project-story-body">
-              <h3>Hexacopter and cyber physical behavior</h3>
-              <p>
-                On paper, the hexacopter is hardware. In practice it is a computer science problem.
-                Modes, states, transitions, and what happens when the world behaves like a bug report.
-              </p>
-              <p>
-                Using Navio2, LiDAR, TF Mini, and Mission Planner I worked on how the system should
-                react when ranges drop, wind shifts, or telemetry lies. The point was not just to fly
-                but to stay explainable.
-              </p>
-              <p>
-                It forced me to express behavior as clear states and transitions and to use telemetry
-                and logs as first class tools for debugging reality.
-              </p>
-            </div>
-          </article>
-
-          <!-- RealSense vial system -->
-          <article class="project-story">
-            <div class="project-story-visual project-visual--vision">
-              <div class="project-tag">Vision guided mapping</div>
-              <div class="project-wave"></div>
-            </div>
-            <div class="project-story-body">
-              <h3>RealSense vial classification and layout</h3>
-              <p>
-                In labs, nothing is perfectly aligned. Lighting shifts, holders move, caps are missing.
-                I built a RealSense based system that accepts this instead of fighting it.
-              </p>
-              <p>
-                It detects cap colors, segments vials into four holders, and creates a clean map
-                for a future robot. Black caps, missing caps, and empty spots are handled
-                in one consistent way so the controller does not have to guess.
-              </p>
-              <p>
-                The win is the interface. A bridge between noisy pixels and simple data structures
-                that robotic logic can trust.
-              </p>
-            </div>
-          </article>
-
-          <!-- Nature x AI Vision -->
-          <article class="project-story">
-            <div class="project-story-visual project-visual--nature">
-              <div class="project-tag">Nature x AI vision</div>
-              <div class="project-wave"></div>
-            </div>
-            <div class="project-story-body">
-              <h3>The conservatory of the future</h3>
-              <p>
-                Beyond any single project, I am shaping a bigger arc. A future conservatory and
-                research space where AI, robotics, and biology work together.
-              </p>
-              <p>
-                Think of it as an AI assisted ecosystem. Sensors, agents, and models working to
-                observe, protect, and regenerate habitats. Less of a zoo and more of a living
-                systems lab.
-              </p>
-              <p>
-                LLM safety, robotics, and nature inspired computation are all training grounds
-                for that longer horizon work.
-              </p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW I THINK ABOUT SYSTEMS -->
-    <section id="thinking" class="section section-dark paper-section">
-      <div class="paper-layer paper-layer-soft-3"></div>
-
-      <div class="container section-inner thinking-inner">
-        <div class="section-header">
-          <h2>How I think about systems</h2>
-          <p>
-            Good systems are not stacks of features. They are interactions, states,
-            and behavior over long horizons.
-          </p>
-        </div>
-
-        <div class="thinking-grid">
-          <div class="thinking-card">
-            <h3>Interaction chains</h3>
-            <p>
-              I look at how information enters, moves, and leaves. Every stage can amplify
-              or dampen risk, so each one needs its own checks and structure.
-            </p>
-          </div>
-          <div class="thinking-card">
-            <h3>Systems over components</h3>
-            <p>
-              A perfect module in a broken system is still a failure. I care more about
-              the full loop than any single elegant function.
-            </p>
-          </div>
-          <div class="thinking-card">
-            <h3>Nature inspired AI</h3>
-            <p>
-              Ecosystems solve stability and adaptation with simple local rules.
-              I borrow those ideas when I design control, policies, and safety logic.
-            </p>
-          </div>
-          <div class="thinking-card">
-            <h3>Safety before scale</h3>
-            <p>
-              I would rather have a smaller system I understand than a huge system
-              that surprises me. Scale comes after I trust how it behaves.
-            </p>
-          </div>
-          <div class="thinking-card">
-            <h3>Long term architecture</h3>
-            <p>
-              I design with future failure in mind. How will this system behave after
-              months of weird data and human shortcuts.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISION -->
-    <section id="vision" class="section paper-section section-alt">
-      <div class="paper-layer paper-layer-cut-top"></div>
-
-      <div class="container section-inner vision-inner">
-        <div class="section-header">
-          <h2>Where this is heading</h2>
-          <p>
-            Short version: intelligent systems that actively help preserve and regenerate
-            the world instead of quietly extracting from it.
-          </p>
-        </div>
-
-        <div class="vision-block">
-          <p>
-            My long term work aims to build intelligent systems capable of preserving,
-            understanding, and regenerating ecosystems. That means AI models that are aware
-            of their impact, robotic platforms that behave like responsible visitors,
-            and architectures that keep humans accountable and in the loop.
-          </p>
-          <p>
-            The goal is not just smarter systems. It is systems that make it easier for people
-            to do the right thing for the places we live in.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section id="timeline" class="section paper-section">
-      <div class="paper-layer paper-layer-soft-4"></div>
-
-      <div class="container section-inner timeline-inner">
-        <div class="section-header">
-          <h2>Journey so far and where it is going</h2>
-          <p>
-            People trust time. This is how the arc is unfolding.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-line"></div>
-
-          <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2024</div>
-            <div class="timeline-body">
-              <h3>Systems meet reality</h3>
-              <p>
-                Started building and debugging autonomous platforms and lab systems.
-                Learned how small assumptions break once they meet hardware and humans.
-              </p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2025</div>
-            <div class="timeline-body">
-              <h3>LLM security and interaction centric thinking</h3>
-              <p>
-                Shifted focus into AI security with an interaction centric view.
-                Began formalizing taxonomies and defense pipelines instead of one off tricks.
-              </p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2026</div>
-            <div class="timeline-body">
-              <h3>PhD and deeper research</h3>
-              <p>
-                Intention: start a PhD in computer science with a focus on AI security,
-                systems, and nature inspired architectures.
-              </p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2030</div>
-            <div class="timeline-body">
-              <h3>AI x biodiversity lab</h3>
-              <p>
-                A dedicated lab and conservatory where AI, robotics, and ecology collaborate.
-                Systems that watch over habitats and help humans take better care of them.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOTTOM COLLAB CTA BAR -->
-    <section class="cta-bar cta-bar--bottom">
-      <div class="container cta-bar-inner">
-        <div class="cta-bar-text">
-          <h2>Still here? Pitch your idea.</h2>
-          <p>
-            If you reached this far, you probably see where this is going.
-            Send one serious collaboration idea.
-          </p>
-        </div>
-        <form class="cta-bar-form" id="collab-form-bottom">
-          <input
-            type="email"
-            name="email"
-            class="cta-input"
-            placeholder="Your email"
-            required
-          />
-          <input
-            type="text"
-            name="idea"
-            class="cta-input"
-            placeholder="What do you want us to build or research?"
-            required
-          />
-          <button type="submit" class="btn primary cta-btn">Send</button>
-          <p class="cta-status" id="cta-status-bottom"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section section-dark">
-      <div class="container section-inner contact-inner">
-        <div class="contact-orb-wrapper">
-          <div class="contact-orb">
-            <div class="contact-orb-core"></div>
-          </div>
-        </div>
-        <div class="contact-content">
-          <h2>Build something that has to work</h2>
-          <p>
-            If you are working on AI, systems, or anything that touches the real world
-            and cannot quietly fail, I would like to hear what you are building.
-          </p>
-          <div class="contact-links">
-            <a href="mailto:pjena001@fiu.edu" class="btn primary">Email</a>
-            <a href="#" class="btn ghost">LinkedIn</a>
-            <a href="#" class="btn ghost">GitHub</a>
-            <a href="#" class="btn ghost">CV</a>
-          </div>
-          <p class="contact-note">
-            When you leave this page, I want you to remember the way it thinks,
-            not just the way it looks.
-          </p>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Pratyush Ranjan Jena</p>
-      <p>AI security • intelligent systems • nature aware thinking.</p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Pratyush Ranjan Jena</span>
+      <div class="footer-links">
+        <a href="mailto:pratyushr.jena@gmail.com">Email</a>
+        <a href="https://github.com/mesmerize29" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
     </div>
   </footer>
+
+  <!-- Collaboration modal -->
+  <div id="pitchModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal">×</button>
+      <h2 id="modalTitle">Pitch your idea</h2>
+      <p>
+        Short, sharp, and honest. If it aligns with my current focus and bandwidth,
+        I’ll get back to you.
+      </p>
+      <form id="modalForm" class="modal-form">
+        <input type="text" id="modalName" placeholder="Your name" required />
+        <input type="email" id="modalEmail" placeholder="Email" required />
+        <textarea id="modalIdea" rows="4" placeholder="Your collaboration idea" required></textarea>
+        <button type="submit" class="btn-primary">Open email draft</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
