@@ -77,7 +77,7 @@
           </div>
         </div>
 
-        <!-- Right side: app-like card with logo + interactive field behind -->
+        <!-- Right side: app-like card with logo -->
         <div class="hero-right reveal-on-scroll">
           <div class="orbit-orb"></div>
 
@@ -324,26 +324,33 @@
       </div>
     </section>
 
-    <!-- Offline QR generator -->
-    <section id="qr" class="section qr-section reveal-on-scroll">
+    <!-- Text-to-QR section -->
+    <section id="qr-section" class="section qr-section reveal-on-scroll">
       <div class="section-header">
         <h2>Offline QR for this moment</h2>
-        <p>Generate a QR code in your browser — no servers, no tracking.</p>
+        <p>Turn any link or note into a QR code on your device — no servers, no tracking.</p>
       </div>
+
       <div class="qr-tool">
         <div class="qr-input-row">
           <input
-            id="qr-input"
+            id="qr-text"
             type="text"
-            placeholder="Link, note, contact detail, or anything you want to carry."
+            placeholder="Paste a link, note, or handle. Default: this website."
+            autocomplete="off"
           />
-          <button id="qr-generate" class="primary-btn qr-btn" type="button">
+          <button id="qr-generate-btn" type="button" class="primary-btn qr-btn">
             Generate
           </button>
         </div>
-        <div id="qr-output" class="qr-output"></div>
+
+        <div id="qr-result-wrapper">
+          <div id="qr-code"></div>
+        </div>
+
         <p class="qr-note">
-          QR generation runs entirely on your device. Perfect for sharing this site, a contact handle, or a system doc in the room.
+          Use it to share this portfolio in a room, swap a contact handle, or pin a system doc.
+          The QR is rendered entirely in your browser.
         </p>
       </div>
     </section>
@@ -353,15 +360,8 @@
     <p>© <span id="year"></span> Pratyush Ranjan Jena · AI Security & Intelligent Systems</p>
   </footer>
 
-  <!-- QR code library (client-side only). 
-       If you want fully offline hosting, download this file and serve it locally. -->
+  <!-- QR code library (you can later self-host this file for 100% offline) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    function scrollToContact() {
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    }
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
