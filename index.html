@@ -13,7 +13,7 @@
   <!-- Top navigation -->
   <header class="top-nav">
     <div class="nav-inner">
-      <a href="#top" class="brand">
+      <a href="#top" class="brand reveal-on-scroll">
         <!-- LOGO #1 (NAV) -->
         <img src="assets/logo.png" alt="Pratyush logo" class="brand-logo" />
         <div class="brand-text">
@@ -22,7 +22,7 @@
         </div>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links reveal-on-scroll">
         <a href="#about">About</a>
         <a href="#projects">Systems</a>
         <a href="#thinking">How I Think</a>
@@ -33,13 +33,13 @@
   </header>
 
   <!-- Top CTA bar -->
-  <section class="cta-bar cta-top">
+  <section class="cta-bar cta-top reveal-on-scroll">
     <div class="cta-inner">
       <div class="cta-copy">
         <span class="cta-label">Open to collaboration</span>
         <span class="cta-title">Pitch your idea for AI security, robotics, or intelligent systems.</span>
       </div>
-      <button className="cta-button" onclick="scrollToContact()">Pitch your idea</button>
+      <button class="cta-button" onclick="scrollToContact()">Pitch your idea</button>
     </div>
   </section>
 
@@ -47,8 +47,11 @@
   <main class="page">
     <section class="hero">
       <div class="hero-grid">
-        <div class="hero-left">
-          <p class="hero-kicker">Miami, Florida · Computer Science</p>
+        <div class="hero-left reveal-on-scroll">
+          <div class="hero-chip-row">
+            <span class="hero-chip">Miami, Florida · Computer Science</span>
+            <span class="hero-chip hero-chip-soft">AI Security · Robotics · Systems</span>
+          </div>
           <h1 class="hero-title">
             I build secure intelligent systems that survive real conditions.
           </h1>
@@ -67,10 +70,15 @@
             <li>Autonomous hexacopter & micro-drone navigation logic.</li>
             <li>Real-time vision pipelines for robotics and BIM.</li>
           </ul>
+
+          <div class="hero-footnote">
+            <span class="hero-footnote-dot"></span>
+            <span>Looking for problems where reliability decides the outcome.</span>
+          </div>
         </div>
 
-        <!-- Right side: app-like card with logo -->
-        <div class="hero-right">
+        <!-- Right side: app-like card with logo + interactive field behind -->
+        <div class="hero-right reveal-on-scroll">
           <div class="orbit-orb"></div>
 
           <div class="hero-card">
@@ -112,7 +120,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="section">
+    <section id="about" class="section reveal-on-scroll">
       <div class="section-header">
         <h2>About</h2>
         <p>I did not inherit this path. I built it like a system: layer by layer.</p>
@@ -133,15 +141,15 @@
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section">
+    <!-- Systems / Projects -->
+    <section id="projects" class="section reveal-on-scroll">
       <div class="section-header">
         <h2>Systems I’ve helped build</h2>
         <p>Each project is a system, not a checklist of tasks.</p>
       </div>
 
       <div class="cards-grid">
-        <article class="card">
+        <article class="card reveal-on-scroll">
           <h3>Interaction-centric LLM Security Framework</h3>
           <p>
             A taxonomy and defense pipeline for dialogue-level vulnerabilities
@@ -154,7 +162,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card reveal-on-scroll">
           <h3>Autonomous Hexacopter Platform</h3>
           <p>
             Coaxial hexacopter on Navio2 & Raspberry Pi with lidar-based
@@ -167,7 +175,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card reveal-on-scroll">
           <h3>RealSense Vial Classification & Sorting</h3>
           <p>
             Vision pipeline that detects vial cap colors, empty slots,
@@ -180,7 +188,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card reveal-on-scroll">
           <h3>Micro-Drone Optical-Flow & Multi-Ranger Logic</h3>
           <p>
             Stability and navigation behaviors for small drones on imperfect
@@ -195,36 +203,36 @@
       </div>
     </section>
 
-    <!-- Thinking -->
-    <section id="thinking" class="section">
+    <!-- How I think -->
+    <section id="thinking" class="section reveal-on-scroll">
       <div class="section-header">
         <h2>How I think about systems</h2>
         <p>My advantage is not a tool. It’s how the pieces are connected.</p>
       </div>
 
       <div class="thinking-grid">
-        <div class="thinking-block">
+        <div class="thinking-block reveal-on-scroll">
           <h3>Interaction chains over single prompts</h3>
           <p>
             I treat LLMs and humans as interacting agents over time, not
             isolated queries. Failures usually live in the sequence.
           </p>
         </div>
-        <div class="thinking-block">
+        <div class="thinking-block reveal-on-scroll">
           <h3>Nature-inspired architectures</h3>
           <p>
             Swarms, ecosystems, and feedback loops influence how I design
             multi-agent systems, drones, and long-horizon AI workflows.
           </p>
         </div>
-        <div class="thinking-block">
+        <div class="thinking-block reveal-on-scroll">
           <h3>Safety before scale</h3>
           <p>
             Reliability is a design constraint, not an afterthought. If it
             cannot survive a hostile environment, it is not ready.
           </p>
         </div>
-        <div class="thinking-block">
+        <div class="thinking-block reveal-on-scroll">
           <h3>Execution over aesthetics</h3>
           <p>
             I care about systems that ship, fly, and recover from edge cases.
@@ -235,7 +243,7 @@
     </section>
 
     <!-- Vision -->
-    <section id="vision" class="section">
+    <section id="vision" class="section reveal-on-scroll">
       <div class="section-header">
         <h2>Long-term vision</h2>
         <p>AI, robotics, and nature are not separate stories.</p>
@@ -254,8 +262,8 @@
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section id="timeline" class="section">
+    <!-- Trajectory -->
+    <section id="timeline" class="section reveal-on-scroll">
       <div class="section-header">
         <h2>Trajectory</h2>
       </div>
@@ -276,7 +284,7 @@
     </section>
 
     <!-- Contact + CTA bar -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section contact-section reveal-on-scroll">
       <div class="section-header">
         <h2>Pitch your idea</h2>
         <p>If your project needs reliability and real execution, tell me what you’re building.</p>
@@ -306,7 +314,7 @@
       </form>
     </section>
 
-    <section class="cta-bar cta-bottom">
+    <section class="cta-bar cta-bottom reveal-on-scroll">
       <div class="cta-inner">
         <div class="cta-copy">
           <span class="cta-label">Let’s build something that survives reality.</span>
@@ -315,12 +323,39 @@
         <button class="cta-button" onclick="scrollToContact()">Pitch your idea</button>
       </div>
     </section>
+
+    <!-- Offline QR generator -->
+    <section id="qr" class="section qr-section reveal-on-scroll">
+      <div class="section-header">
+        <h2>Offline QR for this moment</h2>
+        <p>Generate a QR code in your browser — no servers, no tracking.</p>
+      </div>
+      <div class="qr-tool">
+        <div class="qr-input-row">
+          <input
+            id="qr-input"
+            type="text"
+            placeholder="Link, note, contact detail, or anything you want to carry."
+          />
+          <button id="qr-generate" class="primary-btn qr-btn" type="button">
+            Generate
+          </button>
+        </div>
+        <div id="qr-output" class="qr-output"></div>
+        <p class="qr-note">
+          QR generation runs entirely on your device. Perfect for sharing this site, a contact handle, or a system doc in the room.
+        </p>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <p>© <span id="year"></span> Pratyush Ranjan Jena · AI Security & Intelligent Systems</p>
   </footer>
 
+  <!-- QR code library (client-side only). 
+       If you want fully offline hosting, download this file and serve it locally. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
   <script>
     function scrollToContact() {
