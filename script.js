@@ -1,16 +1,31 @@
-// background particles
-const canvas = document.getElementById("bg-canvas");
-const ctx = canvas.getContext("2d");
+// =============================
+// Background "neural field"
+// =============================
+
+const canvas = document.getElementById("starfield");
+const ctx = canvas ? canvas.getContext("2d") : null;
 
 let particles = [];
-let width, height;
+let width = 0;
+let height = 0;
+
+let mouse = {
+  x: null,
+  y: null,
+  radius: 90
+};
+
+let activationScore = 0;
+let hudEl = null;
 
 function resizeCanvas() {
+  if (!canvas || !ctx) return;
   width = canvas.width = window.innerWidth;
   height = canvas.height = window.innerHeight;
 }
 
 function createParticles() {
+  if (!canvas || !ctx) return;
   particles = [];
   const count = Math.floor((width * height) / 28000);
   for (let i = 0; i < count; i++) {
@@ -20,27 +35,89 @@ function createParticles() {
       vx: (Math.random() - 0.5) * 0.15,
       vy: (Math.random() - 0.5) * 0.15,
       size: Math.random() * 1.6 + 0.4,
-      alpha: Math.random() * 0.5 + 0.3
+      alpha: Math.random() * 0.5 + 0.3,
+      activated: false,
+      activationFade: 0
     });
   }
 }
 
 function drawParticles() {
+  if (!canvas || !ctx) return;
+
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = "#43ff8a";
+
+  // subtle connection lines
+  ctx.globalAlpha = 0.08;
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const p1 = particles[i];
+      const p2 = particles[j];
+      const dx = p1.x - p2.x;
+      const dy = p1.y - p2.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 80) {
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = "#43ff8a";
+        ctx.lineWidth = 0.3;
+        ctx.stroke();
+      }
+    }
+  }
+
+  ctx.globalAlpha = 1;
 
   particles.forEach((p) => {
+    // move
     p.x += p.vx;
     p.y += p.vy;
 
+    // wrap
     if (p.x < 0) p.x = width;
     if (p.x > width) p.x = 0;
     if (p.y < 0) p.y = height;
     if (p.y > height) p.y = 0;
 
-    ctx.globalAlpha = p.alpha;
+    // interaction (using window coordinates)
+    if (mouse.x !== null && mouse.y !== null) {
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < mouse.radius) {
+        const force = (mouse.radius - dist) / mouse.radius;
+        const angle = Math.atan2(dy, dx);
+        p.vx += Math.cos(angle) * force * 0.02;
+        p.vy += Math.sin(angle) * force * 0.02;
+
+        if (!p.activated) {
+          p.activated = true;
+          activationScore++;
+          updateHud();
+          p.activationFade = 1;
+        }
+      } else {
+        p.activated = false;
+      }
+    } else {
+      p.activated = false;
+    }
+
+    // glow fade
+    if (p.activationFade > 0) {
+      p.activationFade -= 0.02;
+      if (p.activationFade < 0) p.activationFade = 0;
+    }
+
+    const baseAlpha = p.alpha;
+    const glowBoost = p.activationFade * 0.7;
+    ctx.globalAlpha = Math.min(baseAlpha + glowBoost, 1);
+
     ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.arc(p.x, p.y, p.size + p.activationFade * 1.1, 0, Math.PI * 2);
+    ctx.fillStyle = "#43ff8a";
     ctx.fill();
   });
 
@@ -48,80 +125,153 @@ function drawParticles() {
   requestAnimationFrame(drawParticles);
 }
 
+// HUD for activation score
+function createHud() {
+  if (hudEl) return;
+  hudEl = document.createElement("div");
+  hudEl.id = "neural-hud";
+  hudEl.style.position = "fixed";
+  hudEl.style.top = "1.2rem";
+  hudEl.style.right = "1.4rem";
+  hudEl.style.zIndex = "20";
+  hudEl.style.padding = "0.6rem 0.9rem";
+  hudEl.style.borderRadius = "999px";
+  hudEl.style.border = "1px solid rgba(67, 255, 138, 0.35)";
+  hudEl.style.background = "rgba(5, 8, 15, 0.82)";
+  hudEl.style.backdropFilter = "blur(8px)";
+  hudEl.style.fontFamily =
+    "system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif";
+  hudEl.style.fontSize = "0.78rem";
+  hudEl.style.letterSpacing = "0.04em";
+  hudEl.style.textTransform = "uppercase";
+  hudEl.style.display = "flex";
+  hudEl.style.alignItems = "center";
+  hudEl.style.gap = "0.6rem";
+  hudEl.style.color = "#d5ffe7";
+  hudEl.style.pointerEvents = "none";
+
+  const dot = document.createElement("span");
+  dot.style.display = "inline-block";
+  dot.style.width = "8px";
+  dot.style.height = "8px";
+  dot.style.borderRadius = "999px";
+  dot.style.boxShadow = "0 0 8px #43ff8a";
+  dot.style.background = "#43ff8a";
+
+  const text = document.createElement("span");
+  text.id = "neural-hud-text";
+
+  hudEl.appendChild(dot);
+  hudEl.appendChild(text);
+  document.body.appendChild(hudEl);
+
+  updateHud();
+}
+
+function updateHud() {
+  const text = document.getElementById("neural-hud-text");
+  if (!text) return;
+  text.textContent = `Activation Score: ${activationScore}`;
+}
+
+// mouse/touch listeners on window (canvas has pointer-events: none)
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+window.addEventListener("mouseleave", () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+window.addEventListener("touchmove", (e) => {
+  const touch = e.touches[0];
+  if (!touch) return;
+  mouse.x = touch.clientX;
+  mouse.y = touch.clientY;
+});
+
+window.addEventListener("touchend", () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+// init background
 resizeCanvas();
 createParticles();
+createHud();
 drawParticles();
 window.addEventListener("resize", () => {
   resizeCanvas();
   createParticles();
 });
 
-// smooth scroll to projects
-document.getElementById("scrollProjects")?.addEventListener("click", () => {
-  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-});
+// =============================
+// Scroll reveal
+// =============================
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
 
-// footer year
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// modal logic
-const pitchModal = document.getElementById("pitchModal");
-const openPitchModal = document.getElementById("openPitchModal");
-const topPitchBtn = document.getElementById("topPitchBtn");
-const closeModal = document.getElementById("closeModal");
-
-function showModal() {
-  pitchModal.classList.add("show");
+  document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+    observer.observe(el);
+  });
+} else {
+  // fallback: just show everything
+  document
+    .querySelectorAll(".reveal-on-scroll")
+    .forEach((el) => el.classList.add("is-visible"));
 }
 
-function hideModal() {
-  pitchModal.classList.remove("show");
-}
+// =============================
+// Offline QR generator
+// =============================
+(function setupQR() {
+  const input = document.getElementById("qr-input");
+  const btn = document.getElementById("qr-generate");
+  const output = document.getElementById("qr-output");
 
-openPitchModal?.addEventListener("click", showModal);
-topPitchBtn?.addEventListener("click", showModal);
-closeModal?.addEventListener("click", hideModal);
-pitchModal?.addEventListener("click", (e) => {
-  if (e.target === pitchModal.querySelector(".modal-backdrop")) {
-    hideModal();
+  if (!input || !btn || !output || typeof QRCode === "undefined") return;
+
+  let qr = new QRCode(output, {
+    width: 180,
+    height: 180
+  });
+
+  function generate() {
+    const value = input.value.trim() || window.location.href;
+    qr.clear();
+    qr.makeCode(value);
   }
-});
 
-// helper: open mailto with structured body
-function openMail({ name, email, idea }) {
-  const to = "pratyushr.jena@gmail.com";
-  const subject = encodeURIComponent("Collaboration Pitch via Portfolio");
-  const bodyLines = [
-    `Name: ${name}`,
-    `Email: ${email}`,
-    "",
-    "Collaboration idea:",
-    idea,
-    "",
-    "---",
-    "Sent from pratyushrjena.com"
-  ];
-  const body = encodeURIComponent(bodyLines.join("\n"));
-  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-}
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    generate();
+  });
 
-// bottom form
-document.getElementById("collabForm")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const idea = document.getElementById("idea").value.trim();
-  if (!name || !email || !idea) return;
-  openMail({ name, email, idea });
-});
+  input.addEventListener("input", () => {
+    // realtime feel
+    if (input.value.trim().length > 0) {
+      generate();
+    }
+  });
 
-// modal form
-document.getElementById("modalForm")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("modalName").value.trim();
-  const email = document.getElementById("modalEmail").value.trim();
-  const idea = document.getElementById("modalIdea").value.trim();
-  if (!name || !email || !idea) return;
-  hideModal();
-  openMail({ name, email, idea });
-});
+  input.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      generate();
+    }
+  });
+
+  // initial code for this portfolio URL
+  generate();
+})();
