@@ -32,7 +32,7 @@
   update();
 })();
 
-// Scroll reveal
+// Scroll reveal (applies .reveal + .visible)
 (function () {
   const sections = document.querySelectorAll(".section, .cta-bar");
   if (!sections.length) return;
@@ -225,7 +225,7 @@
   });
 })();
 
-// Parallax orbs
+// Parallax orbs (from earlier version)
 (function () {
   const dots = document.querySelectorAll(".parallax-dot");
   if (!dots.length) return;
