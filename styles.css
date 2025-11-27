@@ -663,7 +663,7 @@ body {
   gap: 10px;
 }
 
-#qr-input {
+#qr-text {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 8px 10px;
@@ -672,7 +672,7 @@ body {
   font-size: 0.86rem;
 }
 
-#qr-input:focus {
+#qr-text:focus {
   outline: none;
   border-color: var(--green-soft);
 }
@@ -681,15 +681,16 @@ body {
   padding-inline: 16px;
 }
 
-.qr-output {
+#qr-result-wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   min-height: 120px;
 }
 
-.qr-output img,
-.qr-output canvas {
+#qr-code img,
+#qr-code canvas {
+  margin: 0;
   border-radius: 16px;
   padding: 8px;
   background: radial-gradient(circle at top, rgba(76, 255, 145, 0.18), transparent 70%);
