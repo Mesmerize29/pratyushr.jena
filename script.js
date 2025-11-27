@@ -80,7 +80,7 @@ function drawParticles() {
     if (p.y < 0) p.y = height;
     if (p.y > height) p.y = 0;
 
-    // interaction (using window coordinates)
+    // interaction (window coordinates)
     if (mouse.x !== null && mouse.y !== null) {
       const dx = p.x - mouse.x;
       const dy = p.y - mouse.y;
@@ -174,7 +174,7 @@ function updateHud() {
   text.textContent = `Activation Score: ${activationScore}`;
 }
 
-// mouse/touch listeners on window (canvas has pointer-events: none)
+// mouse/touch listeners on window
 window.addEventListener("mousemove", (e) => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
@@ -227,40 +227,71 @@ if ("IntersectionObserver" in window) {
     observer.observe(el);
   });
 } else {
-  // fallback: just show everything
   document
     .querySelectorAll(".reveal-on-scroll")
     .forEach((el) => el.classList.add("is-visible"));
 }
 
 // =============================
-// Offline QR generator
+// Footer year + scrollToContact
+// =============================
+const yearSpan = document.getElementById("year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
+
+function scrollToContact() {
+  const section = document.getElementById("contact");
+  if (!section) return;
+  section.scrollIntoView({ behavior: "smooth" });
+}
+window.scrollToContact = scrollToContact;
+
+// =============================
+// Text-to-QR generator
 // =============================
 (function setupQR() {
-  const input = document.getElementById("qr-input");
-  const btn = document.getElementById("qr-generate");
-  const output = document.getElementById("qr-output");
+  const input = document.getElementById("qr-text");
+  const btn = document.getElementById("qr-generate-btn");
+  const container = document.getElementById("qr-code");
 
-  if (!input || !btn || !output || typeof QRCode === "undefined") return;
+  if (!input || !btn || !container) return;
 
-  let qr = new QRCode(output, {
-    width: 180,
-    height: 180
+  // If the library didn't load, show a friendly message.
+  if (typeof QRCode === "undefined") {
+    container.innerHTML =
+      '<p style="font-size:0.8rem;color:#f8b4b4;">QR engine not loaded. Check the QRCode script tag.</p>';
+    return;
+  }
+
+  // Create a QRCode instance attached to the container
+  let qr = new QRCode(container, {
+    text: "",
+    width: 200,
+    height: 200,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
   });
 
-  function generate() {
-    const value = input.value.trim() || window.location.href;
+  function generate(value) {
+    const text = (value || input.value || window.location.href).trim();
+    if (!text) return;
+
     qr.clear();
-    qr.makeCode(value);
+    qr.makeCode(text);
   }
+
+  // Initial QR for your site
+  generate("https://pratyushrjena.co");
 
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     generate();
   });
 
+  // Realtime-ish: update as they type, once there is some text
   input.addEventListener("input", () => {
-    // realtime feel
     if (input.value.trim().length > 0) {
       generate();
     }
@@ -271,7 +302,4 @@ if ("IntersectionObserver" in window) {
       generate();
     }
   });
-
-  // initial code for this portfolio URL
-  generate();
 })();
