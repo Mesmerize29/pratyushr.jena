@@ -15,13 +15,6 @@ let mouse = {
   radius: 90
 };
 
-let activationScore = 0;
-let hudEl = null;
-
-function resizeCanvas() {
-  if (!canvas || !ctx) return;
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
 }
 
 function createParticles() {
