@@ -224,28 +224,13 @@ body {
   position: relative;
 }
 
-.hero-chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.hero-chip {
-  font-size: 0.72rem;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+/* keep original kicker styling */
+.hero-kicker {
+  font-size: 0.82rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-soft);
-  background: rgba(4, 9, 20, 0.8);
-}
-
-.hero-chip-soft {
-  border-color: rgba(76, 255, 145, 0.35);
+  letter-spacing: 0.18em;
   color: var(--green-soft);
-  background: radial-gradient(circle at left, rgba(76, 255, 145, 0.16), transparent 55%);
+  margin: 0 0 10px;
 }
 
 .hero-title {
@@ -316,24 +301,6 @@ body {
 
 .hero-points li {
   margin-bottom: 6px;
-}
-
-.hero-footnote {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-soft);
-  opacity: 0.9;
-}
-
-.hero-footnote-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--green-soft);
-  box-shadow: 0 0 10px rgba(76, 255, 145, 0.7);
 }
 
 /* Hero right card */
@@ -712,7 +679,7 @@ body {
   padding: 24px 20px 30px;
 }
 
-/* Scroll reveal */
+/* Scroll reveal (if you want to use later) */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(24px);
@@ -811,15 +778,6 @@ body {
   #qr-result-wrapper {
     justify-content: center;
   }
-
-  /* move HUD so it doesn't clash with nav */
-  #neural-hud {
-    top: auto !important;
-    bottom: 1rem !important;
-    right: 1rem !important;
-    left: auto !important;
-    transform: none !important;
-  }
 }
 
 /* Mobile */
@@ -851,11 +809,6 @@ body {
 
   .hero {
     margin-bottom: 44px;
-  }
-
-  .hero-chip-row {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .hero-title {
@@ -908,11 +861,8 @@ body {
     padding: 20px 16px 26px;
   }
 
-  #neural-hud {
-    bottom: 0.8rem !important;
-    right: 0.8rem !important;
-    padding: 0.5rem 0.8rem !important;
-    font-size: 0.72rem !important;
+  .qr-note {
+    font-size: 0.76rem;
   }
 }
 
@@ -940,9 +890,5 @@ body {
 
   .section-header p {
     font-size: 0.86rem;
-  }
-
-  .qr-note {
-    font-size: 0.76rem;
   }
 }
