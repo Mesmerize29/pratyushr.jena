@@ -1,402 +1,72 @@
-<!DOCTYPE html>
-<html lang="en" id="top">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Pratyush Jena | Systems, Security, AI, Nature</title>
+    <meta
+      name="description"
+      content="Public portfolio of Pratyush Jena, focused on AI, cybersecurity, HCI, robotics, sensing systems, and long-horizon technology for real-world impact."
+    />
+    <meta
+      name="theme-color"
+      content="#08111f"
+    />
 
-  <!-- Primary SEO -->
-  <title>Pratyush Ranjan Jena | AI Security, Robotics & Intelligent Systems</title>
-  <meta name="description" content="Pratyush Ranjan Jena — AI Security, Robotics, and Intelligent Systems researcher. Focused on LLM safety, cyber-physical systems, autonomous robotics, and real-world AI applications. Open for collaboration.">
-  <meta name="keywords" content="Pratyush Jena, AI Security Researcher, Robotics Research, Intelligent Systems, LLM Safety, Cyber Physical Systems, Autonomous Drones, AI Engineer, Miami AI Research, FIU Computer Science, Collaboration AI, Offline QR Generator">
-  <meta name="author" content="Pratyush Ranjan Jena">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://pratyushrjena.com/">
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/sections.css" />
+    <link rel="stylesheet" href="./css/motion.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="ambient">
+        <div class="ambient__grid"></div>
+        <div class="ambient__glow ambient__glow--one"></div>
+        <div class="ambient__glow ambient__glow--two"></div>
+        <div class="ambient__mist"></div>
+      </div>
 
-  <!-- OpenGraph for Social Sharing -->
-  <meta property="og:title" content="Pratyush Ranjan Jena | AI Security & Robotics">
-  <meta property="og:description" content="AI Security, Robotics & Intelligent Systems. Research, collaborations, and forward-thinking projects.">
-  <meta property="og:image" content="https://pratyushrjena.com/assets/preview.jpg">
-  <meta property="og:url" content="https://pratyushrjena.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Pratyush Ranjan Jena">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pratyush Ranjan Jena | AI Security & Robotics">
-  <meta name="twitter:description" content="LLM Safety, Autonomous Robotics, Cyber-Physical Systems. Open to collaborations.">
-  <meta name="twitter:image" content="https://pratyushrjena.com/assets/preview.jpg">
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/logo.png">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- JSON-LD Structured Data for Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Pratyush Ranjan Jena",
-    "url": "https://pratyushrjena.com/",
-    "image": "https://pratyushrjena.com/assets/logo.png",
-    "jobTitle": "AI Security & Robotics Researcher",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Florida International University"
-    },
-    "description": "AI Security, Robotics, LLM Safety, Intelligent Systems. Researcher focused on cyber-physical systems, autonomous drones, and real-world AI safety.",
-    "sameAs": [
-      "https://www.linkedin.com/in/pratyush-jenacse",
-      "https://github.com/Mesmerize29"
-    ]
-  }
-  </script>
-
-  <!-- QR Code Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-</head>
-<body>
-  <!-- Starfield background -->
-  <canvas id="starfield"></canvas>
-
-  <!-- Top navigation -->
-  <header class="top-nav">
-    <div class="nav-inner">
-      <a href="#top" class="brand">
-        <img src="assets/logo.png" alt="Pratyush logo" class="brand-logo" />
-        <div class="brand-text">
-          <span class="brand-name">PRATYUSH RANJAN JENA</span>
-          <span class="brand-tagline">AI Security · Robotics · Intelligent Systems</span>
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__dot"></span>
+          <div>
+            <p class="brand__name">Pratyush Jena</p>
+            <p class="brand__sub">Immersive public portfolio</p>
+          </div>
         </div>
-      </a>
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Systems</a>
-        <a href="#thinking">How I Think</a>
-        <a href="#vision">Vision</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <div class="topbar__meta">
+          <div class="counter" id="sectionCounter">01 / 07</div>
+          <div class="active-label" id="activeLabel">Overview</div>
+        </div>
+      </header>
+
+      <main class="app-main" id="appMain">
+        <section class="orbit-experience" aria-label="Portfolio experience">
+          <div class="orbit-stage">
+            <div class="orbit-ring" id="orbitRing"></div>
+          </div>
+
+          <nav
+            class="orbit-nav"
+            id="orbitNav"
+            aria-label="Section navigation"
+          ></nav>
+        </section>
+      </main>
+
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <span class="scroll-hint__divider"></span>
+        <span>Rotate</span>
+      </div>
     </div>
-  </header>
 
-  <!-- Top CTA bar -->
-  <section class="cta-bar cta-top">
-    <div class="cta-inner">
-      <div class="cta-copy">
-        <span class="cta-label">Open to collaboration</span>
-        <span class="cta-title">Pitch your idea for AI security, robotics, or intelligent systems.</span>
-      </div>
-      <!-- fixed className -> class -->
-      <button class="cta-button" onclick="scrollToContact()">Pitch your idea</button>
-    </div>
-  </section>
-
-  <!-- Main content -->
-  <main class="page">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-left">
-          <p class="hero-kicker">Miami, Florida · Computer Science</p>
-          <h1 class="hero-title">
-            I build secure intelligent systems that survive real conditions.
-          </h1>
-          <p class="hero-subtitle">
-            From LLM security pipelines to autonomous drones and lab robotics,
-            I design systems that think, adapt, and stay reliable under stress.
-          </p>
-
-          <div class="hero-actions">
-            <button class="primary-btn" onclick="scrollToContact()">Pitch a collaboration</button>
-            <a href="#projects" class="ghost-btn">Explore my systems</a>
-          </div>
-
-          <ul class="hero-points">
-            <li>Interaction-centric LLM security and safety metrics.</li>
-            <li>Autonomous hexacopter & micro-drone navigation logic.</li>
-            <li>Real-time vision pipelines for robotics and BIM.</li>
-          </ul>
-        </div>
-
-        <!-- Right side: app-like card with logo -->
-        <div class="hero-right">
-          <div class="orbit-orb"></div>
-
-          <div class="hero-card">
-            <div class="hero-card-header">
-              <div class="hero-app-icon">
-                <img src="assets/logo.png" alt="Pratyush " />
-              </div>
-              <div class="hero-card-title">
-                <span class="hero-card-name">Pratyush · </span>
-                <span class="hero-card-role">AI Security & Systems</span>
-              </div>
-            </div>
-
-            <div class="hero-card-body">
-              <p class="hero-card-line">
-                “If a system exists, I map its risks. If its risks can be mapped,
-                I secure it. If it can be secured, I scale it with confidence.”
-              </p>
-              <div class="hero-metrics">
-                <div class="metric">
-                  <span class="metric-label">Domains</span>
-                  <span class="metric-value">AI safety · Robotics · Cybersec</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-label">Mode</span>
-                  <span class="metric-value">Researcher-founder</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-card-footer">
-              <span class="status-dot"></span>
-              <span class="status-text">Available for high-leverage problems.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="section-header">
-        <h2>About</h2>
-        <p>I did not inherit this path. I built it like a system: layer by layer.</p>
-      </div>
-      <div class="section-body two-col">
-        <p>
-          I operate at the intersection of AI security, robotics, and systems
-          engineering. My work ranges from interaction-level security for
-          large language models to autonomous aerial platforms and
-          real-time perception pipelines.
-        </p>
-        <p>
-          I care about one thing: reliability in environments that do not care
-          about your assumptions. Drones in unstable air. LLMs with adversarial
-          users. Lab systems that cannot afford ambiguity. I design for those
-          conditions.
-        </p>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-      <div class="section-header">
-        <h2>Systems I’ve helped build</h2>
-        <p>Each project is a system, not a checklist of tasks.</p>
-      </div>
-
-      <div class="cards-grid">
-        <article class="card">
-          <h3>Interaction-centric LLM Security Framework</h3>
-          <p>
-            A taxonomy and defense pipeline for dialogue-level vulnerabilities
-            across input, processing, and output layers in LLM systems.
-          </p>
-          <ul>
-            <li>Interaction-chain taxonomy for conversation phases.</li>
-            <li>Defense pipeline with PISR, ILVI, DCR, UTCE.</li>
-            <li>Designed for IEEE-style security evaluation.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Autonomous Hexacopter Platform</h3>
-          <p>
-            Coaxial hexacopter on Navio2 & Raspberry Pi with lidar-based
-            avoidance and mission logic built for real-world turbulence.
-          </p>
-          <ul>
-            <li>Sensor fusion with Garmin Lidar-Lite & TF Mini.</li>
-            <li>Mission-planner integration and telemetry stack.</li>
-            <li>Architecture meant for field reliability, not lab demos.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>RealSense Vial Classification & Sorting</h3>
-          <p>
-            Vision pipeline that detects vial cap colors, empty slots,
-            and missing caps, feeding directly into robotic actuation.
-          </p>
-          <ul>
-            <li>Intel RealSense perception with robust segmentation.</li>
-            <li>Deterministic outputs for ROS-based arms.</li>
-            <li>Designed for noisy lab environments.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Micro-Drone Optical-Flow & Multi-Ranger Logic</h3>
-          <p>
-            Stability and navigation behaviors for small drones on imperfect
-            hardware using flow and range sensors.
-          </p>
-          <ul>
-            <li>Spiral search and blue-tape line following.</li>
-            <li>Obstacle-aware hover patterns.</li>
-            <li>Extracting stability from unstable airframes.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Thinking -->
-    <section id="thinking" class="section">
-      <div class="section-header">
-        <h2>How I think about systems</h2>
-        <p>My advantage is not a tool. It’s how the pieces are connected.</p>
-      </div>
-
-      <div class="thinking-grid">
-        <div class="thinking-block">
-          <h3>Interaction chains over single prompts</h3>
-          <p>
-            I treat LLMs and humans as interacting agents over time, not
-            isolated queries. Failures usually live in the sequence.
-          </p>
-        </div>
-        <div class="thinking-block">
-          <h3>Nature-inspired architectures</h3>
-          <p>
-            Swarms, ecosystems, and feedback loops influence how I design
-            multi-agent systems, drones, and long-horizon AI workflows.
-          </p>
-        </div>
-        <div class="thinking-block">
-          <h3>Safety before scale</h3>
-          <p>
-            Reliability is a design constraint, not an afterthought. If it
-            cannot survive a hostile environment, it is not ready.
-          </p>
-        </div>
-        <div class="thinking-block">
-          <h3>Execution over aesthetics</h3>
-          <p>
-            I care about systems that ship, fly, and recover from edge cases.
-            Everything else is decoration.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vision -->
-    <section id="vision" class="section">
-      <div class="section-header">
-        <h2>Long-term vision</h2>
-        <p>AI, robotics, and nature are not separate stories.</p>
-      </div>
-      <div class="section-body two-col">
-        <p>
-          My long-term work aims to build intelligent systems that help preserve,
-          understand, and regenerate ecosystems. Think of drones, sensors, and
-          language models as one coordinated nervous system for the natural world.
-        </p>
-        <p>
-          I want to move from “systems that survive” to “systems that protect”
-          – where every improvement in AI and robotics compounds into better
-          outcomes for the environments we depend on.
-        </p>
-      </div>
-    </section>
-
-    <!-- Timeline -->
-    <section id="timeline" class="section">
-      <div class="section-header">
-        <h2>Trajectory</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-year">2024</span>
-          <p>Hands-on drone & robotics work; stability and navigation on unstable hardware.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2025</span>
-          <p>Interaction-centric LLM security research and real-time lab automation systems.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2026 →</span>
-          <p>PhD-level research direction in AI security, cyber-physical systems, and nature-linked intelligence.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact + CTA bar -->
-    <section id="contact" class="section contact-section">
-      <div class="section-header">
-        <h2>Pitch your idea</h2>
-        <p>If your project needs reliability and real execution, tell me what you’re building.</p>
-      </div>
-
-      <form class="contact-form"
-            action="https://formspree.io/f/your-endpoint"
-            method="POST">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required />
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-        </div>
-        <div class="form-field">
-          <label for="idea">Your idea / problem</label>
-          <textarea id="idea" name="idea" rows="4"
-            placeholder="Describe the system, constraints, and why reliability matters."></textarea>
-        </div>
-        <button type="submit" class="primary-btn full-width">
-          Send pitch
-        </button>
-      </form>
-    </section>
-
-    <section class="cta-bar cta-bottom">
-      <div class="cta-inner">
-        <div class="cta-copy">
-          <span class="cta-label">Let’s build something that survives reality.</span>
-          <span class="cta-title">One good collaboration can change your system’s trajectory.</span>
-        </div>
-        <button class="cta-button" onclick="scrollToContact()">Pitch your idea</button>
-      </div>
-    </section>
-
-    <!-- Offline QR code generator -->
-    <section id="qr" class="section qr-section">
-      <div class="section-header">
-        <h2>Offline QR code generator</h2>
-        <p>Turn any link or text into a QR you can scan in the room.</p>
-      </div>
-      <div class="qr-tool">
-        <div class="qr-input-row">
-          <input
-            id="qr-text"
-            type="text"
-            placeholder="Paste a link, note, or handle…"
-            autocomplete="off"
-          />
-          <button id="qr-generate-btn" class="primary-btn qr-btn">Generate QR</button>
-        </div>
-        <div id="qr-result-wrapper">
-          <div id="qr-code"></div>
-        </div>
-        <p class="qr-note">
-          Offline QR code generator – text to QR directly in your browser. No accounts, no tracking, just a fast way to share URLs, notes, and system links in real time.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© <span id="year"></span> Pratyush Ranjan Jena · AI Security & Intelligent Systems</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>
