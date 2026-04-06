@@ -1,0 +1,75 @@
+@media (max-width: 980px) {
+  :root {
+    --orbit-radius: 34rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .orbit-panel__inner {
+    width: min(84vw, 920px);
+    padding: 1.35rem;
+  }
+
+  .orbit-nav {
+    right: 0.7rem;
+  }
+
+  .orbit-nav__text {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --orbit-radius: 28rem;
+  }
+
+  .topbar {
+    padding: 0.9rem;
+  }
+
+  .topbar__meta {
+    gap: 0.65rem;
+    padding: 0.55rem 0.8rem;
+  }
+
+  .brand__sub,
+  .active-label {
+    display: none;
+  }
+
+  .orbit-panel__inner {
+    min-height: 72vh;
+    max-height: 76vh;
+    padding: 1.1rem;
+    border-radius: 22px;
+  }
+
+  .section-title {
+    max-width: none;
+    font-size: clamp(1.8rem, 9vw, 3rem);
+  }
+
+  .section-body,
+  .section-list {
+    font-size: 0.95rem;
+  }
+
+  .scroll-hint {
+    bottom: 1rem;
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring,
+  .orbit-panel,
+  .orbit-panel__inner,
+  .orbit-nav__dot,
+  .section-cta,
+  .ambient__glow {
+    transition: none !important;
+  }
+}
