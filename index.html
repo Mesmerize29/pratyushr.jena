@@ -3,31 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pratyush Ranjan Jena | AI Security, Robotics, HCI, Systems</title>
+  <title>Pratyush Ranjan Jena | Portfolio</title>
   <meta
     name="description"
-    content="Public portfolio of Pratyush Ranjan Jena — AI security, human-computer interaction, robotics, sensing, systems integration, and research-grounded technical work."
+    content="Portfolio of Pratyush Ranjan Jena — AI security, HCI, robotics, sensing, systems integration, and research-grounded technical work."
   />
   <meta name="theme-color" content="#08111f" />
   <style>
     :root {
-      --bg: #07101b;
-      --bg-2: #0b1728;
-      --panel: rgba(12, 21, 37, 0.76);
-      --panel-strong: rgba(13, 22, 39, 0.94);
-      --stroke: rgba(255,255,255,0.09);
-      --stroke-strong: rgba(126, 208, 255, 0.24);
-      --text: #f4f8ff;
-      --muted: #a9b8cc;
-      --soft: #d2deee;
-      --accent: #82d6ff;
-      --accent-2: #a793ff;
-      --accent-3: #7df6cb;
-      --shadow: 0 22px 70px rgba(0,0,0,0.34);
+      --bg: #060d17;
+      --bg-2: #08111f;
+      --panel: rgba(13, 21, 36, 0.72);
+      --panel-strong: rgba(12, 20, 34, 0.9);
+      --stroke: rgba(255,255,255,0.08);
+      --stroke-strong: rgba(117, 211, 255, 0.28);
+      --text: #f3f7ff;
+      --muted: #a8b6c9;
+      --soft: #d4dfed;
+      --accent: #7fd7ff;
+      --accent-2: #b195ff;
+      --accent-3: #7af5c9;
+      --danger: #ffd9d9;
+      --shadow: 0 24px 80px rgba(0,0,0,0.38);
       --radius-xl: 30px;
       --radius-lg: 22px;
       --radius-md: 16px;
       --maxw: 1240px;
+      --spot-x: 50%;
+      --spot-y: 20%;
     }
 
     * {
@@ -40,16 +43,46 @@
 
     body {
       margin: 0;
-      color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 12% 16%, rgba(130, 214, 255, 0.16), transparent 0 27%),
-        radial-gradient(circle at 88% 14%, rgba(167, 147, 255, 0.15), transparent 0 28%),
-        radial-gradient(circle at 50% 88%, rgba(125, 246, 203, 0.08), transparent 0 26%),
-        linear-gradient(180deg, #060d17 0%, #08111f 34%, #091221 100%);
+      color: var(--text);
       line-height: 1.6;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(127, 215, 255, 0.16), transparent 0 28%),
+        radial-gradient(circle at 88% 16%, rgba(177, 149, 255, 0.14), transparent 0 26%),
+        radial-gradient(circle at 60% 90%, rgba(122, 245, 201, 0.08), transparent 0 24%),
+        linear-gradient(180deg, #040b14 0%, #07101c 38%, #091322 100%);
       min-height: 100vh;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        radial-gradient(
+          650px circle at var(--spot-x) var(--spot-y),
+          rgba(127, 215, 255, 0.12),
+          transparent 42%
+        );
+      transition: background 0.08s linear;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      opacity: 0.26;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,0.5), transparent 88%);
     }
 
     a {
@@ -57,66 +90,8 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .bg-grid,
-    .bg-halo,
-    .bg-noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -3;
-    }
-
-    .bg-grid {
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(180deg, rgba(255,255,255,0.36), transparent 88%);
-      opacity: 0.34;
-    }
-
-    .bg-halo::before,
-    .bg-halo::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(90px);
-      opacity: 0.45;
-      animation: drift 14s ease-in-out infinite;
-    }
-
-    .bg-halo::before {
-      width: 360px;
-      height: 360px;
-      top: 80px;
-      left: -60px;
-      background: rgba(130, 214, 255, 0.16);
-    }
-
-    .bg-halo::after {
-      width: 320px;
-      height: 320px;
-      top: 180px;
-      right: -80px;
-      background: rgba(167, 147, 255, 0.15);
-      animation-delay: -5s;
-    }
-
-    .bg-noise {
-      opacity: 0.08;
-      background-image: radial-gradient(rgba(255,255,255,0.8) 0.4px, transparent 0.4px);
-      background-size: 18px 18px;
-      mix-blend-mode: soft-light;
-    }
-
-    @keyframes drift {
-      0%, 100% { transform: translate3d(0,0,0); }
-      50% { transform: translate3d(10px, 20px, 0); }
+    button {
+      font: inherit;
     }
 
     .wrap {
@@ -124,23 +99,75 @@
       margin: 0 auto;
     }
 
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      z-index: 100;
+      box-shadow: 0 0 20px rgba(127, 215, 255, 0.5);
+    }
+
+    .ambient-orb {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: -4;
+      opacity: 0.38;
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 320px;
+      height: 320px;
+      top: 80px;
+      left: -80px;
+      background: rgba(127, 215, 255, 0.18);
+    }
+
+    .orb-2 {
+      width: 280px;
+      height: 280px;
+      top: 180px;
+      right: -60px;
+      background: rgba(177, 149, 255, 0.16);
+      animation-delay: -4s;
+    }
+
+    .orb-3 {
+      width: 240px;
+      height: 240px;
+      bottom: 10%;
+      left: 40%;
+      background: rgba(122, 245, 201, 0.1);
+      animation-delay: -8s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate3d(0,0,0); }
+      50% { transform: translate3d(10px, 22px, 0); }
+    }
+
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       backdrop-filter: blur(18px);
-      background: rgba(7, 16, 27, 0.72);
+      background: rgba(6, 13, 23, 0.7);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .topbar-inner {
       width: min(var(--maxw), calc(100% - 32px));
-      margin: 0 auto;
       min-height: 78px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
     }
 
     .brand {
@@ -156,7 +183,7 @@
 
     .brand span {
       color: var(--muted);
-      font-size: 0.83rem;
+      font-size: 0.84rem;
     }
 
     .nav {
@@ -168,42 +195,53 @@
     }
 
     .nav a {
+      position: relative;
       color: var(--muted);
       font-size: 0.93rem;
       transition: color 0.2s ease, transform 0.2s ease;
     }
 
-    .nav a:hover {
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.22s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
       color: var(--text);
-      transform: translateY(-1px);
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
     }
 
     .pill,
     .btn,
     .chip,
-    .filter-btn {
+    .filter-btn,
+    .meta-badge {
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.1);
       background: rgba(255,255,255,0.04);
       color: var(--text);
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn,
-    .filter-btn {
-      padding: 12px 16px;
-      font-size: 0.94rem;
-      cursor: pointer;
     }
 
     .pill {
       padding: 10px 14px;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
       color: var(--soft);
     }
 
@@ -212,23 +250,34 @@
       height: 8px;
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 18px rgba(130,214,255,0.7);
+      box-shadow: 0 0 18px rgba(127, 215, 255, 0.65);
+    }
+
+    .btn,
+    .filter-btn {
+      padding: 12px 16px;
+      font-size: 0.94rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn:hover,
     .filter-btn:hover {
       transform: translateY(-2px);
-      background: rgba(130,214,255,0.08);
-      border-color: rgba(130,214,255,0.42);
+      background: rgba(127, 215, 255, 0.08);
+      border-color: rgba(127, 215, 255, 0.42);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.2);
     }
 
-    .btn.primary {
-      background: linear-gradient(135deg, rgba(130,214,255,0.22), rgba(167,147,255,0.18));
-      border-color: rgba(130,214,255,0.44);
+    .btn.primary,
+    .filter-btn.active {
+      background: linear-gradient(135deg, rgba(127, 215, 255, 0.2), rgba(177, 149, 255, 0.17));
+      border-color: rgba(127, 215, 255, 0.42);
     }
 
     .hero {
-      padding: 72px 0 32px;
+      padding: 78px 0 34px;
+      position: relative;
     }
 
     .hero-grid {
@@ -240,9 +289,9 @@
 
     .card,
     .project-card,
-    .stats-card,
     .timeline-card,
     .contact-card,
+    .stat-card,
     .quote-card {
       position: relative;
       overflow: hidden;
@@ -250,44 +299,63 @@
       border: 1px solid var(--stroke);
       background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
+      transform-style: preserve-3d;
     }
 
     .card::before,
     .project-card::before,
-    .stats-card::before,
     .timeline-card::before,
     .contact-card::before,
+    .stat-card::before,
     .quote-card::before {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(135deg, rgba(130,214,255,0.06), transparent 34%, rgba(167,147,255,0.05) 72%, transparent 100%);
+      background: linear-gradient(135deg, rgba(127, 215, 255, 0.06), transparent 34%, rgba(177, 149, 255, 0.05) 72%, transparent 100%);
     }
 
     .hero-main {
-      padding: 36px;
-      min-height: 100%;
+      padding: 38px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      right: -120px;
+      top: -120px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow:
+        0 0 0 30px rgba(255,255,255,0.02),
+        0 0 0 70px rgba(255,255,255,0.015),
+        0 0 0 120px rgba(255,255,255,0.01);
+      z-index: -1;
+      opacity: 0.8;
     }
 
     .hero-main h1 {
       margin: 18px 0 0;
-      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-size: clamp(2.9rem, 6vw, 5.4rem);
       line-height: 0.94;
-      letter-spacing: -0.05em;
-      max-width: 9.8ch;
+      letter-spacing: -0.055em;
+      max-width: 9.6ch;
     }
 
     .hero-main .subhead {
       margin: 22px 0 0;
-      max-width: 62ch;
+      max-width: 66ch;
       color: var(--soft);
-      font-size: 1.06rem;
+      font-size: 1.05rem;
     }
 
     .hero-note {
       margin-top: 24px;
-      padding: 18px 18px;
+      padding: 18px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.035);
@@ -303,10 +371,16 @@
     }
 
     .hero-meta {
-      margin-top: 28px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 26px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      font-size: 0.84rem;
+      color: var(--soft);
     }
 
     .hero-side {
@@ -320,19 +394,19 @@
       gap: 16px;
     }
 
-    .stats-card {
+    .stat-card {
       padding: 22px;
       min-height: 154px;
     }
 
-    .stats-card strong {
+    .stat-card strong {
       display: block;
       font-size: 2rem;
-      letter-spacing: -0.04em;
       margin-bottom: 8px;
+      letter-spacing: -0.04em;
     }
 
-    .stats-card p {
+    .stat-card p {
       margin: 0;
       color: var(--muted);
       font-size: 0.95rem;
@@ -345,7 +419,7 @@
 
     .quote-card h3 {
       margin: 0 0 10px;
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       letter-spacing: -0.02em;
     }
 
@@ -381,7 +455,7 @@
     .about-grid,
     .timeline-grid,
     .contact-grid,
-    .additional-grid {
+    .more-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 16px;
@@ -415,11 +489,6 @@
       margin-bottom: 18px;
     }
 
-    .filter-btn.active {
-      background: linear-gradient(135deg, rgba(130,214,255,0.18), rgba(167,147,255,0.18));
-      border-color: rgba(130,214,255,0.46);
-    }
-
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
@@ -430,8 +499,14 @@
       padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      min-height: 100%;
+      gap: 16px;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--stroke-strong);
+      box-shadow: 0 28px 90px rgba(0,0,0,0.46);
     }
 
     .project-top {
@@ -443,69 +518,44 @@
 
     .project-top h3 {
       margin: 0;
-      font-size: 1.2rem;
-      line-height: 1.12;
+      font-size: 1.18rem;
+      line-height: 1.14;
       letter-spacing: -0.03em;
       max-width: 18ch;
     }
 
+    .project-summary {
+      margin: 0;
+      color: var(--soft);
+    }
+
     .badge-row,
-    .chip-row,
-    .list-row,
-    .link-list {
+    .tool-row,
+    .contact-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .badge {
+    .meta-badge {
       padding: 7px 10px;
-      border-radius: 999px;
       font-size: 0.76rem;
       color: var(--soft);
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
       white-space: nowrap;
     }
 
-    .badge.year {
-      background: rgba(130,214,255,0.08);
-      border-color: rgba(130,214,255,0.25);
+    .meta-badge.year {
+      background: rgba(127, 215, 255, 0.08);
+      border-color: rgba(127, 215, 255, 0.24);
     }
 
-    .project-copy {
-      color: var(--soft);
-      margin: 0;
+    .project-hint {
+      margin-top: auto;
+      color: var(--accent);
+      font-size: 0.88rem;
     }
 
-    .project-block {
-      padding: 14px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.035);
-    }
-
-    .project-block strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.9rem;
-      letter-spacing: -0.01em;
-    }
-
-    .project-block p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .chip {
-      padding: 9px 12px;
-      font-size: 0.84rem;
-      color: var(--soft);
-      cursor: default;
-    }
-
-    .additional-card {
+    .more-card {
       padding: 22px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--stroke);
@@ -513,13 +563,13 @@
       box-shadow: var(--shadow);
     }
 
-    .additional-card h3 {
+    .more-card h3 {
       margin: 0 0 10px;
-      font-size: 1.06rem;
+      font-size: 1.04rem;
       letter-spacing: -0.02em;
     }
 
-    .additional-card p {
+    .more-card p {
       margin: 0;
       color: var(--muted);
     }
@@ -530,18 +580,18 @@
       font-size: 0.94rem;
     }
 
-    .contact-card .link-list {
+    .contact-card .contact-links {
       flex-direction: column;
-      gap: 12px;
       margin-top: 12px;
+      gap: 12px;
     }
 
-    .contact-card .link-list a {
+    .contact-card .contact-links a {
       color: var(--soft);
       word-break: break-word;
     }
 
-    .contact-card .link-list a:hover {
+    .contact-card .contact-links a:hover {
       color: var(--text);
     }
 
@@ -558,13 +608,131 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.2s ease;
+    }
+
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(127, 215, 255, 0.8);
+    }
+
+    .cursor-ring {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(127, 215, 255, 0.45);
+      background: rgba(127, 215, 255, 0.04);
+    }
+
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(4, 10, 18, 0.75);
+      backdrop-filter: blur(14px);
+      padding: 18px;
+    }
+
+    .project-modal.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(920px, 100%);
+      max-height: 88vh;
+      overflow: auto;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(180deg, rgba(12, 20, 35, 0.96), rgba(10, 17, 30, 0.98));
+      box-shadow: 0 32px 100px rgba(0,0,0,0.5);
+      padding: 26px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 0;
+      margin-left: auto;
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .modal-header h3 {
+      margin: 10px 0 0;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .modal-copy {
+      color: var(--soft);
+      margin-top: 16px;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .modal-block {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .modal-block strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    .modal-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tool-list {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     @media (max-width: 1080px) {
@@ -573,16 +741,13 @@
       .about-grid,
       .timeline-grid,
       .contact-grid,
-      .additional-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-side {
+      .more-grid,
+      .modal-grid {
         grid-template-columns: 1fr;
       }
 
       .stats-grid {
-        grid-template-columns: repeat(2, minmax(0,1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -598,22 +763,23 @@
       }
 
       .hero {
-        padding-top: 36px;
+        padding-top: 38px;
       }
 
       .hero-main,
-      .stats-card,
-      .quote-card,
       .card,
       .project-card,
       .timeline-card,
       .contact-card,
-      .additional-card {
+      .stat-card,
+      .quote-card,
+      .more-card,
+      .modal-card {
         padding: 18px;
       }
 
       .hero-main h1 {
-        max-width: 11ch;
+        max-width: 10.5ch;
       }
 
       .stats-grid {
@@ -624,13 +790,23 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .cursor-dot,
+      .cursor-ring {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-halo"></div>
-  <div class="bg-noise"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
   <header class="topbar">
     <div class="topbar-inner">
@@ -638,11 +814,11 @@
         <strong>Pratyush Ranjan Jena</strong>
         <span>AI security • HCI • robotics • sensing • systems</span>
       </div>
-      <nav class="nav">
+      <nav class="nav" id="siteNav">
         <a href="#about">About</a>
         <a href="#projects">Selected Work</a>
         <a href="#timeline">Timeline</a>
-        <a href="#additional">More Work</a>
+        <a href="#more">More Work</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -653,20 +829,20 @@
       <div class="hero-grid">
         <article class="card hero-main">
           <span class="pill"><span class="dot"></span> Public portfolio • grounded work only</span>
-          <h1>I build at the point where systems meet people and reality.</h1>
+          <h1>I build where systems meet people, trust, and the real world.</h1>
           <p class="subhead">
             I am an M.S. Computer Science student at Florida International University working across AI security,
-            human-computer interaction, robotics, perception, sensing, and systems integration. My work tends to sit
-            in places where software is not enough by itself: trust matters, interfaces shape decisions, and the physical
-            world pushes back.
+            human-computer interaction, robotics, perception, sensing, and systems integration. My work usually lives
+            in places where software alone is not enough: interfaces change behavior, trust affects decisions, and the
+            physical world forces honesty into the engineering.
           </p>
           <div class="hero-note">
-            This site is deliberately factual. I do not present exploratory work as shipped products, and I do not add details
-            I cannot stand behind. Some projects here are published, some were built in labs or courses, and some are ongoing
-            technical explorations with meaningful engineering lessons.
+            This portfolio is intentionally factual. I do not present exploratory work as finished products, and I do not
+            inflate results. Some projects here are published, some were built through courses or labs, and some are ongoing
+            technical explorations with real engineering lessons behind them.
           </div>
           <div class="hero-actions">
-            <a class="btn primary" href="#projects">View selected work</a>
+            <a class="btn primary" href="#projects">Explore selected work</a>
             <a class="btn" href="#contact">Get in touch</a>
           </div>
           <div class="hero-meta">
@@ -678,28 +854,28 @@
 
         <aside class="hero-side">
           <div class="stats-grid">
-            <article class="stats-card">
+            <article class="stat-card tilt">
               <strong>1</strong>
               <p>Peer-reviewed research paper connecting AI security and interaction-level trust risks.</p>
             </article>
-            <article class="stats-card">
+            <article class="stat-card tilt">
               <strong>70+</strong>
               <p>Live events supported through production and building operations at FIU’s Wolfe University Center.</p>
             </article>
-            <article class="stats-card">
+            <article class="stat-card tilt">
               <strong>7</strong>
-              <p>New team members led or supported in operations-heavy work environments.</p>
+              <p>New team members led or supported in operational environments.</p>
             </article>
-            <article class="stats-card">
+            <article class="stat-card tilt">
               <strong>10+</strong>
               <p>Major project tracks across robotics, HCI, sensing, research, and technical systems work.</p>
             </article>
           </div>
-          <article class="quote-card">
+          <article class="quote-card tilt">
             <h3>How I work</h3>
             <p>
-              I am most useful on hard-edged work: ambiguous systems, unstable integrations, technical writeups that need precision,
-              or products where the human layer is part of the failure surface. I care about clarity, reliability, and real constraints.
+              I am most useful on work that resists simplification: unstable integrations, ambiguous technical systems,
+              research framing that needs precision, and products where the human layer is part of the risk surface.
             </p>
           </article>
         </aside>
@@ -711,29 +887,28 @@
         <div>
           <h2>What anchors my work</h2>
           <p>
-            The thread across my projects is not a single job title. It is the kind of problem I keep moving toward: systems where behavior,
-            trust, sensing, and implementation all interact.
+            The common thread is not one narrow title. It is the kind of problem I keep moving toward:
+            systems where behavior, trust, implementation, and real constraints all interact.
           </p>
         </div>
       </div>
       <div class="about-grid">
-        <article class="card">
+        <article class="card tilt">
           <h3>AI security and trust</h3>
           <p>
-            I work on questions around unsafe reliance, trust signaling, and how human interaction with AI systems can quietly create security risk.
+            I work on questions around unsafe reliance, trust signaling, and how interaction with AI systems can quietly become a security issue.
           </p>
         </article>
-        <article class="card">
+        <article class="card tilt">
           <h3>Robotics and perception</h3>
           <p>
-            I have repeatedly worked on flight systems, sensing stacks, and camera-based workflows where hardware and software only matter if they
-            hold up under actual conditions.
+            I have repeatedly worked on flight systems, sensor-driven workflows, and computer-vision pipelines where the hardware/software boundary matters.
           </p>
         </article>
-        <article class="card">
+        <article class="card tilt">
           <h3>Human-centered systems</h3>
           <p>
-            I care about interfaces, workflows, and operational environments because poor design in those layers often becomes the real point of failure.
+            I care about interfaces and workflows because poor human-system design often becomes the real point of failure long before the algorithm does.
           </p>
         </article>
       </div>
@@ -744,8 +919,8 @@
         <div>
           <h2>Selected work</h2>
           <p>
-            Each project below is presented as a public-facing case summary: what the project was, what made it difficult, how I approached the friction,
-            and the tools involved. No invented outcomes. No inflated claims.
+            These projects are presented as public-facing case studies. Click any card for a deeper view:
+            what it was, what made it hard, how I handled the friction, and the tools involved.
           </p>
         </div>
       </div>
@@ -758,43 +933,43 @@
         <div>
           <h2>Timeline of focus</h2>
           <p>
-            My work has moved across research, HCI, robotics, sensing, and operations. The timeline shows where the center of gravity was strongest.
+            My work has shifted across research, HCI, robotics, perception, and operations. This gives the viewer a cleaner sense of progression.
           </p>
         </div>
       </div>
       <div class="timeline-grid">
-        <article class="timeline-card">
+        <article class="timeline-card tilt">
           <h3>2024</h3>
           <p>
-            Heavy build period across HCI coursework, drone and flight-stack experimentation, early systems thinking, and hands-on hardware/software integration.
+            Heavy build period across HCI coursework, drone systems, early flight-stack experimentation, and hands-on hardware/software integration.
           </p>
         </article>
-        <article class="timeline-card">
+        <article class="timeline-card tilt">
           <h3>2025</h3>
           <p>
-            Stronger emphasis on autonomy, perception workflows, micro-drone experimentation, usability studies, and applied project support spanning AI/ML and visualization.
+            Stronger emphasis on autonomy, micro-drone experimentation, perception workflows, usability studies, and applied project support involving AI/ML and visualization.
           </p>
         </article>
-        <article class="timeline-card">
+        <article class="timeline-card tilt">
           <h3>2026</h3>
           <p>
-            Increased focus on AI security research, technical framing, public-facing portfolio quality, and positioning a coherent body of work across research and engineering roles.
+            Increased focus on AI security research, technical framing, and presenting a coherent identity across research, engineering, and systems-facing roles.
           </p>
         </article>
       </div>
     </section>
 
-    <section class="section reveal" id="additional">
+    <section class="section reveal" id="more">
       <div class="section-header">
         <div>
           <h2>Additional work and adjacent tracks</h2>
           <p>
-            These are real projects or workstreams I have referenced before, but I am intentionally describing them at a higher level because I do not want to overstate details publicly.
+            These are real projects or workstreams I have touched, but I am intentionally describing them at a higher level so the public version stays accurate.
           </p>
         </div>
       </div>
-      <div class="additional-grid" id="additionalGrid"></div>
-      <p class="note">That separation is intentional. A finished public portfolio should still remain honest.</p>
+      <div class="more-grid" id="moreGrid"></div>
+      <p class="note">That separation is intentional. A strong public portfolio should still remain honest.</p>
     </section>
 
     <section class="section reveal" id="contact">
@@ -802,23 +977,24 @@
         <div>
           <h2>Contact</h2>
           <p>
-            I am interested in research engineering, AI security, human-centered systems, robotics, sensing, technical operations, and roles where implementation quality actually matters.
+            I am interested in research engineering, AI security, human-centered systems, robotics, sensing,
+            technical operations, and implementation-heavy roles where engineering quality actually matters.
           </p>
         </div>
       </div>
       <div class="contact-grid">
-        <article class="contact-card">
+        <article class="contact-card tilt">
           <h3>Reach me</h3>
-          <div class="link-list">
+          <div class="contact-links">
             <a href="mailto:pratyushr.jena@gmail.com">pratyushr.jena@gmail.com</a>
             <a href="https://www.linkedin.com/in/pratyushranjanjena" target="_blank" rel="noreferrer">linkedin.com/in/pratyushranjanjena</a>
             <a href="https://github.com/Mesmerize29" target="_blank" rel="noreferrer">github.com/Mesmerize29</a>
             <a href="https://pratyushrjena.com" target="_blank" rel="noreferrer">pratyushrjena.com</a>
           </div>
         </article>
-        <article class="contact-card">
+        <article class="contact-card tilt">
           <h3>Core tools and domains</h3>
-          <div class="chip-row">
+          <div class="tool-row">
             <span class="chip">Python</span>
             <span class="chip">AI Security</span>
             <span class="chip">HCI</span>
@@ -826,22 +1002,52 @@
             <span class="chip">ArduPilot</span>
             <span class="chip">Navio2</span>
             <span class="chip">Mission Planner</span>
-            <span class="chip">Crazyflie</span>
             <span class="chip">Intel RealSense</span>
+            <span class="chip">Crazyflie</span>
             <span class="chip">LiDAR</span>
             <span class="chip">Usability Testing</span>
             <span class="chip">Research Writing</span>
           </div>
+        </article>
+        <article class="contact-card tilt">
+          <h3>Deployment note</h3>
+          <p>
+            This is a single-file deployable version. You can host it directly as <strong>index.html</strong> now,
+            then later split it into <strong>index.html</strong>, <strong>styles.css</strong>, <strong>script.js</strong>,
+            and an <strong>assets/</strong> folder if you want a cleaner production structure.
+          </p>
         </article>
       </div>
     </section>
 
     <footer class="footer reveal">
       <div class="footer-line">
-        Built as a finished public-facing portfolio with factual boundaries kept intact.
+        Built as a public-facing, immersive portfolio with factual boundaries kept intact.
       </div>
     </footer>
   </main>
+
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Close project details">✕</button>
+      <div class="modal-header">
+        <div class="badge-row" id="modalBadges"></div>
+        <h3 id="modalTitle"></h3>
+      </div>
+      <p class="modal-copy" id="modalSummary"></p>
+      <div class="modal-grid">
+        <div class="modal-block">
+          <strong>Issue faced</strong>
+          <p id="modalIssue"></p>
+        </div>
+        <div class="modal-block">
+          <strong>How I handled it</strong>
+          <p id="modalResponse"></p>
+        </div>
+      </div>
+      <div class="tool-list" id="modalTools"></div>
+    </div>
+  </div>
 
   <script>
     const filters = ["All", "Research", "Robotics", "HCI", "Systems", "Operations"];
@@ -853,8 +1059,8 @@
         category: "Research",
         status: "IEEE CCWC 2026",
         summary: "A research project that became my IEEE CCWC 2026 paper, focused on how trust signals and interaction patterns in LLM-powered systems can push users toward unsafe reliance and security-relevant failure.",
-        issues: "The central challenge was turning a broad concern—people trusting AI too much—into a structured, defensible technical contribution that belonged in both security and HCI rather than sitting as a loose opinion.",
-        response: "I worked through that by repeatedly refining the framing, grounding the argument in literature, and treating the problem as an interaction-level systems issue with clear analytical boundaries rather than as a vague claim about AI behavior.",
+        issue: "The core difficulty was turning a broad concern—people trusting AI too much—into a defensible technical contribution that belonged in both security and HCI rather than staying a vague opinion.",
+        response: "I worked through that by refining the framing repeatedly, grounding the argument in literature, and treating the problem as an interaction-level systems issue with clear analytical boundaries.",
         tools: ["Literature review", "Threat framing", "Technical writing", "AI security", "HCI analysis"]
       },
       {
@@ -863,8 +1069,8 @@
         category: "Systems",
         status: "AI course project",
         summary: "A structured AI design project focused on building a campus navigation and parking assistance agent with clear definitions of environment, sensing, action, and performance criteria.",
-        issues: "The difficulty was not just proposing a helpful assistant, but defining it correctly as an intelligent agent rather than describing a generic app with AI language around it.",
-        response: "I addressed that by building the system through a PEAS framework, mapping the agent function explicitly, and justifying the agent type in a way that made the design logically consistent instead of superficial.",
+        issue: "The challenge was not just proposing a helpful assistant, but defining it correctly as an intelligent agent rather than describing a generic application with AI language around it.",
+        response: "I addressed that by building the system through a PEAS framework, mapping the agent function explicitly, and justifying the agent type so the design stayed logically sound.",
         tools: ["PEAS framework", "Agent design", "Diagrams", "AI methods", "Structured documentation"]
       },
       {
@@ -873,8 +1079,8 @@
         category: "HCI",
         status: "Advanced HCI",
         summary: "A redesign and evaluation effort centered on a paper prototype for a Shopify admin workflow, including analytics and multi-store fulfillment scenarios tested with former Shopify users.",
-        issues: "The challenge was that participants already had real prior platform experience, so weak navigation decisions, terminology mismatches, and broken workflow assumptions surfaced quickly during testing.",
-        response: "We handled that by running structured interviews, capturing friction points carefully, and revising the prototype based on observed evidence rather than defending design decisions emotionally or abstractly.",
+        issue: "Participants already had real prior platform experience, so weak navigation decisions, terminology mismatches, and broken workflow assumptions surfaced quickly during testing.",
+        response: "We handled that by running structured interviews, capturing friction points carefully, and revising the prototype based on observed evidence rather than defending design decisions emotionally.",
         tools: ["Paper prototyping", "Usability testing", "Interviews", "Scenario design", "Documentation"]
       },
       {
@@ -883,8 +1089,8 @@
         category: "Robotics",
         status: "Lab build",
         summary: "A semi-autonomous hexacopter effort integrating flight control, Raspberry Pi-based compute, Navio2, ArduPilot, GPS, telemetry, and LiDAR for obstacle-aware operation.",
-        issues: "The main problem was integration. Sensor placement, controller setup, calibration, communication, and software behavior all interact, and one weak subsystem can destabilize the entire platform.",
-        response: "I approached it incrementally: bring up the hardware, isolate calibration and communication issues, then move into configuration and autonomy logic in stages rather than treating the platform as one all-at-once build.",
+        issue: "The main problem was integration. Sensor placement, controller setup, calibration, communication, and software behavior all interact, and one weak subsystem can destabilize the whole platform.",
+        response: "I approached it incrementally: bring up the hardware, isolate calibration and communication issues, then move into configuration and autonomy logic in stages rather than treating it like one all-at-once build.",
         tools: ["Raspberry Pi", "Navio2", "ArduPilot", "Mission Planner", "Garmin LiDAR Lite v3", "TF Mini", "GPS", "Telemetry", "Python"]
       },
       {
@@ -893,7 +1099,7 @@
         category: "Robotics",
         status: "Lab project",
         summary: "An earlier drone systems project focused on constructing and stabilizing a quadcopter from scratch using Arduino-centered control ideas and LiDAR-aware experimentation.",
-        issues: "The difficulty was translating theory into a stable physical system where weight balance, controller tuning, sensor placement, and electrical reliability immediately determine whether anything works.",
+        issue: "The difficulty was translating theory into a stable physical system where weight balance, controller tuning, sensor placement, and electrical reliability immediately determine whether anything works.",
         response: "I dealt with that by isolating subsystems, testing incrementally, and learning from each instability instead of hiding it under a rushed integration path.",
         tools: ["Arduino", "LiDAR", "Hardware integration", "Calibration", "Iterative testing"]
       },
@@ -903,7 +1109,7 @@
         category: "Systems",
         status: "Vision workflow",
         summary: "A vision-oriented workflow using an Intel RealSense camera to detect vial cap colors, virtually label holder positions, and prepare data for later robotic sorting and realignment.",
-        issues: "The system had to treat black caps, uncapped vials, and empty spots carefully while staying useful after physical shifts in the holders, since the workspace was not assumed to remain perfectly fixed.",
+        issue: "The system had to treat black caps, uncapped vials, and empty spots carefully while staying useful after physical shifts in the holders, since the workspace was not assumed to remain fixed.",
         response: "I handled that by defining explicit class rules, structuring the holder layout virtually, and designing around repeatable image capture and label mapping rather than fragile one-pass detection.",
         tools: ["Python", "Intel RealSense", "Image collection", "Segmentation logic", "Structured label mapping"]
       },
@@ -913,7 +1119,7 @@
         category: "Robotics",
         status: "Prototype behaviors",
         summary: "Micro-drone behavior development using a Crazyflie 2.1 with Flow Deck v2 and Multi-ranger Deck for hover control, obstacle-aware motion, and search-oriented behaviors such as spiral scanning.",
-        issues: "Tiny drones expose every weakness immediately: unstable connection states, firmware trouble, sensing limits, and very little room for sloppy control assumptions.",
+        issue: "Tiny drones expose every weakness immediately: unstable connection states, firmware trouble, sensing limits, and very little room for sloppy control assumptions.",
         response: "I worked through this by relying on the official Crazyflie Python stack, using high-level commander workflows, and designing behavior in sensor-guided increments rather than forcing complexity too early.",
         tools: ["Crazyflie 2.1", "Flow Deck v2", "Multi-ranger Deck", "Crazyflie Python library", "High-level commander"]
       },
@@ -923,7 +1129,7 @@
         category: "Research",
         status: "Exploratory lab work",
         summary: "An exploratory RF sensing direction around RF fingerprinting, USRP B210, LoRa concepts, and how meaningful data-collection workflows could be structured before deeper implementation.",
-        issues: "The real challenge was not building something fast for appearance, but understanding what sensing setup, signal path, and capture process would actually be useful enough to justify deeper work.",
+        issue: "The real challenge was not building something fast for appearance, but understanding what sensing setup, signal path, and capture process would actually be useful enough to justify deeper work.",
         response: "I handled that by studying the hardware, discussing concepts with lab members, and mapping feasible collection directions before claiming more maturity than the setup actually had.",
         tools: ["USRP B210", "LoRa HAT concepts", "RF sensing literature", "Research planning"]
       },
@@ -933,7 +1139,7 @@
         category: "Systems",
         status: "Applied support project",
         summary: "A project involving AI/ML-based temperature prediction and visualization for water-pipe systems using CSV data, sensor inputs, and Revit/BIM-related integration needs.",
-        issues: "This was not purely a model problem and not purely a visualization problem. The data structure, prediction logic, and representation layer all needed to remain aligned.",
+        issue: "This was not purely a model problem and not purely a visualization problem. The data structure, prediction logic, and representation layer all needed to remain aligned.",
         response: "I approached it as a pipeline problem, keeping the data layer and downstream visualization needs connected rather than over-optimizing any single component in isolation.",
         tools: ["CSV data", "AI/ML workflow planning", "Sensor inputs", "Revit/BIM integration"]
       },
@@ -943,13 +1149,13 @@
         category: "Operations",
         status: "Live operations",
         summary: "Operational work inside FIU’s Wolfe University Center involving production, building support, event execution, and coordination across fast-moving on-site environments.",
-        issues: "Live environments punish weak communication, poor handoffs, and missed setup details immediately. The work is less about theory and more about reliability under pressure.",
+        issue: "Live environments punish weak communication, poor handoffs, and missed setup details immediately. The work is less about theory and more about reliability under pressure.",
         response: "I handled that by staying structured under time pressure, communicating clearly on the floor, and treating operations like systems work where consistency matters more than noise.",
         tools: ["Event setup workflows", "Cross-team coordination", "Checklists", "Technical support", "On-site operations"]
       }
     ];
 
-    const additionalWork = [
+    const moreWork = [
       {
         title: "Customer Segmentation",
         blurb: "I have referenced work on customer segmentation. I am keeping the public description intentionally light because I do not want to invent the dataset, methods, or outcomes beyond what I can verify with confidence."
@@ -968,7 +1174,7 @@
       },
       {
         title: "Research Direction on Contribution Provenance and Trust",
-        blurb: "I have also explored research framing around trust laundering, contribution provenance, and AI-origin clarity in engineering workflows. I keep that description high-level here because the public-facing version should stay precise and measured."
+        blurb: "I have also explored research framing around trust laundering, contribution provenance, and AI-origin clarity in engineering workflows. I keep that description high-level here because the public-facing version should stay measured."
       },
       {
         title: "Operations-Heavy Systems Thinking",
@@ -976,84 +1182,197 @@
       }
     ];
 
-    const filtersRoot = document.getElementById('filters');
-    const projectsRoot = document.getElementById('projectsGrid');
-    const additionalRoot = document.getElementById('additionalGrid');
-    let activeFilter = 'All';
+    const filtersRoot = document.getElementById("filters");
+    const projectsRoot = document.getElementById("projectsGrid");
+    const moreRoot = document.getElementById("moreGrid");
+    const modal = document.getElementById("projectModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSummary = document.getElementById("modalSummary");
+    const modalIssue = document.getElementById("modalIssue");
+    const modalResponse = document.getElementById("modalResponse");
+    const modalTools = document.getElementById("modalTools");
+    const modalBadges = document.getElementById("modalBadges");
+    const modalClose = document.getElementById("modalClose");
+
+    let activeFilter = "All";
 
     function renderFilters() {
       filtersRoot.innerHTML = filters.map(filter => `
-        <button class="filter-btn ${filter === activeFilter ? 'active' : ''}" data-filter="${filter}">
+        <button class="filter-btn ${filter === activeFilter ? "active" : ""}" data-filter="${filter}">
           ${filter}
         </button>
-      `).join('');
+      `).join("");
 
-      filtersRoot.querySelectorAll('button').forEach(button => {
-        button.addEventListener('click', () => {
-          activeFilter = button.dataset.filter;
+      filtersRoot.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeFilter = btn.dataset.filter;
           renderFilters();
           renderProjects();
+          applyTilt();
         });
       });
     }
 
     function renderProjects() {
-      const visible = activeFilter === 'All'
+      const visible = activeFilter === "All"
         ? projects
         : projects.filter(project => project.category === activeFilter);
 
-      projectsRoot.innerHTML = visible.map(project => `
-        <article class="project-card reveal visible">
+      projectsRoot.innerHTML = visible.map((project, index) => `
+        <article class="project-card reveal tilt" data-index="${projects.indexOf(project)}">
           <div class="project-top">
             <div>
               <h3>${project.title}</h3>
-              <div class="badge-row" style="margin-top: 10px;">
-                <span class="badge year">${project.year}</span>
-                <span class="badge">${project.category}</span>
-                <span class="badge">${project.status}</span>
+              <div class="badge-row" style="margin-top:10px;">
+                <span class="meta-badge year">${project.year}</span>
+                <span class="meta-badge">${project.category}</span>
+                <span class="meta-badge">${project.status}</span>
               </div>
             </div>
           </div>
-
-          <p class="project-copy">${project.summary}</p>
-
-          <div class="project-block">
-            <strong>Issue faced</strong>
-            <p>${project.issues}</p>
+          <p class="project-summary">${project.summary}</p>
+          <div class="tool-row">
+            ${project.tools.slice(0, 4).map(tool => `<span class="chip">${tool}</span>`).join("")}
           </div>
-
-          <div class="project-block">
-            <strong>How I handled it</strong>
-            <p>${project.response}</p>
-          </div>
-
-          <div class="chip-row">
-            ${project.tools.map(tool => `<span class="chip">${tool}</span>`).join('')}
-          </div>
+          <div class="project-hint">Click for full project view →</div>
         </article>
-      `).join('');
+      `).join("");
+
+      projectsRoot.querySelectorAll(".project-card").forEach(card => {
+        card.addEventListener("click", () => {
+          const idx = Number(card.dataset.index);
+          openModal(projects[idx]);
+        });
+      });
+
+      observeReveals();
     }
 
-    function renderAdditional() {
-      additionalRoot.innerHTML = additionalWork.map(item => `
-        <article class="additional-card reveal visible">
+    function renderMore() {
+      moreRoot.innerHTML = moreWork.map(item => `
+        <article class="more-card reveal tilt">
           <h3>${item.title}</h3>
           <p>${item.blurb}</p>
         </article>
-      `).join('');
+      `).join("");
+      observeReveals();
     }
+
+    function openModal(project) {
+      modalTitle.textContent = project.title;
+      modalSummary.textContent = project.summary;
+      modalIssue.textContent = project.issue;
+      modalResponse.textContent = project.response;
+      modalBadges.innerHTML = `
+        <span class="meta-badge year">${project.year}</span>
+        <span class="meta-badge">${project.category}</span>
+        <span class="meta-badge">${project.status}</span>
+      `;
+      modalTools.innerHTML = project.tools.map(tool => `<span class="chip">${tool}</span>`).join("");
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
 
     renderFilters();
     renderProjects();
-    renderAdditional();
+    renderMore();
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, { threshold: 0.14 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    function observeReveals() {
+      document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+    }
+    observeReveals();
+
+    function applyTilt() {
+      document.querySelectorAll(".tilt").forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+          if (window.innerWidth < 768) return;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4;
+          const rotateY = ((x - centerX) / centerX) * 4;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+        });
+      });
+    }
+    applyTilt();
+
+    const progressBar = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+    });
+
+    const navLinks = [...document.querySelectorAll("#siteNav a")];
+    const sections = navLinks.map(link => {
+      const id = link.getAttribute("href");
+      return document.querySelector(id);
+    }).filter(Boolean);
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove("active"));
+          const active = navLinks.find(link => link.getAttribute("href") === `#${entry.target.id}`);
+          if (active) active.classList.add("active");
+        }
+      });
+    }, { threshold: 0.45 });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    const cursorDot = document.getElementById("cursorDot");
+    const cursorRing = document.getElementById("cursorRing");
+
+    window.addEventListener("mousemove", (e) => {
+      document.documentElement.style.setProperty("--spot-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--spot-y", `${e.clientY}px`);
+
+      cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+      cursorRing.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+    });
+
+    document.querySelectorAll("a, button, .project-card").forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursorRing.style.width = "50px";
+        cursorRing.style.height = "50px";
+        cursorRing.style.borderColor = "rgba(127, 215, 255, 0.7)";
+      });
+      el.addEventListener("mouseleave", () => {
+        cursorRing.style.width = "34px";
+        cursorRing.style.height = "34px";
+        cursorRing.style.borderColor = "rgba(127, 215, 255, 0.45)";
+      });
+    });
   </script>
 </body>
 </html>
